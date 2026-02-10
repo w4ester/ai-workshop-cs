@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Aligned Lesson Builder for Maryland CS Educators — PRD</title>
+  <meta name="description" content="Product Requirements Document for an AI agent that helps Maryland CS educators create lessons aligned to CSTA AI Priorities and MSDE Standards.">
+  <style>
+    :root {
+      --blue: #0066cc;
+      --blue-dark: #004499;
+      --blue-light: #e8f2ff;
+      --green: #00875a;
+      --green-light: #e6f7f0;
+      --orange: #e67700;
+      --orange-light: #fff4e5;
+      --red: #cc0000;
+      --red-light: #ffe5e5;
+      --purple: #6b21a8;
+      --purple-light: #f3e8ff;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+      --max-width: 960px;
+      --radius: 8px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--gray-900);
+      background: var(--gray-50);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #2563eb 100%);
+      color: white;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 0.25rem 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(4px);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 640px;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+    .hero-meta svg { width: 16px; height: 16px; opacity: 0.7; }
+
+    /* NAV */
+    .toc {
+      background: white;
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .toc-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .toc-inner::-webkit-scrollbar { display: none; }
+    .toc a {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray-500);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .toc a:hover { color: var(--blue); border-bottom-color: var(--blue); }
+
+    /* MAIN */
+    .main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-top: 3rem;
+    }
+    section > h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--blue);
+      display: inline-block;
+    }
+    section > h2 .num {
+      color: var(--blue);
+      font-weight: 400;
+      margin-right: 0.35rem;
+    }
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 1.75rem 0 0.5rem;
+      color: var(--gray-700);
+    }
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 1.25rem 0 0.35rem;
+      color: var(--gray-700);
+    }
+    p { margin: 0.5rem 0; }
+    strong { font-weight: 700; }
+
+    /* CALLOUTS */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    .callout-blue { background: var(--blue-light); border-left: 4px solid var(--blue); }
+    .callout-green { background: var(--green-light); border-left: 4px solid var(--green); }
+    .callout-orange { background: var(--orange-light); border-left: 4px solid var(--orange); }
+    .callout-red { background: var(--red-light); border-left: 4px solid var(--red); }
+    .callout-purple { background: var(--purple-light); border-left: 4px solid var(--purple); }
+    .callout .callout-title {
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+    }
+    .callout-blue .callout-title { color: var(--blue-dark); }
+    .callout-green .callout-title { color: var(--green); }
+    .callout-orange .callout-title { color: var(--orange); }
+    .callout-red .callout-title { color: var(--red); }
+    .callout-purple .callout-title { color: var(--purple); }
+
+    blockquote {
+      border-left: 3px solid var(--gray-300);
+      padding: 0.5rem 1.25rem;
+      margin: 1rem 0;
+      color: var(--gray-700);
+      font-style: italic;
+      background: var(--gray-100);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    /* TABLES */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    thead { background: var(--gray-100); }
+    th {
+      text-align: left;
+      padding: 0.65rem 1rem;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gray-500);
+      border-bottom: 2px solid var(--gray-200);
+    }
+    td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--gray-100);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--gray-50); }
+
+    .tag {
+      display: inline-block;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .tag-red { background: var(--red-light); color: var(--red); }
+    .tag-green { background: var(--green-light); color: var(--green); }
+    .tag-orange { background: var(--orange-light); color: var(--orange); }
+    .tag-blue { background: var(--blue-light); color: var(--blue); }
+    .tag-purple { background: var(--purple-light); color: var(--purple); }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: box-shadow 0.15s;
+    }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .card-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .card h4 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .card p { font-size: 0.88rem; color: var(--gray-700); margin: 0; }
+
+    /* FLOW DIAGRAM */
+    .flow {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre;
+      color: var(--gray-700);
+    }
+
+    /* TIMELINE */
+    .phase {
+      border-left: 3px solid var(--gray-200);
+      padding-left: 1.5rem;
+      margin: 1rem 0 1.5rem 0.75rem;
+      position: relative;
+    }
+    .phase::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 3px solid var(--blue);
+      background: white;
+    }
+    .phase.done::before { background: var(--green); border-color: var(--green); }
+    .phase-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .phase-time {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+    .phase ul {
+      margin: 0.5rem 0 0 1rem;
+      font-size: 0.9rem;
+    }
+    .phase li { margin: 0.2rem 0; }
+
+    /* USER STORY */
+    .story {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 0.75rem 0;
+    }
+    .story-id {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .story-persona {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin: 0.15rem 0 0.5rem;
+    }
+    .story blockquote {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* CODE */
+    pre {
+      background: var(--gray-900);
+      color: #e2e8f0;
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: var(--gray-100);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    pre code { background: none; padding: 0; font-size: 1em; }
+
+    /* GAP CHART */
+    .gap-bar {
+      display: flex;
+      align-items: center;
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+    }
+    .gap-bar-label {
+      width: 220px;
+      flex-shrink: 0;
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+    .gap-bar-track {
+      flex: 1;
+      height: 24px;
+      background: var(--gray-100);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .gap-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding-left: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    /* STAT BOXES */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .stat-num.blue { color: var(--blue); }
+    .stat-num.red { color: var(--red); }
+    .stat-num.green { color: var(--green); }
+    .stat-num.orange { color: var(--orange); }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 0.35rem;
+      font-weight: 500;
+    }
+
+    /* APP BUILDER / PLAYGROUND */
+    .playground-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--gray-200);
+      margin-bottom: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .playground-tabs::-webkit-scrollbar { display: none; }
+    .playground-tab {
+      padding: 0.65rem 1.15rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s;
+      font-family: var(--font-sans);
+    }
+    .playground-tab:hover { color: var(--blue); }
+    .playground-tab.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      background: var(--blue-light);
+    }
+    .playground-tab .tab-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 8px;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+      font-weight: 700;
+    }
+    .playground-panel {
+      display: none;
+      margin-top: 0;
+    }
+    .playground-panel.active { display: block; }
+    .playground-desc {
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--gray-700);
+    }
+    .playground-desc .standard-tags {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .editor-wrap {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: white;
+    }
+    .editor-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.75rem;
+      background: var(--gray-100);
+      border-bottom: 1px solid var(--gray-200);
+      gap: 0.5rem;
+    }
+    .editor-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--gray-500);
+      font-weight: 600;
+    }
+    .editor-toolbar-left .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .editor-toolbar-left .dot-red { background: #ff5f57; }
+    .editor-toolbar-left .dot-yellow { background: #febc2e; }
+    .editor-toolbar-left .dot-green { background: #28c840; }
+    .run-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: white;
+      background: var(--green);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-family: var(--font-sans);
+    }
+    .run-btn:hover { background: #006644; }
+    .run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .run-btn .spinner {
+      display: none;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    .run-btn.loading .spinner { display: inline-block; }
+    .run-btn.loading .play-icon { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .code-editor {
+      width: 100%;
+      min-height: 200px;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      border: none;
+      resize: vertical;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      outline: none;
+      tab-size: 4;
+    }
+    .code-editor::placeholder { color: #585b70; }
+    .code-output {
+      border-top: 1px solid var(--gray-200);
+      padding: 0.85rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      background: #11111b;
+      color: #a6e3a1;
+      min-height: 44px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+    .code-output.hidden { display: none; }
+    .code-output.error { color: #f38ba8; }
+    .code-output.loading { color: #89b4fa; }
+    .pyodide-status {
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      background: var(--gray-50);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      display: none;
+    }
+    .pyodide-status.visible { display: block; }
+    .pyodide-status .progress-bar {
+      height: 4px;
+      background: var(--gray-200);
+      border-radius: 2px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .pyodide-status .progress-fill {
+      height: 100%;
+      background: var(--blue);
+      border-radius: 2px;
+      transition: width 0.3s;
+      width: 0%;
+    }
+    .reset-btn {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      background: none;
+      border: 1px solid var(--gray-200);
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.15s;
+    }
+    .reset-btn:hover { color: var(--gray-700); border-color: var(--gray-300); }
+
+    /* FOOTER */
+    footer {
+      background: var(--gray-900);
+      color: var(--gray-300);
+      padding: 2.5rem 2rem;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+    footer a { color: #60a5fa; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .footer-col h4 {
+      color: white;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0 0 0.75rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin: 0.35rem 0; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .hero { padding: 2.5rem 1.25rem 2rem; }
+      .main { padding: 0 1.25rem 3rem; }
+      .hero-meta { flex-direction: column; gap: 0.5rem; }
+      .gap-bar-label { width: 140px; font-size: 0.75rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Product Requirements Document</div>
+    <h1>AI-Aligned Lesson Builder<br>for <em>Maryland CS Educators</em></h1>
+    <p class="hero-sub">
+      A platform-agnostic AI agent that helps teachers create standards-aligned lessons integrating the CSTA AI Learning Priorities &mdash; delivered in the format they choose, accessible wherever students are.
+    </p>
+    <div class="hero-meta">
+      <span>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Version 0.1 &middot; Feb 10, 2026
+      </span>
+      <span>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Status: Discovery
+      </span>
+      <span>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        MSDE + CSTA + AI4K12
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#problem">Problem</a>
+    <a href="#gap">Gap Analysis</a>
+    <a href="#vision">Vision</a>
+    <a href="#users">Users</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#workshop">Workshop</a>
+    <a href="#playground">Try It</a>
+    <a href="#crosswalk">Crosswalk</a>
+    <a href="#phases">Phases</a>
+    <a href="#risks">Risks</a>
+    <a href="#references">References</a>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ============================================ -->
+<!-- 1. PROBLEM -->
+<!-- ============================================ -->
+<section id="problem">
+  <h2><span class="num">01</span> Problem Statement</h2>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num red">1</div>
+      <div class="stat-label">AI mention in Maryland's 55-page<br>K-12 CS Standards (2018)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num blue">~60</div>
+      <div class="stat-label">AI learning outcomes in CSTA<br>AI Priorities report (2025)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num orange">42%</div>
+      <div class="stat-label">of CS teachers feel equipped<br>to teach AI</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num green">70%</div>
+      <div class="stat-label">of CS teachers are already<br>teaching AI anyway</div>
+    </div>
+  </div>
+
+  <p>Maryland's K-12 Computer Science Standards were adopted in <strong>2018</strong>, four years before ChatGPT. They contain a single mention of artificial intelligence &mdash; at the 12th-grade level:</p>
+
+  <blockquote>
+    <strong>12. AP.A.01</strong> &mdash; Describe how artificial intelligence drives many software and physical systems (e.g., autonomous robots, computer vision, pattern recognition, test analysis).
+  </blockquote>
+
+  <p>Meanwhile, the CSTA/AI4K12 <em>AI Learning Priorities for All K-12 Students</em> report (2025) defines five categories of AI content spanning K-2 through 9-12. Maryland legislation <strong>SB0980 (2024)</strong> mandates updated CS content standards that include AI, but educators are caught in the gap: they need to teach AI <em>now</em>, with standards that don't address it, using tools that don't bridge the disconnect.</p>
+
+  <p>Maryland has 24 school systems, ~17 preservice CS teacher programs, and existing resources (MCCE K-5 Toolkit, ECSNet lesson repository, SCRIPT planning framework) &mdash; but none systematically map to AI learning priorities.</p>
+
+  <div class="callout callout-blue">
+    <div class="callout-title">Core Need</div>
+    Teachers need a tool that meets them where they are, creates AI-aligned lessons within their existing workflows, and delivers content students can access in real time.
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 2. GAP ANALYSIS -->
+<!-- ============================================ -->
+<section id="gap">
+  <h2><span class="num">02</span> The AI Gap: MSDE 2018 vs. CSTA 2025</h2>
+
+  <p>The CSTA AI Priorities report defines five categories of foundational AI content. Here is how Maryland's current standards cover each:</p>
+
+  <div style="margin: 1.5rem 0;">
+    <div class="gap-bar">
+      <div class="gap-bar-label">A. Humans and AI</div>
+      <div class="gap-bar-track">
+        <div class="gap-bar-fill" style="width: 0%; background: var(--red);"></div>
+      </div>
+      <span class="tag tag-red" style="margin-left: 0.5rem;">Total Gap</span>
+    </div>
+    <div class="gap-bar">
+      <div class="gap-bar-label">B. Representation &amp; Reasoning</div>
+      <div class="gap-bar-track">
+        <div class="gap-bar-fill" style="width: 20%; background: var(--orange);">20%</div>
+      </div>
+      <span class="tag tag-orange" style="margin-left: 0.5rem;">Mostly Gap</span>
+    </div>
+    <div class="gap-bar">
+      <div class="gap-bar-label">C. Machine Learning</div>
+      <div class="gap-bar-track">
+        <div class="gap-bar-fill" style="width: 5%; background: var(--red);"></div>
+      </div>
+      <span class="tag tag-red" style="margin-left: 0.5rem;">Near-Total Gap</span>
+    </div>
+    <div class="gap-bar">
+      <div class="gap-bar-label">D. Ethical AI System Design</div>
+      <div class="gap-bar-track">
+        <div class="gap-bar-fill" style="width: 25%; background: var(--orange);">25%</div>
+      </div>
+      <span class="tag tag-orange" style="margin-left: 0.5rem;">Mostly Gap</span>
+    </div>
+    <div class="gap-bar">
+      <div class="gap-bar-label">E. Societal Impacts of AI</div>
+      <div class="gap-bar-track">
+        <div class="gap-bar-fill" style="width: 30%; background: var(--orange);">30%</div>
+      </div>
+      <span class="tag tag-orange" style="margin-left: 0.5rem;">Mostly Gap</span>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>CSTA AI Priority</th>
+          <th>MSDE 2018 Coverage</th>
+          <th>Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>A. Humans and AI</strong><br><span style="color:var(--gray-500);font-size:0.82rem;">Comparing human/AI, human role in AI creation, choosing when to use AI</span></td>
+          <td>Nothing</td>
+          <td><span class="tag tag-red">Total Gap</span></td>
+        </tr>
+        <tr>
+          <td><strong>B. Representation &amp; Reasoning</strong><br><span style="color:var(--gray-500);font-size:0.82rem;">How AI represents data, reasoning algorithms, model types</span></td>
+          <td>Data Analysis > Inference &amp; Models covers statistical models, not AI</td>
+          <td><span class="tag tag-orange">Mostly Gap</span></td>
+        </tr>
+        <tr>
+          <td><strong>C. Machine Learning</strong><br><span style="color:var(--gray-500);font-size:0.82rem;">Sensing, data/bias, how computers learn, building AI models</span></td>
+          <td>Data Analysis covers collection/visualization but not training data or ML pipelines</td>
+          <td><span class="tag tag-red">Near-Total</span></td>
+        </tr>
+        <tr>
+          <td><strong>D. Ethical AI System Design</strong><br><span style="color:var(--gray-500);font-size:0.82rem;">Fairness, bias in AI, model cards, accountability, ethical creation</span></td>
+          <td>IC.C.02 touches bias in computing generally (not AI-specific)</td>
+          <td><span class="tag tag-orange">Mostly Gap</span></td>
+        </tr>
+        <tr>
+          <td><strong>E. Societal Impacts of AI</strong><br><span style="color:var(--gray-500);font-size:0.82rem;">Individual, societal, environmental impacts of AI</span></td>
+          <td>"Impacts of Computing" covers general tech. 8.IC.C.01 mentions "automation" once</td>
+          <td><span class="tag tag-orange">Mostly Gap</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-orange">
+    <div class="callout-title">Key Insight</div>
+    Maryland's standards have scaffolding in "Impacts of Computing" and "Data Analysis" that can be <em>extended</em> to include AI &mdash; but the AI framing is completely absent. The agent bridges this by generating lessons that connect existing MSDE standards to CSTA AI Priorities.
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 3. VISION -->
+<!-- ============================================ -->
+<section id="vision">
+  <h2><span class="num">03</span> Vision</h2>
+
+  <p>A <strong>platform-agnostic AI agent</strong> that helps Maryland CS educators generate standards-aligned lesson content integrating the CSTA AI Priorities &mdash; delivered in the format teachers choose, accessible wherever students are, and built to fit into existing Maryland PD infrastructure.</p>
+
+  <div class="callout callout-purple">
+    <div class="callout-title">Core Principle: Educator Choice</div>
+    <em>"Agnostic within the reality of choice for educators."</em><br><br>
+    The tool does not prescribe a platform, format, or delivery mechanism. It generates structured lesson content and adapts output to teacher preference: Google Docs, PDF, slide decks, Markdown, HTML &mdash; whatever the teacher's ecosystem demands. The agent adapts to the teacher, not the reverse.
+  </div>
+
+  <h3>Goals</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Goal</th><th>Success Metric</th></tr></thead>
+      <tbody>
+        <tr><td>G1</td><td>Teachers create AI-aligned lessons in &lt; 15 min</td><td>Time-to-first-lesson in pilot workshops</td></tr>
+        <tr><td>G2</td><td>Every lesson maps to MSDE CS Standards AND CSTA AI Priorities</td><td>Dual alignment table in every output</td></tr>
+        <tr><td>G3</td><td>Platform-agnostic output</td><td>&ge; 4 output formats at launch</td></tr>
+        <tr><td>G4</td><td>Real-time student access via browser</td><td>URL access, no login, mobile-responsive</td></tr>
+        <tr><td>G5</td><td>Workshop-ready PD module</td><td>Facilitator guide + hands-on activities + follow-up</td></tr>
+        <tr><td>G6</td><td>Integrate with existing MD resources</td><td>Links to MCCE Toolkit, ECSNet, CS4MD annotations</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 4. USERS -->
+<!-- ============================================ -->
+<section id="users">
+  <h2><span class="num">04</span> Users &amp; Stories</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label" style="color:var(--blue);">Primary</div>
+      <h4>Maryland CS Educators</h4>
+      <p>K-5 classroom teachers (many new to CS), 6-8 CS/STEM teachers, 9-12 CS teachers, CTE Digital Technology pathway instructors.</p>
+    </div>
+    <div class="card">
+      <div class="card-label" style="color:var(--green);">Secondary</div>
+      <h4>PD Facilitators &amp; Coaches</h4>
+      <p>MCCE staff, CS4MD coordinators, district CS supervisors (24 systems), preservice methods instructors (Towson, UMBC, UMD, Morgan, etc.).</p>
+    </div>
+    <div class="card">
+      <div class="card-label" style="color:var(--purple);">Tertiary</div>
+      <h4>Students</h4>
+      <p>Access lesson content in real-time via browser on Chromebooks, phones, tablets. No account creation required.</p>
+    </div>
+  </div>
+
+  <h3>User Stories</h3>
+
+  <div class="story">
+    <div class="story-id">T1</div>
+    <div class="story-persona">The New-to-AI Elementary Teacher</div>
+    <blockquote>"I teach 3rd grade CS using Code.org. I need a lesson about how AI learns from data that my students can do in 30 minutes, connects to what they already know about patterns, and I can share as a Google Doc with my co-teacher."</blockquote>
+  </div>
+
+  <div class="story">
+    <div class="story-id">T2</div>
+    <div class="story-persona">The Experienced Middle School CS Teacher</div>
+    <blockquote>"I already teach data bias. I want to upgrade it to explicitly address AI bias using the CSTA framework, export as slides, and have students access an interactive version on Chromebooks."</blockquote>
+  </div>
+
+  <div class="story">
+    <div class="story-id">T3</div>
+    <div class="story-persona">The CTE Pathway Instructor</div>
+    <blockquote>"I'm building a Digital Technology pathway and need 5 lessons covering Ethical AI System Design, aligned to MSDE standards and industry credentials. I need PDFs for district course approval."</blockquote>
+  </div>
+
+  <div class="story">
+    <div class="story-id">T4</div>
+    <div class="story-persona">The Workshop Participant</div>
+    <blockquote>"I'm at a Saturday PD. I've never thought about AI in my CS class. Walk me through creating one lesson I can use Monday morning."</blockquote>
+  </div>
+
+  <div class="story">
+    <div class="story-id">S1</div>
+    <div class="story-persona">The Chromebook Student</div>
+    <blockquote>"My teacher shared a link. I tap it on my Chromebook, see today's lesson, follow the activities, and answer questions in my browser."</blockquote>
+  </div>
+
+  <div class="story">
+    <div class="story-id">F1</div>
+    <div class="story-persona">The Workshop Leader</div>
+    <blockquote>"I'm running 3-hour PD for 25 teachers. I need a facilitator guide: the AI gap, hands-on agent demo, teachers create their own lesson, peer review."</blockquote>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 5. ARCHITECTURE -->
+<!-- ============================================ -->
+<section id="architecture">
+  <h2><span class="num">05</span> Architecture</h2>
+
+  <h3>5.1 The Agent (Lesson Generator)</h3>
+  <p>The AI agent is the core engine. It takes teacher inputs and generates structured, standards-aligned lesson content.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label" style="color:var(--blue);">Inputs</div>
+      <h4>What Teachers Provide</h4>
+      <p>Grade band &middot; AI Priority category (or "suggest for me") &middot; Lesson duration &middot; Existing context &middot; Output format preference</p>
+    </div>
+    <div class="card">
+      <div class="card-label" style="color:var(--green);">Outputs</div>
+      <h4>What Teachers Get</h4>
+      <p>Title &amp; overview &middot; Learning objectives &middot; Dual standards alignment (MSDE + CSTA) &middot; Lesson sequence &middot; Activities &middot; Differentiation &middot; Assessment &middot; Teacher background notes &middot; MD resource links</p>
+    </div>
+  </div>
+
+  <h3>5.2 Knowledge Base</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Data Asset</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>MSDE K-12 CS Standards (2018)</td><td>55-page PDF, all grade bands</td><td><span class="tag tag-green">Available</span></td></tr>
+        <tr><td>CSTA AI Learning Priorities (2025)</td><td>48-page PDF, 5 categories</td><td><span class="tag tag-green">Available</span></td></tr>
+        <tr><td>MSDE-to-CSTA Crosswalk</td><td>To be generated</td><td><span class="tag tag-orange">Not Started</span></td></tr>
+        <tr><td>MD CTE Crosswalk</td><td>XLSX, 14 clusters, 815 rows</td><td><span class="tag tag-green">Available</span></td></tr>
+        <tr><td>MCCE K-5 Toolkit</td><td>cs4md.com</td><td><span class="tag tag-blue">Needs Indexing</span></td></tr>
+        <tr><td>ECSNet Lesson Repository</td><td>MiniExtensions/Airtable grid</td><td><span class="tag tag-blue">Needs Indexing</span></td></tr>
+        <tr><td>AI4K12 Five Big Ideas</td><td>ai4k12.org</td><td><span class="tag tag-blue">Needs Processing</span></td></tr>
+        <tr><td>Grade-appropriate AI Tools</td><td>Curated (Teachable Machine, MIT RAISE, etc.)</td><td><span class="tag tag-orange">Not Started</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.3 Output Formats (Teacher Choice)</h3>
+  <p>The agent generates structured content first, then renders to the teacher's chosen format:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Format</th><th>Use Case</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Google Doc</strong></td><td>Editing, co-teacher sharing, district submission</td></tr>
+        <tr><td><strong>Google Slides</strong></td><td>Classroom presentation</td></tr>
+        <tr><td><strong>PDF</strong></td><td>Printing, archiving, formal submission</td></tr>
+        <tr><td><strong>Markdown</strong></td><td>Version control, developer-friendly</td></tr>
+        <tr><td><strong>HTML (hosted)</strong></td><td>Real-time student access via shareable URL</td></tr>
+        <tr><td><strong>Interactive HTML</strong></td><td>Embedded activities, assessments, code blocks</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>5.4 Export Flow</h3>
+  <div class="flow">Agent generates structured content (JSON/Markdown)
+        │
+        ▼
+  Teacher selects format(s)
+        │
+        ├──▶ Google Doc ──▶ Google Drive / Team Drive
+        ├──▶ Google Slides ──▶ Google Drive / Team Drive
+        ├──▶ PDF ──▶ Download / Drive
+        ├──▶ Markdown ──▶ Download / Git
+        ├──▶ HTML ──▶ Hosted URL (share with students)
+        └──▶ Interactive HTML ──▶ Hosted URL + activities</div>
+
+  <h3>5.5 Student-Facing Delivery</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label" style="color:var(--blue);">Layer 1</div>
+      <h4>View</h4>
+      <p>Read-only lesson content. Always available. Mobile-responsive. Works offline after first load.</p>
+    </div>
+    <div class="card">
+      <div class="card-label" style="color:var(--green);">Layer 2</div>
+      <h4>Interact</h4>
+      <p>Embedded activities: drag-drop, multiple choice, code blocks, discussion prompts.</p>
+    </div>
+    <div class="card">
+      <div class="card-label" style="color:var(--purple);">Layer 3</div>
+      <h4>Collaborate</h4>
+      <p>Real-time annotation. Student responses visible to teacher. Co-editing. (Future phase)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 6. WORKSHOP -->
+<!-- ============================================ -->
+<section id="workshop">
+  <h2><span class="num">06</span> Workshop Module</h2>
+
+  <p>The product is not just a tool &mdash; it's a <strong>professional development experience</strong>. The workshop module is the delivery vehicle.</p>
+
+  <h3>"Teaching AI When Your Standards Don't"</h3>
+  <p style="color:var(--gray-500);">3 hours &middot; Adaptable to half-day or full-day</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:60px;">Time</th><th>Module</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>30m</td>
+          <td><strong>1. The Landscape</strong></td>
+          <td>MD's 2018 standards, the CSTA AI Priorities, the gap, SB0980. Teachers identify which AI priority aligns closest to what they already teach.</td>
+        </tr>
+        <tr>
+          <td>30m</td>
+          <td><strong>2. Meet the Agent</strong></td>
+          <td>Live demo: generate a lesson in real time. Anatomy of a lesson (standards mapping, teacher notes, activities). Format options and Drive workflow.</td>
+        </tr>
+        <tr>
+          <td>60m</td>
+          <td><strong>3. Build Your Own</strong></td>
+          <td>Teachers create their first AI-aligned lesson. Choose grade band, AI category, duration, format. Iterate, refine, export.</td>
+        </tr>
+        <tr>
+          <td>30m</td>
+          <td><strong>4. Teach It Forward</strong></td>
+          <td>Pair-share presentations. Peer feedback. Planning: when will you teach this?</td>
+        </tr>
+        <tr>
+          <td>15m</td>
+          <td><strong>5. Resources &amp; Next Steps</strong></td>
+          <td>MCCE Toolkit, ECSNet, CS4MD. Ongoing agent access. Community of practice.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What Teachers Leave With</h3>
+  <ul style="margin:0.5rem 0 0 1.25rem;">
+    <li>At least one completed, dual-aligned AI lesson in their chosen format</li>
+    <li>Saved to Google Drive / Team Drive</li>
+    <li>Student-accessible URL for their lesson</li>
+    <li>MSDE-to-CSTA AI Priorities crosswalk reference card</li>
+    <li>List of grade-appropriate AI tools and activities</li>
+    <li>Connection to MCCE/ECSNet for additional resources</li>
+  </ul>
+
+  <h3>Existing MD Resource Integration</h3>
+  <p>The agent and workshop connect to the ecosystem teachers already know:</p>
+  <div class="card-grid">
+    <div class="card">
+      <h4>ECSNet Lesson Repository</h4>
+      <p>Airtable-backed lesson database with MSDE standard codes, ratings, Google Doc links, tool tags (Unplugged, Code.org, Scratch). Agent outputs match this schema.</p>
+    </div>
+    <div class="card">
+      <h4>MCCE K-5 Toolkit</h4>
+      <p>Standards annotations, skills progressions, curricular reviews, SCRIPT planning framework. Agent references these as teacher background.</p>
+    </div>
+    <div class="card">
+      <h4>CS4MD Preservice</h4>
+      <p>17 institutions producing CS teachers. Workshop module designed to fit into preservice methods courses and in-service PD days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- INTERACTIVE PLAYGROUND -->
+<!-- ============================================ -->
+<section id="playground">
+  <h2><span class="num">07</span> Try It: Interactive Playground</h2>
+
+  <p>This is what AI-aligned lessons look like <em>in practice</em>. Each example below maps to a CSTA AI Priority category. Educators and students can edit and run Python code directly in the browser &mdash; no install, no login, no setup.</p>
+
+  <div class="callout callout-green">
+    <div class="callout-title">How It Works</div>
+    Python runs entirely in your browser via <strong>Pyodide</strong> (WebAssembly). Click <strong>Run</strong> to execute. Edit the code freely &mdash; you can't break anything. Hit <strong>Reset</strong> to restore the original.
+  </div>
+
+  <div id="pyodide-status" class="pyodide-status">
+    Loading Python engine&hellip;
+    <div class="progress-bar"><div id="pyodide-progress" class="progress-fill"></div></div>
+  </div>
+
+  <div class="playground-tabs" role="tablist">
+    <button class="playground-tab active" role="tab" aria-selected="true" data-tab="humans-ai" onclick="switchTab(this)">
+      A. Humans &amp; AI
+      <span class="tab-badge" style="background:var(--red-light);color:var(--red);">K-5</span>
+    </button>
+    <button class="playground-tab" role="tab" aria-selected="false" data-tab="representation" onclick="switchTab(this)">
+      B. Representation
+      <span class="tab-badge" style="background:var(--orange-light);color:var(--orange);">6-8</span>
+    </button>
+    <button class="playground-tab" role="tab" aria-selected="false" data-tab="ml" onclick="switchTab(this)">
+      C. Machine Learning
+      <span class="tab-badge" style="background:var(--blue-light);color:var(--blue);">6-8</span>
+    </button>
+    <button class="playground-tab" role="tab" aria-selected="false" data-tab="ethics" onclick="switchTab(this)">
+      D. Ethical AI
+      <span class="tab-badge" style="background:var(--purple-light);color:var(--purple);">9-12</span>
+    </button>
+    <button class="playground-tab" role="tab" aria-selected="false" data-tab="societal" onclick="switchTab(this)">
+      E. Societal Impact
+      <span class="tab-badge" style="background:var(--green-light);color:var(--green);">9-12</span>
+    </button>
+  </div>
+
+  <!-- TAB A: Humans & AI -->
+  <div class="playground-panel active" id="panel-humans-ai">
+    <div class="playground-desc">
+      <strong>Can a Computer Think Like You?</strong> &mdash; Students compare how humans and AI make decisions. This unplugged-to-plugged activity starts with a guessing game: is the decision made by a human or an AI?
+      <div class="standard-tags">
+        <span class="tag tag-red">CSTA: A. Humans and AI</span>
+        <span class="tag tag-blue">MSDE: Gap &mdash; no current standard</span>
+        <span class="tag tag-green">Grade: 3-5</span>
+      </div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <div class="editor-toolbar-left">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span>humans_and_ai.py</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="reset-btn" onclick="resetCode('humans-ai')">Reset</button>
+          <button class="run-btn" onclick="runCode('humans-ai')">
+            <span class="play-icon">&#9654;</span>
+            <span class="spinner"></span>
+            Run
+          </button>
+        </div>
+      </div>
+      <textarea class="code-editor" id="editor-humans-ai" spellcheck="false">
+# === Can a Computer Think Like You? ===
+# CSTA AI Priority A: Humans and AI
+# Grade Band: 3-5
+
+# Humans and AI both make decisions — but DIFFERENTLY!
+# Let's compare...
+
+decisions = [
+    {"task": "Pick your favorite ice cream flavor", "who": "Human",
+     "reason": "AI doesn't have taste buds or preferences!"},
+    {"task": "Sort 1,000 photos by color", "who": "AI",
+     "reason": "AI can compare pixels super fast. Humans get tired!"},
+    {"task": "Tell if your friend is sad", "who": "Human",
+     "reason": "Humans understand emotions from experience."},
+    {"task": "Check if an email is spam", "who": "AI",
+     "reason": "AI can scan patterns in millions of emails instantly."},
+    {"task": "Write a poem about your dog", "who": "Human",
+     "reason": "Only YOU know what makes YOUR dog special!"},
+]
+
+print("=== HUMAN vs AI: Who Does It Better? ===\n")
+
+human_count = 0
+ai_count = 0
+
+for d in decisions:
+    print(f"Task: {d['task']}")
+    print(f"  Better at it: {d['who']}")
+    print(f"  Why: {d['reason']}")
+    print()
+    if d['who'] == 'Human':
+        human_count += 1
+    else:
+        ai_count += 1
+
+print(f"Score: Humans {human_count} — AI {ai_count}")
+print(f"\nKey idea: AI is a TOOL that humans create and control.")
+print("Neither is 'better' — they're good at DIFFERENT things!")
+
+# === TRY IT: Add your own! ===
+# Add a new decision to the list above.
+# Think: Is this better for a human or AI? Why?
+</textarea>
+      <div class="code-output hidden" id="output-humans-ai"></div>
+    </div>
+  </div>
+
+  <!-- TAB B: Representation & Reasoning -->
+  <div class="playground-panel" id="panel-representation">
+    <div class="playground-desc">
+      <strong>How Does AI "See" Data?</strong> &mdash; Students explore how AI represents information as numbers. Everything AI works with &mdash; text, images, categories &mdash; must be converted to numbers first.
+      <div class="standard-tags">
+        <span class="tag tag-orange">CSTA: B. Representation &amp; Reasoning</span>
+        <span class="tag tag-blue">MSDE: 8.DA.IM.01 (partial &mdash; extend to AI)</span>
+        <span class="tag tag-green">Grade: 6-8</span>
+      </div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <div class="editor-toolbar-left">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span>representation.py</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="reset-btn" onclick="resetCode('representation')">Reset</button>
+          <button class="run-btn" onclick="runCode('representation')">
+            <span class="play-icon">&#9654;</span>
+            <span class="spinner"></span>
+            Run
+          </button>
+        </div>
+      </div>
+      <textarea class="code-editor" id="editor-representation" spellcheck="false">
+# === How Does AI "See" Data? ===
+# CSTA AI Priority B: Representation & Reasoning
+# Grade Band: 6-8
+
+# AI can't read words — it reads NUMBERS.
+# Let's see how text becomes numbers!
+
+def text_to_numbers(text):
+    """Convert each character to its number code (ASCII)"""
+    return [ord(char) for char in text]
+
+def simple_similarity(word1, word2):
+    """A simple way to measure how 'similar' two words are"""
+    nums1 = text_to_numbers(word1.lower())
+    nums2 = text_to_numbers(word2.lower())
+    # Compare average character values
+    avg1 = sum(nums1) / len(nums1)
+    avg2 = sum(nums2) / len(nums2)
+    diff = abs(avg1 - avg2)
+    return round(100 - diff, 1)
+
+# Part 1: See how AI represents text
+print("=== HOW AI SEES YOUR WORDS ===\n")
+words = ["Hello", "AI", "Maryland", "Code"]
+for word in words:
+    numbers = text_to_numbers(word)
+    print(f'  "{word}" → {numbers}')
+
+# Part 2: Simple similarity
+print("\n=== WORD SIMILARITY (simple model) ===\n")
+pairs = [("cat", "hat"), ("dog", "log"), ("happy", "sad"), ("AI", "ai")]
+for w1, w2 in pairs:
+    score = simple_similarity(w1, w2)
+    print(f'  "{w1}" vs "{w2}" → similarity: {score}')
+
+print("\n--- Key Idea ---")
+print("Real AI uses MUCH more sophisticated representations")
+print("(called 'embeddings'), but the core idea is the same:")
+print("convert everything to numbers so math can find patterns!")
+
+# === TRY IT ===
+# Change the words above — what happens to the numbers?
+# Add your own word pairs to test similarity!
+</textarea>
+      <div class="code-output hidden" id="output-representation"></div>
+    </div>
+  </div>
+
+  <!-- TAB C: Machine Learning -->
+  <div class="playground-panel" id="panel-ml">
+    <div class="playground-desc">
+      <strong>Train Your Own Classifier!</strong> &mdash; Students build a simple machine learning model from scratch. Feed it examples, then test it on new data. See how training data affects predictions.
+      <div class="standard-tags">
+        <span class="tag tag-blue">CSTA: C. Machine Learning</span>
+        <span class="tag tag-orange">MSDE: 8.DA.IM.01 (extend from stats to ML)</span>
+        <span class="tag tag-green">Grade: 6-8</span>
+      </div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <div class="editor-toolbar-left">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span>train_classifier.py</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="reset-btn" onclick="resetCode('ml')">Reset</button>
+          <button class="run-btn" onclick="runCode('ml')">
+            <span class="play-icon">&#9654;</span>
+            <span class="spinner"></span>
+            Run
+          </button>
+        </div>
+      </div>
+      <textarea class="code-editor" id="editor-ml" spellcheck="false">
+# === Train Your Own Classifier! ===
+# CSTA AI Priority C: Machine Learning
+# Grade Band: 6-8
+
+# Machine Learning = Learning from EXAMPLES
+# Let's build a fruit classifier!
+
+# Step 1: Training data (what we teach the AI)
+training_data = [
+    {"color": "red",    "size": "small",  "fruit": "apple"},
+    {"color": "red",    "size": "small",  "fruit": "apple"},
+    {"color": "yellow", "size": "long",   "fruit": "banana"},
+    {"color": "yellow", "size": "long",   "fruit": "banana"},
+    {"color": "orange", "size": "medium", "fruit": "orange"},
+    {"color": "green",  "size": "small",  "fruit": "apple"},
+    {"color": "yellow", "size": "medium", "fruit": "orange"},
+]
+
+# Step 2: "Train" — count patterns
+print("=== TRAINING PHASE ===")
+print(f"Learning from {len(training_data)} examples...\n")
+
+patterns = {}
+for item in training_data:
+    key = f"{item['color']}+{item['size']}"
+    fruit = item['fruit']
+    if key not in patterns:
+        patterns[key] = {}
+    patterns[key][fruit] = patterns[key].get(fruit, 0) + 1
+
+print("Patterns learned:")
+for key, fruits in patterns.items():
+    color, size = key.split("+")
+    print(f"  {color} + {size} → {fruits}")
+
+# Step 3: Predict!
+def predict(color, size):
+    key = f"{color}+{size}"
+    if key in patterns:
+        best = max(patterns[key], key=patterns[key].get)
+        confidence = patterns[key][best] / sum(patterns[key].values())
+        return best, round(confidence * 100)
+    return "unknown", 0
+
+print("\n=== PREDICTION PHASE ===")
+tests = [
+    ("red", "small"),
+    ("yellow", "long"),
+    ("orange", "medium"),
+    ("purple", "small"),   # never seen this!
+]
+
+for color, size in tests:
+    fruit, conf = predict(color, size)
+    status = f"{conf}% confident" if conf > 0 else "never seen this combo!"
+    print(f"  {color} + {size} → {fruit} ({status})")
+
+print("\n--- Key Ideas ---")
+print("1. ML learns PATTERNS from training data")
+print("2. More examples = better predictions")
+print("3. It can't predict what it's never seen!")
+print("4. Biased training data = biased predictions")
+
+# === TRY IT ===
+# Add more training examples above!
+# What happens if you add 5 "purple + small = grape"?
+# What happens with ALL apples and no bananas?
+</textarea>
+      <div class="code-output hidden" id="output-ml"></div>
+    </div>
+  </div>
+
+  <!-- TAB D: Ethical AI -->
+  <div class="playground-panel" id="panel-ethics">
+    <div class="playground-desc">
+      <strong>Bias Detective</strong> &mdash; Students investigate how biased training data leads to unfair AI decisions. Analyze a hiring dataset and discover hidden bias, then fix it.
+      <div class="standard-tags">
+        <span class="tag tag-purple">CSTA: D. Ethical AI System Design</span>
+        <span class="tag tag-orange">MSDE: IC.C.02 (extend from general to AI bias)</span>
+        <span class="tag tag-green">Grade: 9-12</span>
+      </div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <div class="editor-toolbar-left">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span>bias_detective.py</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="reset-btn" onclick="resetCode('ethics')">Reset</button>
+          <button class="run-btn" onclick="runCode('ethics')">
+            <span class="play-icon">&#9654;</span>
+            <span class="spinner"></span>
+            Run
+          </button>
+        </div>
+      </div>
+      <textarea class="code-editor" id="editor-ethics" spellcheck="false">
+# === Bias Detective: Find the Unfairness ===
+# CSTA AI Priority D: Ethical AI System Design
+# Grade Band: 9-12
+
+# A company trained an AI to screen job applications.
+# Let's investigate the training data for bias.
+
+import random
+random.seed(42)
+
+# Simulated historical hiring data
+# (reflects real-world bias that existed in past decisions)
+applicants = []
+for i in range(200):
+    school = random.choice(["Elite University"] * 3 + ["State College"] * 7)
+    has_cs_degree = random.random() > 0.3
+    years_exp = random.randint(0, 15)
+
+    # Historical bias: elite school applicants were hired more often
+    # regardless of actual qualifications
+    if school == "Elite University":
+        hired = random.random() > 0.25  # 75% hire rate
+    else:
+        hired = random.random() > 0.60  # 40% hire rate
+
+    applicants.append({
+        "school": school, "cs_degree": has_cs_degree,
+        "years_exp": years_exp, "hired": hired
+    })
+
+# Analyze the data
+print("=== BIAS DETECTIVE: Hiring Data Analysis ===\n")
+
+# Overall stats
+total = len(applicants)
+hired_count = sum(1 for a in applicants if a["hired"])
+print(f"Total applicants: {total}")
+print(f"Total hired: {hired_count} ({round(hired_count/total*100)}%)\n")
+
+# By school type
+for school in ["Elite University", "State College"]:
+    group = [a for a in applicants if a["school"] == school]
+    group_hired = sum(1 for a in group if a["hired"])
+    rate = round(group_hired / len(group) * 100)
+    print(f"{school}:")
+    print(f"  Applied: {len(group)} | Hired: {group_hired} | Rate: {rate}%")
+
+    # Check if qualifications justify the difference
+    avg_exp = round(sum(a["years_exp"] for a in group) / len(group), 1)
+    cs_rate = round(sum(1 for a in group if a["cs_degree"]) / len(group) * 100)
+    print(f"  Avg experience: {avg_exp} yrs | CS degree: {cs_rate}%")
+    print()
+
+print("=== BIAS REPORT ===")
+print("The hiring RATES differ significantly by school name,")
+print("but the QUALIFICATIONS (experience, CS degree) are similar!")
+print()
+print("If an AI learns from this data, it will REPLICATE the bias.")
+print("It will favor 'Elite University' — not because those")
+print("applicants are better, but because the HISTORICAL data")
+print("reflects human prejudice, not merit.")
+print()
+print("--- What Can We Do? ---")
+print("1. Audit training data BEFORE building the model")
+print("2. Remove features that encode bias (school name)")
+print("3. Test model outputs for disparate impact")
+print("4. Create 'model cards' documenting known limitations")
+print("5. Include diverse stakeholders in AI design")
+
+# === TRY IT ===
+# Change the hire rates above — make them EQUAL.
+# What would fair training data look like?
+</textarea>
+      <div class="code-output hidden" id="output-ethics"></div>
+    </div>
+  </div>
+
+  <!-- TAB E: Societal Impact -->
+  <div class="playground-panel" id="panel-societal">
+    <div class="playground-desc">
+      <strong>AI Impact Simulator</strong> &mdash; Students model how AI adoption affects different sectors of society. Adjust parameters and see ripple effects across jobs, education, environment, and equity.
+      <div class="standard-tags">
+        <span class="tag tag-green">CSTA: E. Societal Impacts of AI</span>
+        <span class="tag tag-orange">MSDE: 8.IC.C.01 (extend from automation to AI)</span>
+        <span class="tag tag-green">Grade: 9-12</span>
+      </div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <div class="editor-toolbar-left">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span>ai_impact_sim.py</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="reset-btn" onclick="resetCode('societal')">Reset</button>
+          <button class="run-btn" onclick="runCode('societal')">
+            <span class="play-icon">&#9654;</span>
+            <span class="spinner"></span>
+            Run
+          </button>
+        </div>
+      </div>
+      <textarea class="code-editor" id="editor-societal" spellcheck="false">
+# === AI Impact Simulator ===
+# CSTA AI Priority E: Societal Impacts of AI
+# Grade Band: 9-12
+
+# Simulate how AI adoption affects a community.
+# Change the settings below and see what happens!
+
+# === SETTINGS (change these!) ===
+ai_adoption_rate = 0.6    # 0.0 to 1.0 (60% = moderate adoption)
+investment_in_training = 0.4  # 0.0 to 1.0 (how much we invest in retraining)
+regulation_level = 0.3    # 0.0 to 1.0 (how regulated is AI use)
+
+# === SIMULATION ===
+print("=" * 50)
+print("    AI COMMUNITY IMPACT SIMULATOR")
+print("=" * 50)
+print(f"\n  AI Adoption Rate:     {ai_adoption_rate*100:.0f}%")
+print(f"  Retraining Investment: {investment_in_training*100:.0f}%")
+print(f"  Regulation Level:      {regulation_level*100:.0f}%")
+print()
+
+# Jobs impact
+jobs_displaced = round(ai_adoption_rate * 35)
+jobs_created = round(ai_adoption_rate * 20 + investment_in_training * 15)
+net_jobs = jobs_created - jobs_displaced
+print("--- JOBS ---")
+print(f"  Jobs automated away:   ~{jobs_displaced}% of current roles")
+print(f"  New jobs created:      ~{jobs_created}% new roles")
+print(f"  Net change:            {'+' if net_jobs >= 0 else ''}{net_jobs}%")
+
+# Education impact
+ed_access = round(50 + ai_adoption_rate * 40 - (1-regulation_level) * 15)
+ed_quality = round(60 + investment_in_training * 30)
+print("\n--- EDUCATION ---")
+print(f"  Learning access score:  {min(ed_access, 100)}/100")
+print(f"  Teacher readiness:      {min(ed_quality, 100)}/100")
+
+# Environment
+energy = round(ai_adoption_rate * 45 - regulation_level * 20)
+efficiency = round(ai_adoption_rate * 30)
+print("\n--- ENVIRONMENT ---")
+print(f"  Energy use increase:   +{max(energy, 0)}%")
+print(f"  Efficiency gains:      +{efficiency}%")
+print(f"  Net environmental:     {'Concerning' if energy > efficiency else 'Manageable'}")
+
+# Equity
+equity_gap = round((ai_adoption_rate * 40) - (investment_in_training * 35) - (regulation_level * 20))
+print("\n--- EQUITY ---")
+print(f"  Digital divide change: {'+' if equity_gap > 0 else ''}{equity_gap} points")
+print(f"  Status: {'Gap WIDENING' if equity_gap > 5 else 'Gap STABLE' if equity_gap > -5 else 'Gap NARROWING'}")
+
+# Overall assessment
+score = round(50 + jobs_created - jobs_displaced + investment_in_training*20 + regulation_level*10 - ai_adoption_rate*5)
+print(f"\n{'=' * 50}")
+print(f"  COMMUNITY WELLNESS SCORE: {min(max(score, 0), 100)}/100")
+bar = '#' * (min(max(score, 0), 100) // 5) + '-' * (20 - min(max(score, 0), 100) // 5)
+print(f"  [{bar}]")
+print(f"{'=' * 50}")
+print()
+print("Key takeaway: AI impact depends on HUMAN CHOICES")
+print("about investment, regulation, and equity — not")
+print("just the technology itself!")
+
+# === TRY IT ===
+# Scenario 1: High adoption, NO retraining, NO regulation
+#   → Change to: 0.9, 0.0, 0.0
+# Scenario 2: Moderate adoption WITH strong support
+#   → Change to: 0.5, 0.8, 0.7
+# Which community would YOU want to live in?
+</textarea>
+      <div class="code-output hidden" id="output-societal"></div>
+    </div>
+  </div>
+
+  <div class="callout callout-purple" style="margin-top: 1.5rem;">
+    <div class="callout-title">This Is What the Agent Builds</div>
+    Every example above was designed to connect a <strong>CSTA AI Priority</strong> to an existing (or missing) <strong>MSDE Standard</strong>. The AI agent generates activities like these &mdash; customized to the teacher's grade band, duration, and format preference. Each tab above represents one lesson the agent could produce in under 15 minutes.
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 7. CROSSWALK -->
+<!-- ============================================ -->
+<section id="crosswalk">
+  <h2><span class="num">08</span> Standards Crosswalk</h2>
+
+  <p>The agent's intelligence depends on a structured mapping between Maryland's current standards and the CSTA AI Priorities. This crosswalk is a <strong>first-class data artifact</strong>.</p>
+
+  <h3>Data Model</h3>
+  <pre><code>{
+  "msde_standard": {
+    "code": "8.DA.IM.01",
+    "text": "Refine existing or develop and implement new computational models...",
+    "grade_band": "6-8",
+    "concept": "Data Analysis",
+    "subconcept": "Inference & Models"
+  },
+  "csta_ai_priority": {
+    "category": "C. Machine Learning",
+    "subtopic": "Building and Using AI Models",
+    "grade_band": "6-8",
+    "text": "Using a dataset and a machine learning pipeline, develop an AI model...",
+    "priority_level": "high"
+  },
+  "alignment_strength": "strong",
+  "bridge_note": "Extend from general computational modeling to ML-specific pipeline."
+}</code></pre>
+
+  <h3>Alignment Categories</h3>
+  <div class="card-grid">
+    <div class="card" style="border-left: 4px solid var(--green);">
+      <h4>Strong</h4>
+      <p>MSDE standard directly supports the AI priority with minimal adaptation</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--orange);">
+      <h4>Partial</h4>
+      <p>MSDE covers related concepts but needs AI-specific framing added</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--red);">
+      <h4>Gap</h4>
+      <p>No corresponding MSDE standard. AI priority requires entirely new content</p>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--blue);">
+      <h4>Extension</h4>
+      <p>MSDE standard can be extended to include AI without replacing existing content</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 8. PHASES -->
+<!-- ============================================ -->
+<section id="phases">
+  <h2><span class="num">09</span> Phased Delivery</h2>
+
+  <div class="phase">
+    <div class="phase-title">Phase 1: Foundation</div>
+    <div class="phase-time">Weeks 1&ndash;4</div>
+    <ul>
+      <li>Extract and structure MSDE standards into JSON</li>
+      <li>Extract and structure CSTA AI Priorities into JSON</li>
+      <li>Build MSDE-to-CSTA crosswalk mapping</li>
+      <li>Create agent with standards knowledge base</li>
+      <li>Lesson generation (Markdown output)</li>
+      <li>Basic format conversion (Markdown &rarr; PDF, Google Doc)</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <div class="phase-title">Phase 2: Teacher Experience</div>
+    <div class="phase-time">Weeks 5&ndash;8</div>
+    <ul>
+      <li>Multi-format output (Docs, Slides, PDF, HTML)</li>
+      <li>Google Drive integration (personal + Team Drive)</li>
+      <li>Conversational lesson refinement (multi-turn agent)</li>
+      <li>Teacher-facing web interface</li>
+      <li>Workshop module content + facilitator kit</li>
+      <li>Pilot workshop with 10&ndash;15 teachers</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <div class="phase-title">Phase 3: Student Access</div>
+    <div class="phase-time">Weeks 9&ndash;12</div>
+    <ul>
+      <li>Student-facing hosted lesson pages (shareable URLs)</li>
+      <li>Mobile-responsive lesson viewer</li>
+      <li>Embedded interactive activities</li>
+      <li>Offline capability (PWA)</li>
+      <li>Pilot with 2&ndash;3 classrooms</li>
+    </ul>
+  </div>
+
+  <div class="phase">
+    <div class="phase-title">Phase 4: Scale</div>
+    <div class="phase-time">Weeks 13+</div>
+    <ul>
+      <li>Advanced interactivity (drag-drop, code blocks, AI tool embeds)</li>
+      <li>Real-time collaboration features</li>
+      <li>Analytics (lessons created, standards coverage)</li>
+      <li>MCCE Toolkit &amp; ECSNet deep integration</li>
+      <li>District-level deployment</li>
+      <li>Updated standards integration (when MSDE publishes new standards)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 9. RISKS -->
+<!-- ============================================ -->
+<section id="risks">
+  <h2><span class="num">10</span> Risks &amp; Open Questions</h2>
+
+  <h3>Risks</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>MSDE releases new standards mid-build</td>
+          <td><span class="tag tag-orange">Medium</span></td>
+          <td><span class="tag tag-orange">Medium</span></td>
+          <td>Modular crosswalk &mdash; new standards plug in as data update, not rebuild</td>
+        </tr>
+        <tr>
+          <td>LLM generates inaccurate standards mapping</td>
+          <td><span class="tag tag-orange">Medium</span></td>
+          <td><span class="tag tag-red">High</span></td>
+          <td>Crosswalk is pre-built and verified; agent retrieves from verified mappings</td>
+        </tr>
+        <tr>
+          <td>Workshop time too short for meaningful output</td>
+          <td><span class="tag tag-orange">Medium</span></td>
+          <td><span class="tag tag-red">High</span></td>
+          <td>Pre-load example lessons; ensure 60+ min hands-on time</td>
+        </tr>
+        <tr>
+          <td>AI tools referenced in lessons require age 13+</td>
+          <td><span class="tag tag-red">High</span></td>
+          <td><span class="tag tag-orange">Medium</span></td>
+          <td>Agent flags age restrictions; suggests unplugged alternatives for K-5</td>
+        </tr>
+        <tr>
+          <td>Student devices can't access hosted pages</td>
+          <td><span class="tag tag-blue">Low</span></td>
+          <td><span class="tag tag-orange">Medium</span></td>
+          <td>PWA offline support; minimal JS; works on low-bandwidth</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Open Questions</h3>
+  <ol style="margin: 0.5rem 0 0 1.25rem;">
+    <li><strong>Authentication:</strong> Do teachers need individual accounts, or is workshop-code-based access sufficient for pilots?</li>
+    <li><strong>Content review:</strong> Should generated lessons go through review before student access, or is teacher judgment sufficient?</li>
+    <li><strong>Branding:</strong> MCCE/CS4MD, MSDE, independent, or co-branded?</li>
+    <li><strong>Sustainability:</strong> Post-pilot, who maintains the agent and hosting? District? State? Grant-funded?</li>
+    <li><strong>CSTA revision timing:</strong> National CSTA rewrite lands summer 2026. Build for current or wait?</li>
+    <li><strong>ECSNet integration:</strong> Surface-level linking or deep remix capability?</li>
+  </ol>
+</section>
+
+<!-- ============================================ -->
+<!-- 10. REFERENCES -->
+<!-- ============================================ -->
+<section id="references">
+  <h2><span class="num">11</span> References</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Document</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><a href="https://csteachers.org/ai-priorities/" target="_blank">CSTA/AI4K12 AI Priorities Report (2025)</a></td>
+          <td>AI Learning Priorities for All K-12 Students &mdash; 5 categories, ~60 learning outcomes</td>
+        </tr>
+        <tr>
+          <td><a href="https://marylandpublicschools.org/programs/Documents/CTE/Computer%20Science/K-12StandardsLandscape.pdf" target="_blank">MSDE K-12 CS Standards (2018)</a></td>
+          <td>Maryland's current 55-page CS standards document</td>
+        </tr>
+        <tr>
+          <td><a href="https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/sb0980?ys=2024RS" target="_blank">SB0980 (2024)</a></td>
+          <td>Maryland legislation mandating AI in CS standards by June 2025</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.cs4md.com/toolkit-for-k-5-computer-science" target="_blank">MCCE K-5 CS Toolkit</a></td>
+          <td>Maryland Center for Computing Education elementary resource collection</td>
+        </tr>
+        <tr>
+          <td><a href="https://sparkcsmd.wixsite.com/ecsnet" target="_blank">ECSNet Lesson Repository</a></td>
+          <td>Maryland elementary CS lesson database with standards alignments</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.cs4md.com/highereducation/preservicecs" target="_blank">CS4MD Preservice CS</a></td>
+          <td>Maryland preservice CS teacher programs across 17 institutions</td>
+        </tr>
+        <tr>
+          <td><a href="https://www.cs4md.com/annotations" target="_blank">CS4MD Standards Annotations</a></td>
+          <td>Implementation guidance and clarifications for MD CS standards</td>
+        </tr>
+        <tr>
+          <td><a href="https://csteachers.org/k12standards/revision/" target="_blank">CSTA K-12 Standards Revision</a></td>
+          <td>National standards rewrite timeline (expected summer 2026)</td>
+        </tr>
+        <tr>
+          <td><a href="https://marylandpublicschools.org/programs/Pages/CTE/ComputerScience/CS.aspx" target="_blank">MSDE Computer Science Page</a></td>
+          <td>Official MSDE CS education landing page</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</div><!-- .main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About This PRD</h4>
+        <p>Product requirements for an AI-powered lesson builder that bridges the gap between Maryland's 2018 CS standards and the 2025 CSTA AI Learning Priorities.</p>
+        <p style="margin-top:0.75rem;"><strong>Version 0.1</strong> &middot; Discovery Draft &middot; February 2026</p>
+      </div>
+      <div class="footer-col">
+        <h4>Key Documents</h4>
+        <ul>
+          <li><a href="https://csteachers.org/ai-priorities/">CSTA AI Priorities Report</a></li>
+          <li><a href="https://marylandpublicschools.org/programs/Documents/CTE/Computer%20Science/K-12StandardsLandscape.pdf">MSDE CS Standards</a></li>
+          <li><a href="https://www.cs4md.com/annotations">CS4MD Annotations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maryland CS Network</h4>
+        <ul>
+          <li><a href="https://www.cs4md.com/">CS4MD / MCCE</a></li>
+          <li><a href="https://sparkcsmd.wixsite.com/ecsnet">ECSNet</a></li>
+          <li><a href="https://marylandpublicschools.org/programs/Pages/CTE/ComputerScience/CS.aspx">MSDE CS</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT: Playground Engine -->
+<!-- ============================================ -->
+<script>
+// --- Tab Switching ---
+function switchTab(btn) {
+  var tabId = btn.getAttribute('data-tab');
+  // Deactivate all tabs and panels
+  var tabs = document.querySelectorAll('.playground-tab');
+  var panels = document.querySelectorAll('.playground-panel');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove('active');
+    tabs[i].setAttribute('aria-selected', 'false');
+  }
+  for (var i = 0; i < panels.length; i++) {
+    panels[i].classList.remove('active');
+  }
+  // Activate selected
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  var panel = document.getElementById('panel-' + tabId);
+  if (panel) panel.classList.add('active');
+}
+
+// --- Store original code for reset ---
+var originalCode = {};
+(function() {
+  var editors = document.querySelectorAll('.code-editor');
+  for (var i = 0; i < editors.length; i++) {
+    var id = editors[i].id.replace('editor-', '');
+    originalCode[id] = editors[i].value;
+  }
+})();
+
+function resetCode(tabId) {
+  var editor = document.getElementById('editor-' + tabId);
+  if (editor && originalCode[tabId]) {
+    editor.value = originalCode[tabId];
+  }
+  var output = document.getElementById('output-' + tabId);
+  if (output) {
+    output.classList.add('hidden');
+    output.classList.remove('error', 'loading');
+    output.textContent = '';
+  }
+}
+
+// --- Pyodide Python Runner ---
+var PythonRunner = {
+  pyodide: null,
+  isReady: false,
+  isLoading: false,
+
+  init: function() {
+    if (this.isReady) return Promise.resolve(this.pyodide);
+    if (this.isLoading) return this._loadPromise;
+
+    this.isLoading = true;
+    var self = this;
+    var statusEl = document.getElementById('pyodide-status');
+    var progressEl = document.getElementById('pyodide-progress');
+
+    if (statusEl) statusEl.classList.add('visible');
+    if (progressEl) progressEl.style.width = '20%';
+
+    this._loadPromise = new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
+      script.onload = function() {
+        if (progressEl) progressEl.style.width = '60%';
+        loadPyodide({
+          indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/'
+        }).then(function(pyodide) {
+          self.pyodide = pyodide;
+          self.isReady = true;
+          self.isLoading = false;
+          if (progressEl) progressEl.style.width = '100%';
+          setTimeout(function() {
+            if (statusEl) statusEl.classList.remove('visible');
+          }, 600);
+          resolve(pyodide);
+        }).catch(function(err) {
+          self.isLoading = false;
+          if (statusEl) {
+            statusEl.textContent = 'Failed to load Python engine. Please refresh.';
+          }
+          reject(err);
+        });
+      };
+      script.onerror = function() {
+        self.isLoading = false;
+        if (statusEl) {
+          statusEl.textContent = 'Failed to load Python engine. Please refresh.';
+        }
+        reject(new Error('Failed to load Pyodide script'));
+      };
+      document.head.appendChild(script);
+    });
+
+    return this._loadPromise;
+  },
+
+  runCode: function(code) {
+    var self = this;
+    return this.init().then(function() {
+      var output = '';
+      self.pyodide.setStdout({
+        batched: function(text) { output += text + '\n'; }
+      });
+      self.pyodide.setStderr({
+        batched: function(text) { output += text + '\n'; }
+      });
+      return self.pyodide.runPythonAsync(code).then(function() {
+        return { success: true, output: output.trim() || '(No output)' };
+      });
+    }).catch(function(error) {
+      return { success: false, output: error.message };
+    });
+  }
+};
+
+// --- Run Code Handler ---
+function runCode(tabId) {
+  var editor = document.getElementById('editor-' + tabId);
+  var outputEl = document.getElementById('output-' + tabId);
+  var runBtn = editor.closest('.editor-wrap').querySelector('.run-btn');
+
+  if (!editor || !outputEl) return;
+
+  var code = editor.value;
+
+  // Show loading state
+  outputEl.classList.remove('hidden', 'error');
+  outputEl.classList.add('loading');
+  outputEl.textContent = 'Loading Python engine & running...';
+  if (runBtn) {
+    runBtn.classList.add('loading');
+    runBtn.disabled = true;
+  }
+
+  PythonRunner.runCode(code).then(function(result) {
+    outputEl.classList.remove('loading');
+    if (result.success) {
+      outputEl.classList.remove('error');
+    } else {
+      outputEl.classList.add('error');
+    }
+    outputEl.textContent = result.output;
+    if (runBtn) {
+      runBtn.classList.remove('loading');
+      runBtn.disabled = false;
+    }
+  });
+}
+
+// --- Tab key support in editors ---
+document.addEventListener('keydown', function(e) {
+  if (e.target && e.target.classList.contains('code-editor') && e.key === 'Tab') {
+    e.preventDefault();
+    var editor = e.target;
+    var start = editor.selectionStart;
+    var end = editor.selectionEnd;
+    editor.value = editor.value.substring(0, start) + '    ' + editor.value.substring(end);
+    editor.selectionStart = editor.selectionEnd = start + 4;
+  }
+});
+</script>
+
+</body>
+</html>

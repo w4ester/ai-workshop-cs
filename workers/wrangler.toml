@@ -1,0 +1,10 @@
+name = "ai-workshop-groq-proxy"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+[vars]
+GROQ_MODEL = "qwen-qwq-32b"
+MAX_TOKENS = "500"
+RATE_LIMIT_PER_MINUTE = "20"
+
+# Secret: GROQ_API_KEY — set via `wrangler secret put GROQ_API_KEY`

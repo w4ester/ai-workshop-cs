@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build
+frontend/build/
+frontend/.svelte-kit/
+dist/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Database
+*.db
+pgdata/
+
+# Pyodide cache
+.pyodide/
+
+# Cloudflare
+.wrangler/
+workers/dist/
