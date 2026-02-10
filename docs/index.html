@@ -633,6 +633,137 @@
     }
     .reset-btn:hover { color: var(--gray-700); border-color: var(--gray-300); }
 
+    /* FEEDBACK FORM */
+    .feedback-gate {
+      margin: 1rem 0;
+    }
+    .feedback-gate-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .feedback-gate-input {
+      flex: 1;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.88rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .feedback-gate-input:focus { border-color: var(--blue); }
+    .feedback-gate-btn {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: white;
+      background: var(--blue);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.15s;
+    }
+    .feedback-gate-btn:hover { background: var(--blue-dark); }
+    .feedback-gate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .feedback-form { display: none; margin-top: 1rem; }
+    .feedback-form.visible { display: block; }
+    .feedback-type-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .feedback-type-btn {
+      padding: 0.4rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.15s;
+    }
+    .feedback-type-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .feedback-type-btn.active {
+      background: var(--blue-light);
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 0.85rem;
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.15s;
+      line-height: 1.6;
+    }
+    .feedback-textarea:focus { border-color: var(--blue); }
+    .feedback-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+      gap: 1rem;
+    }
+    .feedback-privacy {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      max-width: 400px;
+    }
+    .feedback-submit-btn {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: white;
+      background: var(--green);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .feedback-submit-btn:hover { background: #006644; }
+    .feedback-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .feedback-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .feedback-success.visible { display: block; }
+    .feedback-success-check {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .feedback-error {
+      color: var(--red);
+      font-size: 0.82rem;
+      margin-top: 0.35rem;
+      display: none;
+    }
+    .feedback-error.visible { display: block; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+
     /* FOOTER */
     footer {
       background: var(--gray-900);
@@ -712,6 +843,7 @@
     <a href="#crosswalk">Crosswalk</a>
     <a href="#phases">Phases</a>
     <a href="#risks">Risks</a>
+    <a href="#feedback">Feedback</a>
     <a href="#references">References</a>
   </div>
 </nav>
@@ -1773,10 +1905,71 @@ print("just the technology itself!")
 </section>
 
 <!-- ============================================ -->
-<!-- 10. REFERENCES -->
+<!-- FEEDBACK -->
+<!-- ============================================ -->
+<section id="feedback">
+  <h2><span class="num">11</span> Feedback</h2>
+
+  <p>Help shape this product. If you're an authorized reviewer, enter the passphrase to share feedback. Your input creates a tracked issue automatically.</p>
+
+  <div class="callout callout-orange">
+    <div class="callout-title">Privacy Notice</div>
+    Do <strong>not</strong> include personal information (email, phone, SSN). Any detected PII is automatically redacted before storage.
+  </div>
+
+  <!-- Passphrase gate -->
+  <div class="feedback-gate" id="feedback-gate">
+    <label for="feedback-passphrase" style="display:block;font-weight:600;font-size:0.88rem;margin-bottom:0.35rem;">Reviewer Passphrase</label>
+    <div class="feedback-gate-row">
+      <input type="password" id="feedback-passphrase" class="feedback-gate-input"
+             placeholder="Enter passphrase to unlock feedback form"
+             autocomplete="off" spellcheck="false">
+      <button class="feedback-gate-btn" id="feedback-unlock-btn" onclick="unlockFeedback()">Unlock</button>
+    </div>
+    <div class="feedback-error" id="gate-error"></div>
+  </div>
+
+  <!-- Honeypot (hidden from humans, visible to bots) -->
+  <div class="sr-only" aria-hidden="true">
+    <label for="feedback-website">Website</label>
+    <input type="text" id="feedback-website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <!-- Feedback form (hidden until passphrase validated) -->
+  <div class="feedback-form" id="feedback-form">
+    <div class="feedback-type-row">
+      <button class="feedback-type-btn active" data-type="general" onclick="setFeedbackType(this)">General</button>
+      <button class="feedback-type-btn" data-type="suggestion" onclick="setFeedbackType(this)">Suggestion</button>
+      <button class="feedback-type-btn" data-type="bug" onclick="setFeedbackType(this)">Bug Report</button>
+      <button class="feedback-type-btn" data-type="question" onclick="setFeedbackType(this)">Question</button>
+    </div>
+    <textarea class="feedback-textarea" id="feedback-message"
+              placeholder="What's on your mind? Share your thoughts, suggestions, or report an issue..."
+              maxlength="2000"></textarea>
+    <div class="feedback-error" id="form-error"></div>
+    <div class="feedback-submit-row">
+      <div class="feedback-privacy">
+        Feedback is tracked as a project issue. PII is auto-redacted. No personal data is stored.
+      </div>
+      <button class="feedback-submit-btn" id="feedback-submit-btn" onclick="submitFeedback()">
+        Send Feedback
+      </button>
+    </div>
+  </div>
+
+  <!-- Success state -->
+  <div class="feedback-success" id="feedback-success">
+    <div class="feedback-success-check">&#10003;</div>
+    <p style="font-weight:700;font-size:1.1rem;">Thank you for your feedback!</p>
+    <p style="color:var(--gray-500);font-size:0.88rem;margin-top:0.35rem;" id="feedback-success-detail"></p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- REFERENCES -->
 <!-- ============================================ -->
 <section id="references">
-  <h2><span class="num">11</span> References</h2>
+  <h2><span class="num">12</span> References</h2>
 
   <div class="table-wrap">
     <table>
@@ -2020,6 +2213,180 @@ document.addEventListener('keydown', function(e) {
     editor.selectionStart = editor.selectionEnd = start + 4;
   }
 });
+
+// =============================================
+// FEEDBACK SYSTEM
+// =============================================
+
+// SHA-256 hash of the passphrase (one-way — safe to embed)
+var PASSPHRASE_HASH = '9c5785aac8a970f001fcb24d1bd7310f8e6c997010b3266890b69c79daf4fb8f';
+// CF Worker feedback endpoint (update after deployment)
+var FEEDBACK_ENDPOINT = '/feedback';
+
+var feedbackState = {
+  unlocked: false,
+  passphrase: '',
+  type: 'general',
+  openedAt: 0
+};
+
+// --- SHA-256 in browser ---
+async function sha256(text) {
+  var encoder = new TextEncoder();
+  var data = encoder.encode(text);
+  var hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  var hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+}
+
+// --- Unlock passphrase gate ---
+async function unlockFeedback() {
+  var input = document.getElementById('feedback-passphrase');
+  var errorEl = document.getElementById('gate-error');
+  var passphrase = input.value.trim();
+
+  if (!passphrase) {
+    errorEl.textContent = 'Please enter the reviewer passphrase.';
+    errorEl.classList.add('visible');
+    return;
+  }
+
+  var hash = await sha256(passphrase);
+
+  if (hash !== PASSPHRASE_HASH) {
+    errorEl.textContent = 'Invalid passphrase. Contact the project team for access.';
+    errorEl.classList.add('visible');
+    input.value = '';
+    input.focus();
+    return;
+  }
+
+  // Unlocked!
+  errorEl.classList.remove('visible');
+  feedbackState.unlocked = true;
+  feedbackState.passphrase = passphrase;
+  feedbackState.openedAt = Date.now();
+
+  document.getElementById('feedback-gate').style.display = 'none';
+  document.getElementById('feedback-form').classList.add('visible');
+}
+
+// Allow Enter key to unlock
+document.addEventListener('DOMContentLoaded', function() {
+  var passphraseInput = document.getElementById('feedback-passphrase');
+  if (passphraseInput) {
+    passphraseInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        unlockFeedback();
+      }
+    });
+  }
+});
+
+// --- Feedback type selector ---
+function setFeedbackType(btn) {
+  var buttons = document.querySelectorAll('.feedback-type-btn');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove('active');
+  }
+  btn.classList.add('active');
+  feedbackState.type = btn.getAttribute('data-type');
+}
+
+// --- Submit feedback ---
+async function submitFeedback() {
+  var messageEl = document.getElementById('feedback-message');
+  var errorEl = document.getElementById('form-error');
+  var submitBtn = document.getElementById('feedback-submit-btn');
+  var honeypot = document.getElementById('feedback-website');
+
+  var message = messageEl.value.trim();
+
+  // Client-side validation
+  if (message.length < 10) {
+    errorEl.textContent = 'Please provide at least 10 characters of feedback.';
+    errorEl.classList.add('visible');
+    return;
+  }
+  if (message.length > 2000) {
+    errorEl.textContent = 'Feedback must be under 2000 characters.';
+    errorEl.classList.add('visible');
+    return;
+  }
+
+  errorEl.classList.remove('visible');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  var payload = {
+    message: message,
+    feedback_type: feedbackState.type,
+    page_url: window.location.href,
+    passphrase: feedbackState.passphrase,
+    honeypot: honeypot ? honeypot.value : '',
+    opened_at: feedbackState.openedAt
+  };
+
+  try {
+    var response = await fetch(FEEDBACK_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    var data = await response.json();
+
+    if (data.success) {
+      showFeedbackSuccess(data);
+    } else {
+      errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+      errorEl.classList.add('visible');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Feedback';
+    }
+  } catch (err) {
+    // CF Worker not deployed yet — fallback: open GitHub issue directly
+    showFeedbackFallback(message);
+  }
+}
+
+function showFeedbackSuccess(data) {
+  document.getElementById('feedback-form').classList.remove('visible');
+  var successEl = document.getElementById('feedback-success');
+  successEl.classList.add('visible');
+
+  var detailEl = document.getElementById('feedback-success-detail');
+  var detail = 'Issue tracked as ' + data.id + '.';
+  if (data.pii_redacted && data.pii_redacted.length > 0) {
+    detail += ' PII auto-redacted: ' + data.pii_redacted.join(', ') + '.';
+  }
+  detailEl.textContent = detail;
+}
+
+function showFeedbackFallback(message) {
+  var title = encodeURIComponent('Dogfood ' + feedbackState.type + ': ' + message.slice(0, 60));
+  var body = encodeURIComponent('## Feedback\n\nType: ' + feedbackState.type + '\nPage: ' + window.location.href + '\n\n' + message);
+  var issueUrl = 'https://github.com/w4ester/ai-workshop-cs/issues/new?title=' + title + '&body=' + body + '&labels=dogfood,feedback,' + feedbackState.type;
+
+  document.getElementById('feedback-form').classList.remove('visible');
+  var successEl = document.getElementById('feedback-success');
+  successEl.classList.add('visible');
+
+  var detailEl = document.getElementById('feedback-success-detail');
+  // Clear and build safely with DOM methods
+  detailEl.textContent = '';
+  var textNode = document.createTextNode('Worker not yet deployed. ');
+  var link = document.createElement('a');
+  link.href = issueUrl;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.style.cssText = 'color:var(--blue);font-weight:600;';
+  link.textContent = 'Click here to create the issue on GitHub';
+  detailEl.appendChild(textNode);
+  detailEl.appendChild(link);
+  detailEl.appendChild(document.createTextNode('.'));
+}
 </script>
 
 </body>

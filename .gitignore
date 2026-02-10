@@ -26,7 +26,24 @@ dist/
 
 # Database
 *.db
+*.db-shm
+*.db-wal
 pgdata/
+
+# BEADS — track config.yaml but NOT database or local state
+.beads/beads.db
+.beads/beads.db-shm
+.beads/beads.db-wal
+.beads/issues.jsonl
+.beads/daemon.log
+.beads/*.sock
+
+# Local secrets — NEVER commit
+*.key
+*.secret
+.local
+*.local.md
+feedback.key
 
 # Pyodide cache
 .pyodide/

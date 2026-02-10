@@ -1,0 +1,30 @@
+project: ai-workshop-cs
+version: 1
+
+# BEADS issue tracking configuration
+id_prefix: ai-workshop-cs
+
+# Issue defaults
+defaults:
+  priority: P2
+  status: open
+  issue_type: task
+
+# Tags for auto-categorization
+feedback_tags:
+  general: [dogfood, feedback, general]
+  bug: [dogfood, feedback, bug]
+  suggestion: [dogfood, feedback, suggestion]
+  question: [dogfood, feedback, question]
+
+# Sync settings
+sync:
+  format: jsonl
+  debounce_seconds: 5
+  auto_sync: true
+
+# GitHub integration
+github:
+  repo: w4ester/ai-workshop-cs
+  sync_issues: true
+  labels_from_tags: true
