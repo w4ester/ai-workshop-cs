@@ -54,8 +54,6 @@ echo "Found $COUNT pending feedback item(s)."
 
 # --- Process each item ---
 KEYS_TO_ACK='[]'
-JSONL_FILE=$(mktemp)
-trap 'rm -f "$JSONL_FILE"' EXIT
 
 echo "$RESPONSE" | jq -c '.items[]' | while IFS= read -r item; do
   KEY=$(echo "$item" | jq -r '.key')
@@ -105,23 +103,20 @@ MDEOF
     echo "    Wrote ${BEADS_DIR}/${ID}.md"
   fi
 
-  # Append JSONL line for bd import
-  echo "$ISSUE" >> "$JSONL_FILE"
-done
-
-# --- Import into BEADS ---
-ITEM_COUNT=$(wc -l < "$JSONL_FILE" | tr -d '[:space:]')
-if [[ "$ITEM_COUNT" -gt 0 ]]; then
-  if [[ "$DRY_RUN" == "true" ]]; then
-    echo "[dry-run] Would import $ITEM_COUNT item(s) into BEADS."
-    echo "[dry-run] JSONL preview:"
-    cat "$JSONL_FILE" | jq -c '{id, title, status}'
-  else
-    echo "Importing $ITEM_COUNT item(s) into BEADS..."
+  # Create BEADS issue (bd assigns its own ID with the correct prefix)
+  if [[ "$DRY_RUN" == "false" ]]; then
+    TAGS_CSV=$(echo "$ISSUE" | jq -r '.tags | join(",")')
     cd "$REPO_ROOT"
-    bd import -i "$JSONL_FILE" 2>&1 || echo "Warning: bd import returned non-zero (items may already exist)"
+    BD_ID=$(bd create "$TITLE" \
+      -d "$DESC" \
+      -p "$PRIORITY" \
+      --external-ref "$ID" \
+      2>&1) || echo "    Warning: bd create failed for $ID"
+    echo "    Created BEADS issue: $BD_ID"
+  else
+    echo "  [dry-run] Would create BEADS issue for $ID"
   fi
-fi
+done
 
 # --- Acknowledge pulled items ---
 KEYS_JSON=$(echo "$RESPONSE" | jq -c '[.items[].key]')
