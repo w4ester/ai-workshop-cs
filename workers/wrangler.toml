@@ -7,9 +7,12 @@ GROQ_MODEL = "qwen-qwq-32b"
 MAX_TOKENS = "500"
 RATE_LIMIT_PER_MINUTE = "20"
 
+[[kv_namespaces]]
+binding = "FEEDBACK_KV"
+id = "c30d2006e5584e14a15a061d05b95f98"
+
 # Secrets — set via CLI, NEVER in this file:
 #   wrangler secret put GROQ_API_KEY
-#   wrangler secret put GITHUB_TOKEN
 #   wrangler secret put FEEDBACK_PASSPHRASE
 #
 # The FEEDBACK_PASSPHRASE is stored locally at:

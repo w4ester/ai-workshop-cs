@@ -2,18 +2,22 @@
  * Cloudflare Worker — Groq API Proxy + Feedback Endpoint
  *
  * Routes:
- *   POST /llm      → Groq chat completions (Qwen model)
- *   POST /feedback  → Passphrase-gated feedback → GitHub Issue
+ *   POST /llm            → Groq chat completions (Qwen model)
+ *   POST /feedback        → Passphrase-gated feedback → KV storage
+ *   GET  /feedback/pull   → Retrieve pending feedback (passphrase-gated)
+ *   POST /feedback/ack    → Acknowledge pulled feedback items
  *
  * Secrets (set via `wrangler secret put`):
  *   GROQ_API_KEY         — Groq API key
- *   GITHUB_TOKEN         — GitHub PAT with repo:issues scope
  *   FEEDBACK_PASSPHRASE  — The human-only feedback gate passphrase
+ *
+ * KV Namespace:
+ *   FEEDBACK_KV — stores feedback as pending:{id} keys
  */
 
 const CORS_HEADERS = {
 	'Access-Control-Allow-Origin': '*',
-	'Access-Control-Allow-Methods': 'POST, OPTIONS',
+	'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
 	'Access-Control-Allow-Headers': 'Content-Type',
 	'Access-Control-Max-Age': '86400'
 };
@@ -78,7 +82,7 @@ function checkContentQuality(message) {
 	return null; // passes
 }
 
-// --- Route: /feedback ---
+// --- Route: POST /feedback ---
 async function handleFeedback(request, env) {
 	const body = await request.json();
 	const { message, feedback_type, page_url, passphrase, honeypot, opened_at } = body;
@@ -122,88 +126,99 @@ async function handleFeedback(request, env) {
 	const randomPart = Math.random().toString(16).slice(2, 5);
 	const beadsId = `fb${datePart}${randomPart}`;
 
-	// 8. Create GitHub Issue
+	// 8. Build BEADS-compatible issue and store in KV
 	const feedbackTypeLabel = feedback_type || 'general';
-	const issueTitle = `Dogfood ${feedbackTypeLabel}: ${safeMessage.slice(0, 60)}${safeMessage.length > 60 ? '...' : ''}`;
-	const issueBody = [
-		'## Feedback Details',
-		'',
-		'| Field | Value |',
-		'|-------|-------|',
-		`| BEADS ID | \`${beadsId}\` |`,
-		`| Type | ${feedbackTypeLabel} |`,
-		`| Page | ${page_url || 'not specified'} |`,
-		`| Submitted | ${now.toISOString()} |`,
-		piiRedacted.length > 0 ? `| PII Redacted | ${piiRedacted.join(', ')} |` : '',
-		'',
-		'---',
-		'',
-		'## User Message',
-		'',
-		safeMessage,
-		'',
-		'---',
-		'',
-		'## Triage Checklist',
-		'',
-		'- [ ] Categorize: actionable bug / feature request / question / praise',
-		'- [ ] Assess priority (P0-P3)',
-		'- [ ] Link to existing issue if duplicate',
-		'- [ ] Create implementation issue if actionable',
-		'',
-		'---',
-		`*Auto-generated from dogfood feedback. BEADS ID: ${beadsId}. w4ester & ai orchestration.*`
-	].filter(Boolean).join('\n');
-
-	const labels = ['dogfood', 'feedback', feedbackTypeLabel];
+	const beadsIssue = {
+		id: beadsId,
+		title: `Dogfood ${feedbackTypeLabel}: ${safeMessage.slice(0, 60)}${safeMessage.length > 60 ? '...' : ''}`,
+		description: safeMessage,
+		status: 'open',
+		priority: 'P2',
+		issue_type: 'feedback',
+		created_at: now.toISOString(),
+		tags: ['dogfood', 'feedback', feedbackTypeLabel],
+		source: {
+			type: 'dogfood-form',
+			page_url: page_url || 'not specified',
+			pii_redacted: piiRedacted
+		}
+	};
 
 	try {
-		const ghResponse = await fetch('https://api.github.com/repos/w4ester/ai-workshop-cs/issues', {
-			method: 'POST',
-			headers: {
-				'Authorization': `Bearer ${env.GITHUB_TOKEN}`,
-				'Accept': 'application/vnd.github+json',
-				'User-Agent': 'ai-workshop-cs-feedback',
-				'X-GitHub-Api-Version': '2022-11-28'
-			},
-			body: JSON.stringify({
-				title: issueTitle,
-				body: issueBody,
-				labels
-			})
-		});
-
-		if (!ghResponse.ok) {
-			const errText = await ghResponse.text();
-			console.error('GitHub Issue creation failed:', errText);
-			// Still return success to user — we don't expose GitHub errors
-			return jsonResponse({
-				success: true,
-				id: beadsId,
-				message: 'Feedback received. Thank you!',
-				pii_redacted: piiRedacted,
-				note: 'Issue tracking temporarily unavailable — feedback logged.'
-			});
-		}
-
-		const ghData = await ghResponse.json();
+		await env.FEEDBACK_KV.put(
+			`pending:${beadsId}`,
+			JSON.stringify(beadsIssue),
+			{ expirationTtl: 90 * 24 * 60 * 60 } // 90-day TTL
+		);
 
 		return jsonResponse({
 			success: true,
 			id: beadsId,
 			message: 'Feedback received and tracked. Thank you!',
-			pii_redacted: piiRedacted,
-			issue_url: ghData.html_url
-		});
-
-	} catch (err) {
-		return jsonResponse({
-			success: true,
-			id: beadsId,
-			message: 'Feedback received. Thank you!',
 			pii_redacted: piiRedacted
 		});
+	} catch (err) {
+		console.error('KV write failed:', err.message);
+		return jsonResponse({
+			success: false,
+			error: 'Failed to store feedback. Please try again.'
+		}, 500);
 	}
+}
+
+// --- Route: GET /feedback/pull ---
+async function handleFeedbackPull(request, env) {
+	const url = new URL(request.url);
+	const passphrase = url.searchParams.get('passphrase');
+
+	if (!passphrase || passphrase !== env.FEEDBACK_PASSPHRASE) {
+		return jsonResponse({ success: false, error: 'Invalid passphrase' }, 403);
+	}
+
+	// List all pending: keys
+	const listed = await env.FEEDBACK_KV.list({ prefix: 'pending:' });
+	const items = [];
+
+	for (const key of listed.keys) {
+		const value = await env.FEEDBACK_KV.get(key.name, { type: 'json' });
+		if (value) {
+			items.push({ key: key.name, issue: value });
+		}
+	}
+
+	return jsonResponse({ success: true, count: items.length, items });
+}
+
+// --- Route: POST /feedback/ack ---
+async function handleFeedbackAck(request, env) {
+	const body = await request.json();
+	const { passphrase, keys } = body;
+
+	if (!passphrase || passphrase !== env.FEEDBACK_PASSPHRASE) {
+		return jsonResponse({ success: false, error: 'Invalid passphrase' }, 403);
+	}
+
+	if (!keys || !Array.isArray(keys) || keys.length === 0) {
+		return jsonResponse({ success: false, error: 'keys array required' }, 400);
+	}
+
+	const acked = [];
+	for (const key of keys) {
+		// Only process pending: keys
+		if (!key.startsWith('pending:')) continue;
+
+		const value = await env.FEEDBACK_KV.get(key);
+		if (value) {
+			const ackedKey = key.replace('pending:', 'acked:');
+			await env.FEEDBACK_KV.put(ackedKey, value, {
+				expirationTtl: 90 * 24 * 60 * 60
+			});
+			await env.FEEDBACK_KV.delete(key);
+			acked.push(key);
+		}
+	}
+
+	return jsonResponse({ success: true, acked_count: acked.length, acked });
 }
 
 // --- Route: /llm ---
@@ -245,21 +260,33 @@ export default {
 			return new Response(null, { headers: CORS_HEADERS });
 		}
 
-		if (request.method !== 'POST') {
-			return jsonResponse({ error: 'Method not allowed' }, 405);
-		}
-
 		const url = new URL(request.url);
 		const path = url.pathname;
 
 		try {
-			if (path === '/feedback') {
-				return await handleFeedback(request, env);
+			// GET routes
+			if (request.method === 'GET') {
+				if (path === '/feedback/pull') {
+					return await handleFeedbackPull(request, env);
+				}
+				return jsonResponse({ error: 'Not found' }, 404);
 			}
-			if (path === '/llm' || path === '/') {
-				return await handleLLM(request, env);
+
+			// POST routes
+			if (request.method === 'POST') {
+				if (path === '/feedback') {
+					return await handleFeedback(request, env);
+				}
+				if (path === '/feedback/ack') {
+					return await handleFeedbackAck(request, env);
+				}
+				if (path === '/llm' || path === '/') {
+					return await handleLLM(request, env);
+				}
+				return jsonResponse({ error: 'Not found' }, 404);
 			}
-			return jsonResponse({ error: 'Not found' }, 404);
+
+			return jsonResponse({ error: 'Method not allowed' }, 405);
 		} catch (err) {
 			return jsonResponse({ error: err.message }, 500);
 		}

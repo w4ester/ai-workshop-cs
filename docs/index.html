@@ -163,7 +163,7 @@
       margin-top: 3rem;
     }
     section > h2 {
-      font-size: 1.6rem;
+      font-size: clamp(1.3rem, 4vw, 1.6rem);
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 0.25rem;
@@ -799,7 +799,22 @@
       .main { padding: 0 1.25rem 3rem; }
       .hero-meta { flex-direction: column; gap: 0.5rem; }
       .gap-bar-label { width: 140px; font-size: 0.75rem; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stats { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+      .run-btn,
+      .reset-btn,
+      .feedback-gate-btn,
+      .feedback-type-btn,
+      .feedback-submit-btn { min-height: 44px; }
+      .feedback-submit-row { flex-wrap: wrap; }
+    }
+
+    /* Focus styles for keyboard navigation */
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
     }
   </style>
 </head>
@@ -1255,23 +1270,23 @@
   </div>
 
   <div class="playground-tabs" role="tablist">
-    <button class="playground-tab active" role="tab" aria-selected="true" data-tab="humans-ai" onclick="switchTab(this)">
+    <button class="playground-tab active" role="tab" aria-selected="true" aria-controls="panel-humans-ai" data-tab="humans-ai" onclick="switchTab(this)">
       A. Humans &amp; AI
       <span class="tab-badge" style="background:var(--red-light);color:var(--red);">K-5</span>
     </button>
-    <button class="playground-tab" role="tab" aria-selected="false" data-tab="representation" onclick="switchTab(this)">
+    <button class="playground-tab" role="tab" aria-selected="false" aria-controls="panel-representation" data-tab="representation" onclick="switchTab(this)">
       B. Representation
       <span class="tab-badge" style="background:var(--orange-light);color:var(--orange);">6-8</span>
     </button>
-    <button class="playground-tab" role="tab" aria-selected="false" data-tab="ml" onclick="switchTab(this)">
+    <button class="playground-tab" role="tab" aria-selected="false" aria-controls="panel-ml" data-tab="ml" onclick="switchTab(this)">
       C. Machine Learning
       <span class="tab-badge" style="background:var(--blue-light);color:var(--blue);">6-8</span>
     </button>
-    <button class="playground-tab" role="tab" aria-selected="false" data-tab="ethics" onclick="switchTab(this)">
+    <button class="playground-tab" role="tab" aria-selected="false" aria-controls="panel-ethics" data-tab="ethics" onclick="switchTab(this)">
       D. Ethical AI
       <span class="tab-badge" style="background:var(--purple-light);color:var(--purple);">9-12</span>
     </button>
-    <button class="playground-tab" role="tab" aria-selected="false" data-tab="societal" onclick="switchTab(this)">
+    <button class="playground-tab" role="tab" aria-selected="false" aria-controls="panel-societal" data-tab="societal" onclick="switchTab(this)">
       E. Societal Impact
       <span class="tab-badge" style="background:var(--green-light);color:var(--green);">9-12</span>
     </button>
@@ -1304,6 +1319,7 @@
           </button>
         </div>
       </div>
+      <label class="sr-only" for="editor-humans-ai">Python code editor: Humans &amp; AI</label>
       <textarea class="code-editor" id="editor-humans-ai" spellcheck="false">
 # === Can a Computer Think Like You? ===
 # CSTA AI Priority A: Humans and AI
@@ -1379,6 +1395,7 @@ print("Neither is 'better' — they're good at DIFFERENT things!")
           </button>
         </div>
       </div>
+      <label class="sr-only" for="editor-representation">Python code editor: Representation</label>
       <textarea class="code-editor" id="editor-representation" spellcheck="false">
 # === How Does AI "See" Data? ===
 # CSTA AI Priority B: Representation & Reasoning
@@ -1455,6 +1472,7 @@ print("convert everything to numbers so math can find patterns!")
           </button>
         </div>
       </div>
+      <label class="sr-only" for="editor-ml">Python code editor: Machine Learning</label>
       <textarea class="code-editor" id="editor-ml" spellcheck="false">
 # === Train Your Own Classifier! ===
 # CSTA AI Priority C: Machine Learning
@@ -1555,6 +1573,7 @@ print("4. Biased training data = biased predictions")
           </button>
         </div>
       </div>
+      <label class="sr-only" for="editor-ethics">Python code editor: Ethical AI</label>
       <textarea class="code-editor" id="editor-ethics" spellcheck="false">
 # === Bias Detective: Find the Unfairness ===
 # CSTA AI Priority D: Ethical AI System Design
@@ -1660,6 +1679,7 @@ print("5. Include diverse stakeholders in AI design")
           </button>
         </div>
       </div>
+      <label class="sr-only" for="editor-societal">Python code editor: Societal Impact</label>
       <textarea class="code-editor" id="editor-societal" spellcheck="false">
 # === AI Impact Simulator ===
 # CSTA AI Priority E: Societal Impacts of AI
@@ -1926,7 +1946,7 @@ print("just the technology itself!")
              autocomplete="off" spellcheck="false">
       <button class="feedback-gate-btn" id="feedback-unlock-btn" onclick="unlockFeedback()">Unlock</button>
     </div>
-    <div class="feedback-error" id="gate-error"></div>
+    <div class="feedback-error" id="gate-error" role="alert"></div>
   </div>
 
   <!-- Honeypot (hidden from humans, visible to bots) -->
@@ -1946,7 +1966,7 @@ print("just the technology itself!")
     <textarea class="feedback-textarea" id="feedback-message"
               placeholder="What's on your mind? Share your thoughts, suggestions, or report an issue..."
               maxlength="2000"></textarea>
-    <div class="feedback-error" id="form-error"></div>
+    <div class="feedback-error" id="form-error" role="alert"></div>
     <div class="feedback-submit-row">
       <div class="feedback-privacy">
         Feedback is tracked as a project issue. PII is auto-redacted. No personal data is stored.
@@ -1958,7 +1978,7 @@ print("just the technology itself!")
   </div>
 
   <!-- Success state -->
-  <div class="feedback-success" id="feedback-success">
+  <div class="feedback-success" id="feedback-success" role="status">
     <div class="feedback-success-check">&#10003;</div>
     <p style="font-weight:700;font-size:1.1rem;">Thank you for your feedback!</p>
     <p style="color:var(--gray-500);font-size:0.88rem;margin-top:0.35rem;" id="feedback-success-detail"></p>
@@ -2220,8 +2240,8 @@ document.addEventListener('keydown', function(e) {
 
 // SHA-256 hash of the passphrase (one-way — safe to embed)
 var PASSPHRASE_HASH = '9c5785aac8a970f001fcb24d1bd7310f8e6c997010b3266890b69c79daf4fb8f';
-// CF Worker feedback endpoint (update after deployment)
-var FEEDBACK_ENDPOINT = '/feedback';
+// CF Worker feedback endpoint
+var FEEDBACK_ENDPOINT = 'https://ai-workshop-groq-proxy.howdy-1bc.workers.dev/feedback';
 
 var feedbackState = {
   unlocked: false,
@@ -2346,8 +2366,7 @@ async function submitFeedback() {
       submitBtn.textContent = 'Send Feedback';
     }
   } catch (err) {
-    // CF Worker not deployed yet — fallback: open GitHub issue directly
-    showFeedbackFallback(message);
+    showFeedbackError();
   }
 }
 
@@ -2357,35 +2376,20 @@ function showFeedbackSuccess(data) {
   successEl.classList.add('visible');
 
   var detailEl = document.getElementById('feedback-success-detail');
-  var detail = 'Issue tracked as ' + data.id + '.';
+  var detail = 'Feedback tracked as ' + data.id + '.';
   if (data.pii_redacted && data.pii_redacted.length > 0) {
     detail += ' PII auto-redacted: ' + data.pii_redacted.join(', ') + '.';
   }
   detailEl.textContent = detail;
 }
 
-function showFeedbackFallback(message) {
-  var title = encodeURIComponent('Dogfood ' + feedbackState.type + ': ' + message.slice(0, 60));
-  var body = encodeURIComponent('## Feedback\n\nType: ' + feedbackState.type + '\nPage: ' + window.location.href + '\n\n' + message);
-  var issueUrl = 'https://github.com/w4ester/ai-workshop-cs/issues/new?title=' + title + '&body=' + body + '&labels=dogfood,feedback,' + feedbackState.type;
-
-  document.getElementById('feedback-form').classList.remove('visible');
-  var successEl = document.getElementById('feedback-success');
-  successEl.classList.add('visible');
-
-  var detailEl = document.getElementById('feedback-success-detail');
-  // Clear and build safely with DOM methods
-  detailEl.textContent = '';
-  var textNode = document.createTextNode('Worker not yet deployed. ');
-  var link = document.createElement('a');
-  link.href = issueUrl;
-  link.target = '_blank';
-  link.rel = 'noopener';
-  link.style.cssText = 'color:var(--blue);font-weight:600;';
-  link.textContent = 'Click here to create the issue on GitHub';
-  detailEl.appendChild(textNode);
-  detailEl.appendChild(link);
-  detailEl.appendChild(document.createTextNode('.'));
+function showFeedbackError() {
+  var errorEl = document.getElementById('form-error');
+  errorEl.textContent = 'Something went wrong. Please try again later.';
+  errorEl.classList.add('visible');
+  var submitBtn = document.getElementById('feedback-submit-btn');
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Send Feedback';
 }
 </script>
 
