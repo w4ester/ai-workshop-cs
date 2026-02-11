@@ -151,6 +151,21 @@
     }
     .toc a:hover { color: var(--blue); border-bottom-color: var(--blue); }
 
+    /* Hamburger nav — header and button hidden on desktop */
+    .toc-header { display: none; }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 1rem;
+      color: var(--gray-700);
+    }
+    .hamburger svg { width: 24px; height: 24px; }
+    .hamburger-close { display: none; }
+    .hamburger[aria-expanded="true"] .hamburger-open { display: none; }
+    .hamburger[aria-expanded="true"] .hamburger-close { display: block; }
+
     /* MAIN */
     .main {
       max-width: var(--max-width);
@@ -806,6 +821,40 @@
       .feedback-type-btn,
       .feedback-submit-btn { min-height: 44px; }
       .feedback-submit-row { flex-wrap: wrap; }
+
+      /* Hamburger nav */
+      .toc-header { display: flex; }
+      .hamburger { display: block; }
+      .toc-inner {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        overflow: visible;
+      }
+      .toc-inner.open {
+        display: flex;
+      }
+      .toc .toc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.5rem;
+      }
+      .toc .toc-header .toc-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gray-500);
+        padding: 0.75rem 0.5rem;
+      }
+      .toc-inner a {
+        padding: 0.85rem 1.25rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--gray-200);
+        border-left: none;
+      }
+      .toc-inner a:last-child { border-bottom: none; }
     }
 
     /* Focus styles for keyboard navigation */
@@ -846,8 +895,15 @@
 </header>
 
 <!-- NAV -->
-<nav class="toc">
-  <div class="toc-inner">
+<nav class="toc" id="main-nav">
+  <div class="toc-header">
+    <span class="toc-label">Sections</span>
+    <button class="hamburger" aria-expanded="false" aria-controls="toc-links" aria-label="Toggle navigation menu" onclick="toggleNav()">
+      <svg class="hamburger-open" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="hamburger-close" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="toc-inner" id="toc-links">
     <a href="#problem">Problem</a>
     <a href="#gap">Gap Analysis</a>
     <a href="#vision">Vision</a>
@@ -2071,6 +2127,25 @@ print("just the technology itself!")
 <!-- JAVASCRIPT: Playground Engine -->
 <!-- ============================================ -->
 <script>
+// --- Hamburger Nav ---
+function toggleNav() {
+  var btn = document.querySelector('.hamburger');
+  var links = document.getElementById('toc-links');
+  var expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+  links.classList.toggle('open');
+}
+// Close nav when a link is tapped (mobile)
+document.getElementById('toc-links').addEventListener('click', function(e) {
+  if (e.target.tagName === 'A') {
+    var btn = document.querySelector('.hamburger');
+    if (btn.offsetParent !== null) { // only on mobile (hamburger visible)
+      btn.setAttribute('aria-expanded', 'false');
+      document.getElementById('toc-links').classList.remove('open');
+    }
+  }
+});
+
 // --- Tab Switching ---
 function switchTab(btn) {
   var tabId = btn.getAttribute('data-tab');
