@@ -52,23 +52,22 @@ function redactPII(text) {
 
 // --- Rate Limiting (in-memory, per-worker-instance) ---
 const rateLimits = new Map();
-const RATE_LIMIT_WINDOW = 3600000; // 1 hour in ms
-const RATE_LIMIT_MAX = 5;
 
-function checkRateLimit(ip) {
+function checkRateLimit(ip, env) {
+	const maxPerMinute = parseInt(env.RATE_LIMIT_PER_MINUTE || '20');
 	const now = Date.now();
 	const key = `feedback:${ip}`;
 	const record = rateLimits.get(key);
 
-	if (!record || (now - record.start) > RATE_LIMIT_WINDOW) {
+	if (!record || (now - record.start) > 60000) {
 		rateLimits.set(key, { start: now, count: 1 });
-		return true;
+		return { allowed: true, limit: maxPerMinute };
 	}
-	if (record.count >= RATE_LIMIT_MAX) {
-		return false;
+	if (record.count >= maxPerMinute) {
+		return { allowed: false, limit: maxPerMinute };
 	}
 	record.count++;
-	return true;
+	return { allowed: true, limit: maxPerMinute };
 }
 
 // --- Content Quality Check ---
@@ -105,10 +104,11 @@ async function handleFeedback(request, env) {
 		return jsonResponse({ success: false, error: 'Invalid passphrase. Only authorized reviewers can submit feedback.' }, 403);
 	}
 
-	// 4. Rate limiting
+	// 4. Rate limiting (reads RATE_LIMIT_PER_MINUTE from env binding)
 	const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
-	if (!checkRateLimit(clientIP)) {
-		return jsonResponse({ success: false, error: 'Rate limit exceeded. Max 5 feedback per hour.' }, 429);
+	const rateCheck = checkRateLimit(clientIP, env);
+	if (!rateCheck.allowed) {
+		return jsonResponse({ success: false, error: `Rate limit exceeded. Max ${rateCheck.limit} per minute.` }, 429);
 	}
 
 	// 5. Content quality
