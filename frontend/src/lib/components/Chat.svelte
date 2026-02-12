@@ -4,6 +4,7 @@
 	 * Follows chat-design-best-practices: minimal chrome, asymmetric styling
 	 */
 	import { Flow } from '$lib/pocketflow/index.js';
+	import { POCKETFLOW_CONFIG } from '$lib/pocketflow/config.js';
 	import { GetContextNode } from '$lib/pocketflow/nodes/get-context.js';
 	import { BuildPromptNode } from '$lib/pocketflow/nodes/build-prompt.js';
 	import { CallLLMNode } from '$lib/pocketflow/nodes/call-llm.js';
@@ -43,10 +44,8 @@
 				userMessage: text,
 				history: messages.slice(0, -1),
 				currentPage: typeof window !== 'undefined' ? window.location.pathname : '/',
-				backend: 'groq',
-				llmConfig: {
-					groqWorkerUrl: 'https://ai-workshop-groq-proxy.howdy-1bc.workers.dev/llm'
-				}
+				backend: POCKETFLOW_CONFIG.defaultBackend,
+				llmConfig: {}
 			};
 
 			const result = await agentFlow.process(shared);

@@ -1,4 +1,5 @@
 import { Node } from '../index.js';
+import { POCKETFLOW_CONFIG } from '../config.js';
 
 /**
  * CallLLM — Routes to the appropriate LLM backend
@@ -12,7 +13,7 @@ export class CallLLMNode extends Node {
 	prep(shared) {
 		return {
 			messages: shared.messages,
-			backend: shared.backend || 'groq',
+			backend: shared.backend || POCKETFLOW_CONFIG.defaultBackend,
 			config: shared.llmConfig || {}
 		};
 	}
@@ -48,15 +49,15 @@ export class CallLLMNode extends Node {
 	}
 
 	async callGroq(messages, config) {
-		const workerUrl = config.groqWorkerUrl || '/api/llm';
+		const workerUrl = config.groqWorkerUrl || `${POCKETFLOW_CONFIG.groqWorkerUrl}/llm`;
 		const res = await fetch(workerUrl, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				messages,
-				model: config.groqModel || 'llama-3.3-70b-versatile',
-				temperature: config.temperature || 0.7,
-				max_tokens: config.maxTokens || 500
+				model: config.groqModel || POCKETFLOW_CONFIG.groqModel,
+				temperature: config.temperature || POCKETFLOW_CONFIG.temperature,
+				max_tokens: config.maxTokens || POCKETFLOW_CONFIG.maxTokens
 			})
 		});
 		if (!res.ok) {
@@ -72,12 +73,12 @@ export class CallLLMNode extends Node {
 	}
 
 	async callOllama(messages, config) {
-		const ollamaUrl = config.ollamaUrl || 'http://127.0.0.1:11434/api/chat';
+		const ollamaUrl = config.ollamaUrl || POCKETFLOW_CONFIG.ollamaUrl;
 		const res = await fetch(ollamaUrl, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				model: config.ollamaModel || 'gemma2:2b',
+				model: config.ollamaModel || POCKETFLOW_CONFIG.ollamaModel,
 				messages,
 				stream: false
 			})
