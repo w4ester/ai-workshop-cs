@@ -44,7 +44,7 @@
 	}
 
 	// Compose prompt from selections
-	let prompt = $derived(() => {
+	let prompt = $derived.by(() => {
 		if (!selectedGrade || !selectedCategory) return '';
 		const cat = cstaCategories.find(c => c.id === selectedCategory);
 		const durText = selectedDuration === 0 ? 'a multi-day unit' : `a ${selectedDuration}-minute lesson`;
@@ -58,7 +58,7 @@
 	});
 
 	function generateLesson() {
-		const p = prompt();
+		const p = prompt;
 		if (!p) return;
 		isSending = true;
 		sendToChat(p);
@@ -87,7 +87,7 @@
 
 <!-- Header -->
 <section class="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white py-12">
-	<div class="max-w-5xl mx-auto px-6">
+	<div class="max-w-5xl mx-auto px-4 sm:px-6">
 		<h1 class="text-3xl font-extrabold tracking-tight mb-2">AI Lesson Builder</h1>
 		<p class="text-blue-100 max-w-2xl">
 			Tell us your grade band and AI topic. Our assistant will generate a complete, dual-aligned lesson plan connecting MSDE CS Standards with CSTA AI Priorities.
@@ -95,7 +95,7 @@
 	</div>
 </section>
 
-<section class="max-w-5xl mx-auto px-6 py-8">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
 	<div class="grid lg:grid-cols-5 gap-8">
 		<!-- Left column: Form (3 cols) -->
 		<div class="lg:col-span-3 space-y-8">
@@ -108,7 +108,7 @@
 							onclick={() => selectedGrade = selectedGrade === band.id ? '' : band.id}
 							class="p-4 rounded-xl border-2 text-center transition-all {selectedGrade === band.id ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-500 ring-2 ring-blue-400' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-gray-400'}"
 						>
-							<div class="text-2xl mb-1">{@html band.icon}</div>
+							<div class="text-2xl mb-1" aria-hidden="true">{@html band.icon}</div>
 							<div class="font-bold text-lg">{band.label}</div>
 							<div class="text-xs text-gray-500">{band.desc}</div>
 						</button>
@@ -154,6 +154,9 @@
 					bind:value={context}
 					placeholder="What do students already know? E.g., 'Students have experience with Scratch and can explain what an algorithm is.'"
 					rows="3"
+				aria-label="Student context"
+				autocapitalize="sentences"
+				spellcheck="true"
 					class="w-full px-4 py-3 text-sm border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 outline-none focus:border-blue-400 transition-colors resize-y"
 				></textarea>
 			</div>
@@ -182,8 +185,8 @@
 			<!-- Prompt preview -->
 			<div class="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-700 rounded-xl p-5">
 				<h3 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">Prompt Preview</h3>
-				{#if prompt()}
-					<p class="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-wrap leading-relaxed">{prompt()}</p>
+				{#if prompt}
+					<p class="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-wrap leading-relaxed">{prompt}</p>
 				{:else}
 					<p class="text-sm text-gray-400 italic">Select options to see the generated prompt...</p>
 				{/if}

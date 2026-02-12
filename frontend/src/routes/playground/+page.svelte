@@ -387,7 +387,7 @@ print("just the technology itself!")
 
 <!-- Header -->
 <section class="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white py-12">
-	<div class="max-w-5xl mx-auto px-6">
+	<div class="max-w-5xl mx-auto px-4 sm:px-6">
 		<h1 class="text-3xl font-extrabold tracking-tight mb-2">Interactive Playground</h1>
 		<p class="text-blue-100 max-w-2xl">
 			Run Python code in your browser — no installation needed. Five AI-themed activities, each mapped to a CSTA AI Priority category.
@@ -396,12 +396,15 @@ print("just the technology itself!")
 </section>
 
 <!-- Tab bar -->
-<section class="max-w-5xl mx-auto px-6 pt-6">
-	<div class="flex gap-0 border-b-2 border-gray-200 dark:border-slate-700 overflow-x-auto scrollbar-hide">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
+	<div role="tablist" aria-label="AI Activity Categories" class="flex gap-0 border-b-2 border-gray-200 dark:border-slate-700 overflow-x-auto">
 		{#each tabs as tab, i}
 			<button
+				role="tab"
+				aria-selected={activeTab === i}
+				aria-controls="panel-{tab.id}"
 				onclick={() => activeTab = i}
-				class="px-4 py-3 text-sm font-semibold whitespace-nowrap border-b-3 transition-colors {activeTab === i ? 'text-blue-600 border-blue-600 bg-blue-50 dark:bg-blue-900/20' : 'text-gray-500 border-transparent hover:text-blue-500'}"
+				class="px-3 sm:px-4 py-3 text-sm font-semibold whitespace-nowrap border-b-3 transition-colors {activeTab === i ? 'text-blue-600 border-blue-600 bg-blue-50 dark:bg-blue-900/20' : 'text-gray-500 border-transparent hover:text-blue-500'}"
 			>
 				{tab.id}.
 				<span class="hidden sm:inline"> {tab.title}</span>
@@ -414,7 +417,7 @@ print("just the technology itself!")
 </section>
 
 <!-- Active panel -->
-<section class="max-w-5xl mx-auto px-6 py-6">
+<div id="panel-{tab.id}" role="tabpanel" aria-labelledby="tab-{tab.id}" class="max-w-5xl mx-auto px-4 sm:px-6 py-6">
 	<!-- Activity description -->
 	<div class="mb-5">
 		<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{tab.title}</h2>
@@ -454,7 +457,7 @@ print("just the technology itself!")
 
 	<!-- Callout -->
 	<div class="mt-6 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-lg p-4 flex items-start gap-3">
-		<span class="text-xl">&#128161;</span>
+		<span class="text-xl" aria-hidden="true">&#128161;</span>
 		<div>
 			<p class="text-sm text-gray-700 dark:text-gray-300">
 				<strong>Want a full lesson plan around this activity?</strong> Head to the
@@ -463,4 +466,4 @@ print("just the technology itself!")
 			</p>
 		</div>
 	</div>
-</section>
+</div>

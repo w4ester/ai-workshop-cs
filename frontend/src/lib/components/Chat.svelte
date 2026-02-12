@@ -138,8 +138,8 @@
 					</div>
 				</div>
 			{:else}
-				<div class="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">
-					{@html msg.html || msg.content}
+				<div class="text-sm text-gray-700 dark:text-gray-200 leading-relaxed whitespace-pre-wrap">
+					{msg.content}
 				</div>
 			{/if}
 		{/each}
@@ -156,6 +156,7 @@
 			onkeydown={handleKeydown}
 			placeholder="Ask about standards, lessons..."
 			rows="1"
+			aria-label="Chat message"
 			class="flex-1 resize-none border border-gray-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm bg-transparent outline-none focus:border-blue-400 transition-colors"
 		></textarea>
 		<button

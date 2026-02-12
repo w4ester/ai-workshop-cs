@@ -8,7 +8,7 @@
 
 <!-- Header -->
 <section class="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white py-16">
-	<div class="max-w-4xl mx-auto px-6 text-center">
+	<div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
 		<h1 class="text-4xl font-extrabold tracking-tight mb-4">About AI Workshop CS</h1>
 		<p class="text-lg text-blue-100 max-w-2xl mx-auto">
 			Bridging Maryland's CS standards with CSTA AI Priorities — so every CS teacher can teach AI confidently.
@@ -17,7 +17,7 @@
 </section>
 
 <!-- The Problem -->
-<section class="max-w-4xl mx-auto px-6 py-14">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
 	<h2 class="text-2xl font-bold mb-6">The Problem</h2>
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -40,25 +40,25 @@
 </section>
 
 <!-- The Approach -->
-<section class="max-w-4xl mx-auto px-6 pb-14">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 pb-14">
 	<h2 class="text-2xl font-bold mb-6">The Approach</h2>
-	<div class="grid md:grid-cols-3 gap-5">
+	<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
-			<div class="text-3xl mb-3">&#128218;</div>
+			<div class="text-3xl mb-3" aria-hidden="true">&#128218;</div>
 			<h3 class="font-bold text-lg mb-2">Standards Crosswalk</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				A systematic mapping of all MSDE CS standards to CSTA AI Priorities, identifying strong alignments, partial connections, extensions, and critical gaps across K-12.
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
-			<div class="text-3xl mb-3">&#129302;</div>
+			<div class="text-3xl mb-3" aria-hidden="true">&#129302;</div>
 			<h3 class="font-bold text-lg mb-2">AI Lesson Agent</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				An AI-powered assistant that generates complete, dual-aligned lesson plans. Choose your grade band, CSTA category, and duration — get a ready-to-teach lesson in minutes.
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
-			<div class="text-3xl mb-3">&#9654;</div>
+			<div class="text-3xl mb-3" aria-hidden="true">&#9654;</div>
 			<h3 class="font-bold text-lg mb-2">Interactive Playground</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				Five Python activities running in the browser via Pyodide — no installation needed. Each maps to a CSTA AI Priority category with grade-appropriate content.
@@ -68,7 +68,7 @@
 </section>
 
 <!-- Data Sources -->
-<section class="max-w-4xl mx-auto px-6 pb-14">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 pb-14">
 	<h2 class="text-2xl font-bold mb-6">Data Sources</h2>
 	<div class="space-y-3">
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
@@ -96,7 +96,7 @@
 </section>
 
 <!-- For Educators -->
-<section class="max-w-4xl mx-auto px-6 pb-14">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 pb-14">
 	<h2 class="text-2xl font-bold mb-6">For Educators</h2>
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -112,7 +112,7 @@
 </section>
 
 <!-- Call to Action -->
-<section class="max-w-4xl mx-auto px-6 pb-20">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
 	<div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-8 text-center text-white">
 		<h2 class="text-2xl font-bold mb-3">Ready to Explore?</h2>
 		<p class="text-blue-100 mb-6 max-w-xl mx-auto">

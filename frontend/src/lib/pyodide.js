@@ -25,6 +25,7 @@ export async function initPyodide(onProgress) {
 			await new Promise((resolve, reject) => {
 				const script = document.createElement('script');
 				script.src = `${PYODIDE_CDN}pyodide.js`;
+				script.crossOrigin = 'anonymous';
 				script.onload = resolve;
 				script.onerror = () => reject(new Error('Failed to load Pyodide script'));
 				document.head.appendChild(script);
@@ -44,6 +45,7 @@ export async function initPyodide(onProgress) {
 	try {
 		return await loadPromise;
 	} catch (err) {
+		pyodide = null;
 		loadPromise = null; // Allow retry on failure
 		throw err;
 	}

@@ -22,7 +22,7 @@
 	let searchText = $state('');
 
 	// Flatten all alignments + gaps into a single list
-	let allItems = $derived(() => {
+	let allItems = $derived.by(() => {
 		const items = [];
 		for (const band of data.crosswalk.mappings) {
 			for (const a of band.alignments) {
@@ -42,8 +42,8 @@
 	});
 
 	// Filtered results
-	let filtered = $derived(() => {
-		let results = allItems();
+	let filtered = $derived.by(() => {
+		let results = allItems;
 		if (selectedGrade) {
 			results = results.filter(i => i.grade_band === selectedGrade);
 		}
@@ -69,8 +69,8 @@
 	});
 
 	// Stats
-	let stats = $derived(() => {
-		const items = allItems();
+	let stats = $derived.by(() => {
+		const items = allItems;
 		return {
 			total: items.length,
 			strong: items.filter(i => i.alignment_strength === 'strong').length,
@@ -117,7 +117,7 @@
 
 <!-- Header -->
 <section class="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white py-12">
-	<div class="max-w-5xl mx-auto px-6">
+	<div class="max-w-5xl mx-auto px-4 sm:px-6">
 		<h1 class="text-3xl font-extrabold tracking-tight mb-2">Standards Crosswalk</h1>
 		<p class="text-blue-100 max-w-2xl">
 			Browse the alignment between Maryland CS Standards (MSDE) and CSTA AI Learning Priorities. Filter by grade band, category, or alignment strength.
@@ -126,7 +126,7 @@
 </section>
 
 <!-- Filter Bar -->
-<section class="max-w-5xl mx-auto px-6 py-6">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 py-6">
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-4 space-y-4">
 		<!-- Grade band pills -->
 		<div>
@@ -135,7 +135,7 @@
 				{#each gradeBands as band}
 					<button
 						onclick={() => selectedGrade = selectedGrade === band ? '' : band}
-						class="px-3 py-1.5 text-sm font-semibold rounded-lg border transition-colors {selectedGrade === band ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-slate-600 hover:border-blue-400'}"
+						class="px-3 py-2 sm:py-1.5 text-sm font-semibold rounded-lg border transition-colors {selectedGrade === band ? 'bg-blue-600 text-white border-blue-600' : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-slate-600 hover:border-blue-400'}"
 					>
 						{band}
 					</button>
@@ -150,7 +150,7 @@
 				{#each categories as cat}
 					<button
 						onclick={() => selectedCategory = selectedCategory === cat.id ? '' : cat.id}
-						class="px-3 py-1.5 text-sm font-semibold rounded-lg border transition-colors {selectedCategory === cat.id ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-slate-600 hover:border-emerald-400'}"
+						class="px-3 py-2 sm:py-1.5 text-sm font-semibold rounded-lg border transition-colors {selectedCategory === cat.id ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-slate-600 hover:border-emerald-400'}"
 					>
 						{cat.short}
 					</button>
@@ -165,7 +165,7 @@
 				{#each strengths as s}
 					<button
 						onclick={() => selectedStrength = selectedStrength === s ? '' : s}
-						class="px-3 py-1.5 text-sm font-semibold rounded-lg border transition-colors capitalize {selectedStrength === s ? strengthColor(s) + ' ring-2 ring-offset-1' : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-slate-600 hover:border-gray-400'}"
+						class="px-3 py-2 sm:py-1.5 text-sm font-semibold rounded-lg border transition-colors capitalize {selectedStrength === s ? strengthColor(s) + ' ring-2 ring-offset-1' : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-slate-600 hover:border-gray-400'}"
 					>
 						<span class="inline-block w-2 h-2 rounded-full {strengthDot(s)} mr-1"></span>
 						{s}
@@ -178,7 +178,8 @@
 		<div>
 			<input
 				bind:value={searchText}
-				type="text"
+				type="search"
+			aria-label="Search standards, topics, or teaching notes"
 				placeholder="Search standards, topics, or teaching notes..."
 				class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-gray-100 outline-none focus:border-blue-400 transition-colors"
 			/>
@@ -188,7 +189,7 @@
 		{#if selectedGrade || selectedCategory || selectedStrength || searchText}
 			<div class="flex items-center justify-between">
 				<span class="text-sm text-gray-500">
-					Showing <strong class="text-gray-900 dark:text-white">{filtered().length}</strong> of {stats().total} alignments
+					Showing <strong class="text-gray-900 dark:text-white">{filtered.length}</strong> of {stats.total} alignments
 				</span>
 				<button onclick={clearFilters} class="text-sm text-blue-600 hover:underline font-semibold">
 					Clear all filters
@@ -199,35 +200,35 @@
 </section>
 
 <!-- Stats Summary -->
-<section class="max-w-5xl mx-auto px-6 pb-4">
-	<div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-4">
+	<div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-3">
 		<div class="bg-white dark:bg-slate-800 border rounded-lg p-3 text-center">
-			<div class="text-2xl font-extrabold text-gray-900 dark:text-white">{stats().total}</div>
+			<div class="text-2xl font-extrabold text-gray-900 dark:text-white">{stats.total}</div>
 			<div class="text-xs text-gray-500">Total</div>
 		</div>
 		<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 text-center">
-			<div class="text-2xl font-extrabold text-emerald-600">{stats().strong}</div>
+			<div class="text-2xl font-extrabold text-emerald-600">{stats.strong}</div>
 			<div class="text-xs text-emerald-700 dark:text-emerald-400">Strong</div>
 		</div>
 		<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-3 text-center">
-			<div class="text-2xl font-extrabold text-amber-600">{stats().partial}</div>
+			<div class="text-2xl font-extrabold text-amber-600">{stats.partial}</div>
 			<div class="text-xs text-amber-700 dark:text-amber-400">Partial</div>
 		</div>
 		<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
-			<div class="text-2xl font-extrabold text-blue-600">{stats().extension}</div>
+			<div class="text-2xl font-extrabold text-blue-600">{stats.extension}</div>
 			<div class="text-xs text-blue-700 dark:text-blue-400">Extension</div>
 		</div>
 		<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-center">
-			<div class="text-2xl font-extrabold text-red-600">{stats().gap}</div>
+			<div class="text-2xl font-extrabold text-red-600">{stats.gap}</div>
 			<div class="text-xs text-red-700 dark:text-red-400">Gaps</div>
 		</div>
 	</div>
 </section>
 
 <!-- Alignment Cards -->
-<section class="max-w-5xl mx-auto px-6 pb-16">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
 	<div class="space-y-3">
-		{#each filtered() as item, idx}
+		{#each filtered as item, idx}
 			<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl overflow-hidden">
 				<!-- Card header -->
 				<button
@@ -269,7 +270,7 @@
 					</div>
 
 					<!-- Expand chevron -->
-					<svg class="w-5 h-5 text-gray-400 flex-shrink-0 mt-1 transition-transform {expandedCards.has(idx) ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<svg aria-hidden="true" class="w-5 h-5 text-gray-400 flex-shrink-0 mt-1 transition-transform {expandedCards.has(idx) ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 					</svg>
 				</button>
@@ -288,7 +289,7 @@
 			</div>
 		{/each}
 
-		{#if filtered().length === 0}
+		{#if filtered.length === 0}
 			<div class="text-center py-12 text-gray-400">
 				<p class="text-lg mb-2">No alignments match your filters.</p>
 				<button onclick={clearFilters} class="text-blue-600 hover:underline font-semibold">
@@ -300,7 +301,7 @@
 </section>
 
 <!-- Legend -->
-<section class="max-w-5xl mx-auto px-6 pb-16">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
 	<div class="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-700 rounded-xl p-5">
 		<h3 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">Alignment Strength Legend</h3>
 		<div class="grid sm:grid-cols-2 gap-3 text-sm">
