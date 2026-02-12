@@ -3,13 +3,19 @@ main = "src/index.js"
 compatibility_date = "2024-12-01"
 
 [vars]
-GROQ_MODEL = "qwen-qwq-32b"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+ALLOWED_MODELS = "llama-3.3-70b-versatile,llama-3.1-8b-instant,openai/gpt-oss-120b,qwen/qwen3-32b"
 MAX_TOKENS = "500"
-RATE_LIMIT_PER_MINUTE = "20"
+RPM_LIMIT = "25"
+RPD_LIMIT = "900"
 
 [[kv_namespaces]]
 binding = "FEEDBACK_KV"
 id = "c30d2006e5584e14a15a061d05b95f98"
+
+[[kv_namespaces]]
+binding = "RATE_LIMITS"
+id = "cc50fa2347b34746b5440cbef3dbe9b3"
 
 # Secrets — set via CLI, NEVER in this file:
 #   wrangler secret put GROQ_API_KEY

@@ -54,7 +54,7 @@ export class CallLLMNode extends Node {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				messages,
-				model: config.groqModel || 'qwen-qwq-32b',
+				model: config.groqModel || 'llama-3.3-70b-versatile',
 				temperature: config.temperature || 0.7,
 				max_tokens: config.maxTokens || 500
 			})

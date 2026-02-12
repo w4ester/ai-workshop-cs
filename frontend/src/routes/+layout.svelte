@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import Chat from '$lib/components/Chat.svelte';
 
 	let { children } = $props();
 </script>
@@ -32,4 +33,6 @@
 	<main>
 		{@render children()}
 	</main>
+
+	<Chat />
 </div>

@@ -45,7 +45,7 @@
 				currentPage: typeof window !== 'undefined' ? window.location.pathname : '/',
 				backend: 'groq',
 				llmConfig: {
-					groqWorkerUrl: '/api/llm'
+					groqWorkerUrl: 'https://ai-workshop-groq-proxy.howdy-1bc.workers.dev/llm'
 				}
 			};
 
