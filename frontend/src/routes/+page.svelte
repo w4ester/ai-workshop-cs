@@ -51,7 +51,7 @@
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
-			<div class="text-3xl mb-3">&#129302;</div>
+			<div class="text-3xl mb-3">&#9881;</div>
 			<h3 class="font-bold text-lg mb-2">AI Lesson Agent</h3>
 			<p class="text-gray-600 dark:text-gray-300 text-sm">
 				Tell the agent your grade band and topic. Get a complete, dual-aligned lesson in your chosen format in minutes.

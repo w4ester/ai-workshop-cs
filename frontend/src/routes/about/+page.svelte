@@ -51,7 +51,7 @@
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
-			<div class="text-3xl mb-3" aria-hidden="true">&#129302;</div>
+			<div class="text-3xl mb-3" aria-hidden="true">&#9881;</div>
 			<h3 class="font-bold text-lg mb-2">AI Lesson Agent</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				An AI-powered assistant that generates complete, dual-aligned lesson plans. Choose your grade band, CSTA category, and duration — get a ready-to-teach lesson in minutes.

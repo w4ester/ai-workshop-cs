@@ -97,7 +97,7 @@
 
 <!-- Floating Action Button -->
 <button
-	class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-500 hover:scale-105 transition-all flex items-center justify-center"
+	class="fixed bottom-4 sm:bottom-6 right-3 sm:right-6 z-50 w-14 h-14 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-500 hover:scale-105 transition-all flex items-center justify-center"
 	onclick={toggle}
 	aria-label="Toggle chat assistant"
 >
@@ -114,7 +114,7 @@
 
 <!-- Chat Panel -->
 {#if isOpen}
-<div class="fixed bottom-24 right-6 z-50 w-96 h-[520px] bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-gray-200 dark:border-slate-700 flex flex-col overflow-hidden">
+<div class="fixed bottom-20 sm:bottom-24 right-3 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-96 h-[calc(100dvh-6rem)] sm:h-[520px] max-h-[520px] bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-gray-200 dark:border-slate-700 flex flex-col overflow-hidden">
 	<!-- Header -->
 	<div class="px-4 py-3 border-b border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900">
 		<div class="font-bold text-sm text-gray-900 dark:text-white">AI Workshop Assistant</div>
