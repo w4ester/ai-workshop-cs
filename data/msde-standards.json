@@ -1,0 +1,1732 @@
+{
+  "meta": {
+    "title": "Maryland K-12 Computer Science Standards",
+    "source": "docs/msde_K-12StandardsLandscape.pdf",
+    "publisher": "Maryland State Department of Education",
+    "year": 2018,
+    "extracted": "2026-02-11",
+    "notes": "Only ONE AI-specific standard exists: 12.AP.A.01. All others are general CS."
+  },
+  "grade_bands": [
+    {
+      "band": "K-2",
+      "grades": ["K", "1", "2"],
+      "concepts": [
+        {
+          "name": "Computing Systems",
+          "subconcepts": [
+            {
+              "name": "Devices",
+              "standards": [
+                {
+                  "code": "K.CS.D.01",
+                  "grade": "K",
+                  "text": "Select and operate the appropriate computing device to perform a variety of different tasks"
+                },
+                {
+                  "code": "1.CS.D.01",
+                  "grade": "1",
+                  "text": "Select and operate the appropriate application/software to perform a variety of tasks or obtain a desired outcome."
+                },
+                {
+                  "code": "2.CS.D.01",
+                  "grade": "2",
+                  "text": "Compare and discuss preferences for applications/software with the same primary functionality."
+                }
+              ]
+            },
+            {
+              "name": "Hardware & Software",
+              "standards": [
+                {
+                  "code": "K.CS.HS.01",
+                  "grade": "K",
+                  "text": "Identify by name and locate common computing devices and external hardware in a variety of environments, using appropriate technical terminology (e.g., mobile devices, desktop computer, laptop computer, mouse, keyboard, wearables)."
+                },
+                {
+                  "code": "1.CS.HS.01",
+                  "grade": "1",
+                  "text": "Identify and describe functions of common computing devices and external hardware (e.g., mobile devices, desktop computer, laptop computer, mouse, keyboard, printer, wearables)."
+                },
+                {
+                  "code": "2.CS.HS.01",
+                  "grade": "2",
+                  "text": "Identify internal and external components of a computer system and their basic functions (e.g., hard drive and memory) as well as peripherals (e.g., printers, scanners, external hard drives) and external storage features and their uses (e.g., cloud storage)."
+                }
+              ]
+            },
+            {
+              "name": "Troubleshooting",
+              "standards": [
+                {
+                  "code": "K.CS.T.01",
+                  "grade": "K",
+                  "text": "Recognize the possibility computing systems might not work as expected and identify basic hardware and software problems using appropriate technical terminology (e.g., monitor turned off, volume decreased on headphones)."
+                },
+                {
+                  "code": "1.CS.T.01",
+                  "grade": "1",
+                  "text": "Identify and communicate basic hardware and software problems that may occur during use (e.g., application/program not working correctly, no sound coming from device, caps lock turned on), using appropriate technical terminology."
+                },
+                {
+                  "code": "2.CS.T.01",
+                  "grade": "2",
+                  "text": "Identify and summarize basic troubleshooting techniques to solve basic hardware and software problems (e.g., turning off and on a device to restart, closing and reopening an application/program, turning on speakers)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Networks and the Internet",
+          "subconcepts": [
+            {
+              "name": "Network Communication & Organization",
+              "standards": [
+                {
+                  "code": "K.NI.NCO.01",
+                  "grade": "K",
+                  "text": "Recognize that basic computing devices and components can be connected to one another."
+                },
+                {
+                  "code": "1.NI.NCO.01",
+                  "grade": "1",
+                  "text": "Recognize that computing devices can be connected through physical or wireless pathways."
+                },
+                {
+                  "code": "2.NI.NCO.01",
+                  "grade": "2",
+                  "text": "Recognize that by connecting computing devices together they can share information (e.g., printers, scanners, internet, display devices)."
+                }
+              ]
+            },
+            {
+              "name": "Cybersecurity",
+              "standards": [
+                {
+                  "code": "K.NI.C.01",
+                  "grade": "K",
+                  "text": "Identify and use passwords and discuss why they are not shared with others."
+                },
+                {
+                  "code": "1.NI.C.01",
+                  "grade": "1",
+                  "text": "Recognize what passwords are, why they are used, and why they are not shared."
+                },
+                {
+                  "code": "2.NI.C.01",
+                  "grade": "2",
+                  "text": "Identify differences between strong and weak passwords and explain the importance of choosing strong passwords to protect devices and information from unauthorized users."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "subconcepts": [
+            {
+              "name": "Storage",
+              "standards": [
+                {
+                  "code": "K.DA.S.01",
+                  "grade": "K",
+                  "text": "Identify that information from our everyday lives can be stored and accessed via computing devices."
+                },
+                {
+                  "code": "1.DA.S.01",
+                  "grade": "1",
+                  "text": "Identify, access, modify, and save an existing file with a computing device."
+                },
+                {
+                  "code": "2.DA.S.01",
+                  "grade": "2",
+                  "text": "Create, copy, manipulate, and delete a file on a computing device. Identify the information stored as data."
+                }
+              ]
+            },
+            {
+              "name": "Collection, Visualization & Transformation",
+              "standards": [
+                {
+                  "code": "K.DA.CVT.01",
+                  "grade": "K",
+                  "text": "With guidance, collect data on a basic topic (e.g., weather, temperature) and present it visually."
+                },
+                {
+                  "code": "1.DA.CVT.01",
+                  "grade": "1",
+                  "text": "With guidance, collect and organize data. Present data effectively in two different ways."
+                },
+                {
+                  "code": "2.DA.CVT.01",
+                  "grade": "2",
+                  "text": "With guidance, collect, organize, and present the same data in a variety of visual ways (e.g., bar graph, pie chart, table, etc.)"
+                }
+              ]
+            },
+            {
+              "name": "Inference & Models",
+              "standards": [
+                {
+                  "code": "K.DA.IM.01",
+                  "grade": "K",
+                  "text": "With guidance, draw conclusions and make predictions based on picture graphs or patterns (e.g., make predictions based on weather data presented in a picture graph, complete a pattern) with or without a computing device."
+                },
+                {
+                  "code": "1.DA.IM.01",
+                  "grade": "1",
+                  "text": "With guidance, identify, interpret, and analyze data from a chart or graphical display (visualization) in order to make a prediction, with or without a computing device."
+                },
+                {
+                  "code": "2.DA.IM.01",
+                  "grade": "2",
+                  "text": "With guidance, collect, organize, present, and analyze data from a chart or graphical display (visualization) in order to make a prediction, with or without a computing device."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Algorithms and Programming",
+          "subconcepts": [
+            {
+              "name": "Algorithms",
+              "standards": [
+                {
+                  "code": "K.AP.A.01",
+                  "grade": "K",
+                  "text": "Model daily processes and follow basic algorithms (step-by-step lists of instructions) to complete tasks."
+                },
+                {
+                  "code": "1.AP.A.01",
+                  "grade": "1",
+                  "text": "Model daily processes and follow basic algorithms (step-by-step lists of instructions) to complete tasks verbally, kinesthetically, via a programming language, or using a device."
+                },
+                {
+                  "code": "2.AP.A.01",
+                  "grade": "2",
+                  "text": "Model daily processes by creating and following algorithms (step-by-step lists of instructions) to complete tasks verbally, kinesthetically, via a programming language, or using a device."
+                }
+              ]
+            },
+            {
+              "name": "Variables",
+              "standards": [
+                {
+                  "code": "K.AP.V.01",
+                  "grade": "K",
+                  "text": "With guidance, model the way programs store and manipulate grade-level data by using numbers or other symbols to represent information (e.g., encode or decode words using numbers, pictographs or symbols to letters, words, or direction)."
+                },
+                {
+                  "code": "1.AP.V.01",
+                  "grade": "1",
+                  "text": "With guidance, model the way programs store and manipulate grade-level data by using numbers or other symbols to represent information (e.g., encode or decode words using numbers, pictographs or symbols to letters, words, or direction)."
+                },
+                {
+                  "code": "2.AP.V.01",
+                  "grade": "2",
+                  "text": "Model the way programs store and manipulate grade-level data by using numbers or other symbols to represent information (e.g., encode or decode words using numbers, pictographs or symbols to letters, words, or direction)."
+                }
+              ]
+            },
+            {
+              "name": "Control",
+              "standards": [
+                {
+                  "code": "K.AP.C.01",
+                  "grade": "K",
+                  "text": "With guidance, create a set of instructions (programs) to accomplish a task using a programming language, device, or unplugged activity, including sequencing, emphasizing the beginning, middle, and end."
+                },
+                {
+                  "code": "1.AP.C.01",
+                  "grade": "1",
+                  "text": "With guidance, create programs by using creative expression or problem solving, to accomplish tasks that include sequencing and repetition. Programming languages, robot devices, or unplugged activity can serve as the means."
+                },
+                {
+                  "code": "2.AP.C.01",
+                  "grade": "2",
+                  "text": "Create programs using a programming language, robot device, or unplugged activity that utilize sequencing and repetition to solve a problem or express creative ideas."
+                }
+              ]
+            },
+            {
+              "name": "Modularity",
+              "standards": [
+                {
+                  "code": "K.AP.M.01",
+                  "grade": "K",
+                  "text": "Not addressed at this level"
+                },
+                {
+                  "code": "1.AP.M.01",
+                  "grade": "1",
+                  "text": "Not addressed at this level"
+                },
+                {
+                  "code": "2.AP.M.01",
+                  "grade": "2",
+                  "text": "Not addressed at this level"
+                }
+              ]
+            },
+            {
+              "name": "Program Development",
+              "standards": [
+                {
+                  "code": "K.AP.PD.01",
+                  "grade": "K",
+                  "text": "With guidance, create a grade level appropriate document to illustrate thoughts, ideas, or stories in a sequential manner (e.g., storyboard, story map, sequential graphic organizer)."
+                },
+                {
+                  "code": "1.AP.PD.01",
+                  "grade": "1",
+                  "text": "Create a grade-level appropriate document to illustrate thoughts, ideas, or stories in a sequential manner (e.g., storyboard, story map, sequential graphic organizer)."
+                },
+                {
+                  "code": "2.AP.PD.01",
+                  "grade": "2",
+                  "text": "With guidance, create a grade level appropriate document to clarify the steps that will be needed to create a sequential program and can be used to check if the program functionality is correct."
+                },
+                {
+                  "code": "K.AP.PD.02",
+                  "grade": "K",
+                  "text": "Give attribution to ideas, solutions, and creations of others, verbally, while developing algorithms."
+                },
+                {
+                  "code": "1.AP.PD.02",
+                  "grade": "1",
+                  "text": "Give attribution to ideas, solutions, and creations of others, verbally or written, while writing or developing algorithms and programs."
+                },
+                {
+                  "code": "2.AP.PD.02",
+                  "grade": "2",
+                  "text": "Give attribution to ideas, solutions, and creations of others, verbally and written, while writing and developing programs."
+                },
+                {
+                  "code": "K.AP.PD.03",
+                  "grade": "K",
+                  "text": "Identify errors in an algorithm that includes sequencing and repeated procedures using a programming language or unplugged activity. Discuss how errors in the algorithm could be corrected."
+                },
+                {
+                  "code": "1.AP.PD.03",
+                  "grade": "1",
+                  "text": "Identify and correct errors (debug) in programs which include sequencing and repetition to accomplish a task, through a variety of techniques and strategies that could include an unplugged activity (e.g., changing order or sequence, following steps, trial and error)."
+                },
+                {
+                  "code": "2.AP.PD.03",
+                  "grade": "2",
+                  "text": "Develop and debug programs that include sequencing and repetition to accomplish a task, through the use of a programming language and/or unplugged activity."
+                },
+                {
+                  "code": "K.AP.PD.04",
+                  "grade": "K",
+                  "text": "Use correct terminology (e.g., first, second, etc.) in the development of an algorithm to solve a simple problem."
+                },
+                {
+                  "code": "1.AP.PD.04",
+                  "grade": "1",
+                  "text": "Use correct terminology (e.g., beginning, middle, end, etc.) and explain choices made during the development of an algorithm and/or program to solve a simple problem."
+                },
+                {
+                  "code": "2.AP.PD.04",
+                  "grade": "2",
+                  "text": "Use correct terminology (e.g., debug, program input/output, code, etc.) to explain the development of a program to solve a problem in an unplugged activity, hands-on manipulative, or programming language."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Impacts of Computing",
+          "subconcepts": [
+            {
+              "name": "Culture and Diversity",
+              "standards": [
+                {
+                  "code": "K.IC.C.01",
+                  "grade": "K",
+                  "text": "Use grade-level appropriate language to identify and describe how people use a variety of technologies and applications in their daily work and personal lives."
+                },
+                {
+                  "code": "1.IC.C.01",
+                  "grade": "1",
+                  "text": "Use grade-level appropriate language to identify and describe how people use a variety of technologies and applications in their daily work and personal lives."
+                },
+                {
+                  "code": "2.IC.C.01",
+                  "grade": "2",
+                  "text": "Use grade-level appropriate language to identify and describe how people use a variety of technologies and applications in their daily work and personal lives and the impact of new technologies on daily life."
+                }
+              ]
+            },
+            {
+              "name": "Social Interactions",
+              "standards": [
+                {
+                  "code": "K.IC.SI.01",
+                  "grade": "K",
+                  "text": "Identify appropriate and safe behaviors when participating online."
+                },
+                {
+                  "code": "1.IC.SI.01",
+                  "grade": "1",
+                  "text": "Identify and describe appropriate and inappropriate behaviors when participating online."
+                },
+                {
+                  "code": "2.IC.SI.01",
+                  "grade": "2",
+                  "text": "Develop a code of conduct and explain responsible practices when participating online. Practice the code of conduct and identify and report inappropriate behavior."
+                }
+              ]
+            },
+            {
+              "name": "Safety, Law & Ethics",
+              "standards": [
+                {
+                  "code": "K.IC.SLE.01",
+                  "grade": "K",
+                  "text": "Keep login information private and log off devices appropriately."
+                },
+                {
+                  "code": "1.IC.SLE.01",
+                  "grade": "1",
+                  "text": "Keep login information private and log off devices appropriately."
+                },
+                {
+                  "code": "2.IC.SLE.01",
+                  "grade": "2",
+                  "text": "Keep login information private and log off devices appropriately."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "band": "3-5",
+      "grades": ["3", "4", "5"],
+      "concepts": [
+        {
+          "name": "Computing Systems",
+          "subconcepts": [
+            {
+              "name": "Devices",
+              "standards": [
+                {
+                  "code": "3.CS.D.01",
+                  "grade": "3",
+                  "text": "Identify internal and external parts of computing devices that function together to form a system."
+                },
+                {
+                  "code": "4.CS.D.01",
+                  "grade": "4",
+                  "text": "Describe how internal and external parts of computing devices function to form a system."
+                },
+                {
+                  "code": "5.CS.D.01",
+                  "grade": "5",
+                  "text": "Describe and model how internal and external parts of computing devices function to form a system. Describe how some components rely on others for correct functionality."
+                }
+              ]
+            },
+            {
+              "name": "Hardware & Software",
+              "standards": [
+                {
+                  "code": "3.CS.HS.01",
+                  "grade": "3",
+                  "text": "Identify a variety of ways computer hardware and software work together as a system to accomplish a task."
+                },
+                {
+                  "code": "4.CS.HS.01",
+                  "grade": "4",
+                  "text": "Identify and describe a variety of ways computer hardware and software work together as a system to accomplish a task, using appropriate technical terminology (e.g., input, output, processors, sensors, storage)."
+                },
+                {
+                  "code": "5.CS.HS.01",
+                  "grade": "5",
+                  "text": "Model and explain how information flows through hardware and software to accomplish a task."
+                }
+              ]
+            },
+            {
+              "name": "Troubleshooting",
+              "standards": [
+                {
+                  "code": "3.CS.T.01",
+                  "grade": "3",
+                  "text": "Identify and troubleshoot, using appropriate technical terminology, simple hardware and software problems that may occur during everyday use, discuss problems with peers and adults (e.g., viruses, malware, versions of software and non-working applications, refresh screen, closing/reopening application, adjusting volume on headphones or speakers)."
+                },
+                {
+                  "code": "4.CS.T.01",
+                  "grade": "4",
+                  "text": "Identify, using appropriate technical terminology, simple hardware and software problems that may occur during everyday use, discuss problems with peers and adults, and apply various strategies for solving these problems (e.g., rebooting the device, checking the power, forced shutdown of an application, running anti-virus)."
+                },
+                {
+                  "code": "5.CS.T.01",
+                  "grade": "5",
+                  "text": "Identify, using appropriate technical terminology, simple hardware and software problems that may occur during everyday use, discuss problems with peers and adults, apply a variety of strategies for solving these problems, and provide evidence why these strategies did or did not work."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Networks and the Internet",
+          "subconcepts": [
+            {
+              "name": "Network Communication & Organization",
+              "standards": [
+                {
+                  "code": "3.NI.NCO.01",
+                  "grade": "3",
+                  "text": "Recognize how information is sent and received over physical and wireless pathways."
+                },
+                {
+                  "code": "4.NI.NCO.01",
+                  "grade": "4",
+                  "text": "Summarize how information is sent and received over physical and wireless pathways (e.g., information is deconstructed in smaller pieces called packets, transmitted to final destination, and reassembled)."
+                },
+                {
+                  "code": "5.NI.NCO.01",
+                  "grade": "5",
+                  "text": "Model how information is deconstructed into packets (smaller pieces), transmitted through multiple devices over the internet and networks, and reassembled at the final destination."
+                }
+              ]
+            },
+            {
+              "name": "Cybersecurity",
+              "standards": [
+                {
+                  "code": "3.NI.C.01",
+                  "grade": "3",
+                  "text": "Discuss basic issues that relate to responsible use of computing devices and describe consequences of inappropriate use in a variety of locations."
+                },
+                {
+                  "code": "4.NI.C.01",
+                  "grade": "4",
+                  "text": "Identify problems that relate to unsecure networks and inappropriate use of computing devices and potential subsequent consequences."
+                },
+                {
+                  "code": "5.NI.C.01",
+                  "grade": "5",
+                  "text": "Define personal identifiable information (e.g., digital footprint) and why it should be protected as related to real-world cyber security problems."
+                },
+                {
+                  "code": "5.NI.C.02",
+                  "grade": "5",
+                  "text": "Discuss real-world cybersecurity problems and explain how personal information can be protected (e.g., antivirus software, backing up data, strong passwords)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "subconcepts": [
+            {
+              "name": "Storage",
+              "standards": [
+                {
+                  "code": "3.DA.S.01",
+                  "grade": "3",
+                  "text": "Recognize that different types of information are stored in different formats that have varying characteristics, which could include associated programs and storage requirements."
+                },
+                {
+                  "code": "4.DA.S.01",
+                  "grade": "4",
+                  "text": "Store information in various formats for specific purposes (e.g., file type, file size, file compression)."
+                },
+                {
+                  "code": "5.DA.S.01",
+                  "grade": "5",
+                  "text": "Convert different types of information into various formats to be used across multiple software/hardware."
+                }
+              ]
+            },
+            {
+              "name": "Collection, Visualization & Transformation",
+              "standards": [
+                {
+                  "code": "3.DA.CVT.01",
+                  "grade": "3",
+                  "text": "Collect, organize, and present the same data in a variety of visual formats (e.g., charts, graphs, tables, etc.)."
+                },
+                {
+                  "code": "4.DA.CVT.01",
+                  "grade": "4",
+                  "text": "Organize and present collected data in a variety of visual formats to emphasize particular aspects or parts of the data set to make interpretation easier."
+                },
+                {
+                  "code": "5.DA.CVT.01",
+                  "grade": "5",
+                  "text": "Interpret and communicate data in a variety of visual formats to highlight the relationships among the data to support a claim."
+                }
+              ]
+            },
+            {
+              "name": "Inference & Models",
+              "standards": [
+                {
+                  "code": "3.DA.IM.01",
+                  "grade": "3",
+                  "text": "Utilize data to make predictions and discuss whether there are sufficient data to make these predictions and extrapolations."
+                },
+                {
+                  "code": "4.DA.IM.01",
+                  "grade": "4",
+                  "text": "Discuss the potential accuracy of conclusions and predictions based on the adequacy of the data set (number of data)."
+                },
+                {
+                  "code": "5.DA.IM.01",
+                  "grade": "5",
+                  "text": "Refer to data sets to highlight or propose cause-and-effect relationships, predict outcomes, or communicate ideas."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Algorithms and Programming",
+          "subconcepts": [
+            {
+              "name": "Algorithms",
+              "standards": [
+                {
+                  "code": "3.AP.A.01",
+                  "grade": "3",
+                  "text": "Develop and compare multiple algorithms for the same task."
+                },
+                {
+                  "code": "4.AP.A.01",
+                  "grade": "4",
+                  "text": "Develop, compare, and refine multiple algorithms for the same task."
+                },
+                {
+                  "code": "5.AP.A.01",
+                  "grade": "5",
+                  "text": "Develop, compare, and refine multiple algorithms for the same task and determine which algorithm is the most appropriate."
+                }
+              ]
+            },
+            {
+              "name": "Variables",
+              "standards": [
+                {
+                  "code": "3.AP.V.01",
+                  "grade": "3",
+                  "text": "Create programs that use variables to store and modify grade appropriate data."
+                },
+                {
+                  "code": "4.AP.V.01",
+                  "grade": "4",
+                  "text": "Create programs that use variables to store and modify grade-appropriate data."
+                },
+                {
+                  "code": "5.AP.V.01",
+                  "grade": "5",
+                  "text": "Create programs that use variables to store and modify grade-appropriate data."
+                }
+              ]
+            },
+            {
+              "name": "Control",
+              "standards": [
+                {
+                  "code": "3.AP.C.01",
+                  "grade": "3",
+                  "text": "Create programs using a programming language that includes sequences, loops, conditionals, and variables to solve a problem or express an idea."
+                },
+                {
+                  "code": "4.AP.C.01",
+                  "grade": "4",
+                  "text": "Create programs using a programming language that includes sequences, loops, conditionals, and variables that utilize mathematics operations to manipulate values in order to solve a problem or express an idea."
+                },
+                {
+                  "code": "5.AP.C.01",
+                  "grade": "5",
+                  "text": "Create programs using a programming language that includes sequences, loops, conditionals, event handlers, and variables that utilize mathematics operations to manipulate values in order to solve a problem or express an idea."
+                }
+              ]
+            },
+            {
+              "name": "Modularity",
+              "standards": [
+                {
+                  "code": "3.AP.M.01",
+                  "grade": "3",
+                  "text": "Decompose a simple problem into a precise set of sequences of instructions."
+                },
+                {
+                  "code": "4.AP.M.01",
+                  "grade": "4",
+                  "text": "Decompose a large problem into smaller, manageable sub-problems to facilitate the program development process."
+                },
+                {
+                  "code": "5.AP.M.01",
+                  "grade": "5",
+                  "text": "Decompose a large problem into smaller, manageable sub-problems and then further into sets of sequenced instructions to facilitate the program development process."
+                },
+                {
+                  "code": "3.AP.M.02",
+                  "grade": "3",
+                  "text": "Modify, remix, or incorporate portions of an existing program into one's own work, to develop or add more advanced features (grade-level appropriate)."
+                },
+                {
+                  "code": "4.AP.M.02",
+                  "grade": "4",
+                  "text": "Modify, remix, or incorporate portions of an existing program into one's own work, to develop or add more advanced features (grade-level appropriate)."
+                },
+                {
+                  "code": "5.AP.M.02",
+                  "grade": "5",
+                  "text": "Modify, remix, or incorporate portions of an existing program into one's own work, to develop or add more advanced features (grade-level appropriate)."
+                }
+              ]
+            },
+            {
+              "name": "Program Development",
+              "standards": [
+                {
+                  "code": "3.AP.PD.01",
+                  "grade": "3",
+                  "text": "Use an iterative process to plan the development of a program by including others' perspectives and considering user preferences while solving simple problems."
+                },
+                {
+                  "code": "4.AP.PD.01",
+                  "grade": "4",
+                  "text": "Use an iterative process to plan the development if a program by including others' perspectives and considering user preferences while solving simple problems."
+                },
+                {
+                  "code": "5.AP.PD.01",
+                  "grade": "5",
+                  "text": "Use an iterative process to plan the development of a program by including others' perspectives and considering user preferences while solving problems."
+                },
+                {
+                  "code": "3.AP.PD.02",
+                  "grade": "3",
+                  "text": "Identify instances of remixing, when ideas are borrowed and treated upon, and provide attribution."
+                },
+                {
+                  "code": "4.AP.PD.02",
+                  "grade": "4",
+                  "text": "Observe intellectual property rights and give appropriate attribution when creating or remixing programs."
+                },
+                {
+                  "code": "5.AP.PD.02",
+                  "grade": "5",
+                  "text": "Observe intellectual property rights and give appropriate attribution when creating or remixing programs."
+                },
+                {
+                  "code": "3.AP.PD.03",
+                  "grade": "3",
+                  "text": "Analyze and debug an existing program or algorithm that includes sequencing, repetition, and variables in a programming language."
+                },
+                {
+                  "code": "4.AP.PD.03",
+                  "grade": "4",
+                  "text": "Create and debug a program or algorithm that includes sequencing, repetition, and variables in a programming language."
+                },
+                {
+                  "code": "5.AP.PD.03",
+                  "grade": "5",
+                  "text": "Create, test, and debug a program that includes sequencing, repetition, and variables in a programming language to ensure its runs as intended."
+                },
+                {
+                  "code": "3.AP.PD.04",
+                  "grade": "3",
+                  "text": "Communicate and explain program development to peers and adults using comments, presentations, and demonstrations."
+                },
+                {
+                  "code": "4.AP.PD.04",
+                  "grade": "4",
+                  "text": "Communicate and explain program development to peers and adults using comments, presentations, and demonstrations."
+                },
+                {
+                  "code": "5.AP.PD.04",
+                  "grade": "5",
+                  "text": "Communicate and explain program development to peers and adults using comments, presentations, and demonstrations."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Impacts of Computing",
+          "subconcepts": [
+            {
+              "name": "Culture and Diversity",
+              "standards": [
+                {
+                  "code": "3.IC.C.01",
+                  "grade": "3",
+                  "text": "Identify how different technologies created by people from diverse backgrounds have contributed to computing and helped to change the world."
+                },
+                {
+                  "code": "4.IC.C.01",
+                  "grade": "4",
+                  "text": "Summarize how different technologies created by people from diverse backgrounds have contributed to computing and helped to change the world."
+                },
+                {
+                  "code": "5.IC.C.01",
+                  "grade": "5",
+                  "text": "Evaluate how different technologies created by people from diverse backgrounds have contributed to computing and helped to change the world."
+                },
+                {
+                  "code": "3.IC.C.02",
+                  "grade": "3",
+                  "text": "Identify potential problems that limit accessibility/usability and how computing devices have built-in features to increase accessibility for all users."
+                },
+                {
+                  "code": "4.IC.C.02",
+                  "grade": "4",
+                  "text": "Brainstorm solutions to improve accessibility/usability and ways computing could be improved to increase accessibility for all users."
+                },
+                {
+                  "code": "5.IC.C.02",
+                  "grade": "5",
+                  "text": "Develop, test, and refine computational artifacts to improve accessibility and usability for all users."
+                }
+              ]
+            },
+            {
+              "name": "Social Interactions",
+              "standards": [
+                {
+                  "code": "3.IC.SI.01",
+                  "grade": "3",
+                  "text": "Develop a code of conduct, explain, and practice grade-level appropriate behavior and responsibilities while participating online. Identify and report inappropriate behavior."
+                },
+                {
+                  "code": "4.IC.SI.01",
+                  "grade": "4",
+                  "text": "Develop a code of conduct, explain, and practice grade-level appropriate behavior and responsibilities while participating online. Identify and report inappropriate behavior."
+                },
+                {
+                  "code": "5.IC.SI.01",
+                  "grade": "5",
+                  "text": "Develop a code of conduct, explain, and practice grade-level appropriate behavior and responsibilities while participating online. Identify and report inappropriate behavior."
+                },
+                {
+                  "code": "3.IC.SI.02",
+                  "grade": "3",
+                  "text": "Identify how computing devices and computational products have been, or can be, improved by incorporating diverse perspectives."
+                },
+                {
+                  "code": "4.IC.SI.02",
+                  "grade": "4",
+                  "text": "Discuss ways existing devices or computational products can be improved by collaborating with peers to gain their diverse perspectives."
+                },
+                {
+                  "code": "5.IC.SI.02",
+                  "grade": "5",
+                  "text": "Discuss ways existing computing devices or computational products can be improved by collaborating with outside resources (other grade-levels, businesses) to gain their diverse perspectives."
+                }
+              ]
+            },
+            {
+              "name": "Safety, Law & Ethics",
+              "standards": [
+                {
+                  "code": "3.IC.SLE.01",
+                  "grade": "3",
+                  "text": "Introduce intellectual property concepts and identify types of digital data (music, videos, photos) that may have intellectual property rights preventing copying and/or requiring attribution."
+                },
+                {
+                  "code": "4.IC.SLE.01",
+                  "grade": "4",
+                  "text": "Observe intellectual property law and give appropriate credit when using resources."
+                },
+                {
+                  "code": "5.IC.SLE.01",
+                  "grade": "5",
+                  "text": "Discuss personal consequences and social impact of violating intellectual property rights or failing to provide appropriate attribution."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "band": "6-8",
+      "grades": ["6", "7", "8"],
+      "concepts": [
+        {
+          "name": "Computing Systems",
+          "subconcepts": [
+            {
+              "name": "Devices",
+              "standards": [
+                {
+                  "code": "6.CS.D.01",
+                  "grade": "6",
+                  "text": "Evaluate existing computing devices and make recommendations for improvements to design based on analysis of personal interactions and how others interact with the devices."
+                },
+                {
+                  "code": "7.CS.D.01",
+                  "grade": "7",
+                  "text": "Evaluate existing computing devices and make recommendations for improvements to design that consider usability through a variety of lenses (accessibility, ergonomics, learnability, security)."
+                },
+                {
+                  "code": "8.CS.D.01",
+                  "grade": "8",
+                  "text": "Develop and implement a process to evaluate existing computing devices and make recommendations for improvements to design based on analysis of user interaction and other lenses."
+                }
+              ]
+            },
+            {
+              "name": "Hardware & Software",
+              "standards": [
+                {
+                  "code": "6.CS.HS.01",
+                  "grade": "6",
+                  "text": "Identify ways that hardware and software are combined and work synchronously to collect, store, retrieve, and exchange data."
+                },
+                {
+                  "code": "7.CS.HS.01",
+                  "grade": "7",
+                  "text": "Select appropriate hardware and software components for a project considering what type of data will be collected, stored, retrieved, and exchanged."
+                },
+                {
+                  "code": "8.CS.HS.01",
+                  "grade": "8",
+                  "text": "Design and refine systems where secure hardware and software are combined to collect, store, retrieve, and exchange data and explain why specific components were chosen for optimality."
+                }
+              ]
+            },
+            {
+              "name": "Troubleshooting",
+              "standards": [
+                {
+                  "code": "6.CS.T.01",
+                  "grade": "6",
+                  "text": "Troubleshoot problems with computing devices and networked components (e.g. peripherals, routers, cables, etc.)."
+                },
+                {
+                  "code": "7.CS.T.01",
+                  "grade": "7",
+                  "text": "Identify and fix problems with computing devices and their interfaced components using a variety of strategies (e.g. lost data retrieval, hardware password recovery, file restoration, key logging)."
+                },
+                {
+                  "code": "8.CS.T.01",
+                  "grade": "8",
+                  "text": "Systematically identify and fix problems with computing devices and their interfaced components by using a structured system such as a troubleshooting flow diagram."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Networks and the Internet",
+          "subconcepts": [
+            {
+              "name": "Network Communication & Organization",
+              "standards": [
+                {
+                  "code": "6.NI.NCO.01",
+                  "grade": "6",
+                  "text": "Model a simple protocol for transferring information, using packets, across networks and the internet."
+                },
+                {
+                  "code": "7.NI.NCO.01",
+                  "grade": "7",
+                  "text": "Explain and model the process to replace lost packets using a protocol for information transfer."
+                },
+                {
+                  "code": "8.NI.NCO.01",
+                  "grade": "8",
+                  "text": "Model and explain how data is sent using protocols to choose the fastest pathway, to deal with missing information, and to deliver data securely."
+                }
+              ]
+            },
+            {
+              "name": "Cybersecurity",
+              "standards": [
+                {
+                  "code": "6.NI.C.01",
+                  "grade": "6",
+                  "text": "Identify existing cybersecurity concerns with the internet, its connected devices (i.e. IoT) and the systems it uses."
+                },
+                {
+                  "code": "7.NI.C.01",
+                  "grade": "7",
+                  "text": "Explain how to protect electronic information using both physical (hard drive) and digital measures; explain existing cybersecurity concerns with the internet and the systems it uses."
+                },
+                {
+                  "code": "8.NI.C.01",
+                  "grade": "8",
+                  "text": "Evaluate physical and digital security measures that have been developed and implemented to protect electronic information; discuss the impacts of hacking, ransomware, scams, fake scams, and ethical/legal concerns."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "subconcepts": [
+            {
+              "name": "Storage",
+              "standards": [
+                {
+                  "code": "6.DA.S.01",
+                  "grade": "6",
+                  "text": "Identify multiple encoding schemes that can be used to represent the same data."
+                },
+                {
+                  "code": "7.DA.S.01",
+                  "grade": "7",
+                  "text": "Represent data using multiple encoding schemes."
+                },
+                {
+                  "code": "8.DA.S.01",
+                  "grade": "8",
+                  "text": "Evaluate different schemes of encoding data in order to effectively choose the most appropriate method of representation."
+                }
+              ]
+            },
+            {
+              "name": "Collection, Visualization & Transformation",
+              "standards": [
+                {
+                  "code": "6.DA.CVT.01",
+                  "grade": "6",
+                  "text": "Collect data using computational tools and transform the data to make it more useful."
+                },
+                {
+                  "code": "7.DA.CVT.01",
+                  "grade": "7",
+                  "text": "Collect data using computational tools and hardware (e.g., sensors) and transform the data to make it more useful and reliable."
+                },
+                {
+                  "code": "8.DA.CVT.01",
+                  "grade": "8",
+                  "text": "Develop and implement a refined process that uses computational tools to transform data to a more useful and reliable state."
+                }
+              ]
+            },
+            {
+              "name": "Inference & Models",
+              "standards": [
+                {
+                  "code": "6.DA.IM.01",
+                  "grade": "6",
+                  "text": "Identify relevant data points and use models and simulations to formulate, refine, and test hypotheses."
+                },
+                {
+                  "code": "7.DA.IM.01",
+                  "grade": "7",
+                  "text": "Verify a model's accuracy by comparing the results with observed data."
+                },
+                {
+                  "code": "8.DA.IM.01",
+                  "grade": "8",
+                  "text": "Refine existing or develop and implement new computational models based on observed and generated data."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Algorithms and Programming",
+          "subconcepts": [
+            {
+              "name": "Algorithms",
+              "standards": [
+                {
+                  "code": "6.AP.A.01",
+                  "grade": "6",
+                  "text": "Use an existing algorithm or pseudocode to solve a problem."
+                },
+                {
+                  "code": "7.AP.A.01",
+                  "grade": "7",
+                  "text": "Select and modify existing algorithms and pseudocode to solve complex problems."
+                },
+                {
+                  "code": "8.AP.A.01",
+                  "grade": "8",
+                  "text": "Develop and implement algorithms and pseudocode to solve complex problems."
+                }
+              ]
+            },
+            {
+              "name": "Variables",
+              "standards": [
+                {
+                  "code": "6.AP.V.01",
+                  "grade": "6",
+                  "text": "Decide when and how to declare and name new variables."
+                },
+                {
+                  "code": "7.AP.V.01",
+                  "grade": "7",
+                  "text": "Create clearly named variables that represent different types of data."
+                },
+                {
+                  "code": "8.AP.V.01",
+                  "grade": "8",
+                  "text": "Create clearly named variables of different data types that utilize naming conventions to improve program readability; perform operations on variable values."
+                }
+              ]
+            },
+            {
+              "name": "Control",
+              "standards": [
+                {
+                  "code": "6.AP.C.01",
+                  "grade": "6",
+                  "text": "Develop secure programs that utilize combinations of loops, conditionals, and the manipulation of variables representing different data types."
+                },
+                {
+                  "code": "7.AP.C.01",
+                  "grade": "7",
+                  "text": "Develop secure programs that utilize combinations of loops, compound conditionals, and the manipulation of variables representing different data types."
+                },
+                {
+                  "code": "8.AP.C.01",
+                  "grade": "8",
+                  "text": "Develop secure programs that utilize combinations of nested loops, compound conditionals, procedures with and without parameters, and the manipulation of variables representing different data types."
+                }
+              ]
+            },
+            {
+              "name": "Modularity",
+              "standards": [
+                {
+                  "code": "6.AP.M.01",
+                  "grade": "6",
+                  "text": "Decompose problems and subproblems into parts to facilitate the secure design, implementation, and review of programs."
+                },
+                {
+                  "code": "7.AP.M.01",
+                  "grade": "7",
+                  "text": "Decompose problems and subproblems into parts to facilitate the secure design, implementation, and review of increasingly complex programs."
+                },
+                {
+                  "code": "8.AP.M.01",
+                  "grade": "8",
+                  "text": "Decompose problems and subproblems into parts to facilitate the secure design, implementation, and review of complex programs."
+                },
+                {
+                  "code": "6.AP.M.02",
+                  "grade": "6",
+                  "text": "Identify and use functions within a program to repeat instructions."
+                },
+                {
+                  "code": "7.AP.M.02",
+                  "grade": "7",
+                  "text": "Create and use a function in a program to repeat instructions in order to organize code and make it easier to reuse."
+                },
+                {
+                  "code": "8.AP.M.02",
+                  "grade": "8",
+                  "text": "Create and use a function with parameters in a program to repeat instructions in order to organize code and make it easier to reuse."
+                }
+              ]
+            },
+            {
+              "name": "Program Development",
+              "standards": [
+                {
+                  "code": "6.AP.PD.01",
+                  "grade": "6",
+                  "text": "Seek and incorporate feedback from team members to refine the solution to a problem."
+                },
+                {
+                  "code": "7.AP.PD.01",
+                  "grade": "7",
+                  "text": "Seek and incorporate feedback from team members and users to refine the solution to a problem."
+                },
+                {
+                  "code": "8.AP.PD.01",
+                  "grade": "8",
+                  "text": "Seek and incorporate feedback from team members and users to refine the solution to a problem that meets the needs of a diverse group of users."
+                },
+                {
+                  "code": "6.AP.PD.02",
+                  "grade": "6",
+                  "text": "Incorporate existing code, media, and libraries into original programs from secure sources, and give appropriate attribution."
+                },
+                {
+                  "code": "7.AP.PD.02",
+                  "grade": "7",
+                  "text": "Incorporate existing code, media, and libraries into original programs of increasing complexity, from secure sources, and give appropriate attribution."
+                },
+                {
+                  "code": "8.AP.PD.02",
+                  "grade": "8",
+                  "text": "Incorporate existing code, media, and libraries into original programs of increasing complexity, from secure sources, and give appropriate attribution."
+                },
+                {
+                  "code": "6.AP.PD.03",
+                  "grade": "6",
+                  "text": "Test and refine existing and original programs."
+                },
+                {
+                  "code": "7.AP.PD.03",
+                  "grade": "7",
+                  "text": "Test and refine existing and original programs using user input and secure software development guidance."
+                },
+                {
+                  "code": "8.AP.PD.03",
+                  "grade": "8",
+                  "text": "Develop a method or implement an existing method to systematically test and refine existing and original programs using user input and secure software development guidance."
+                },
+                {
+                  "code": "6.AP.PD.04",
+                  "grade": "6",
+                  "text": "Distribute tasks and maintain a project timeline when collaboratively developing computational artifacts."
+                },
+                {
+                  "code": "7.AP.PD.04",
+                  "grade": "7",
+                  "text": "Explain how effective communication between participants is required for successful collaboration when developing computational artifacts."
+                },
+                {
+                  "code": "8.AP.PD.04",
+                  "grade": "8",
+                  "text": "Evaluate communication between participants to determine best practices in collaboration when developing computational artifacts."
+                },
+                {
+                  "code": "6.AP.PD.05",
+                  "grade": "6",
+                  "text": "Document programs in order to make them easier to understand, test, and debug."
+                },
+                {
+                  "code": "7.AP.PD.05",
+                  "grade": "7",
+                  "text": "Document complex programs in order to make them easier to understand, test, and debug."
+                },
+                {
+                  "code": "8.AP.PD.05",
+                  "grade": "8",
+                  "text": "Document complex programs, using multiple methods, in order to make them easier to understand, test, and debug."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Impacts of Computing",
+          "subconcepts": [
+            {
+              "name": "Culture and Diversity",
+              "standards": [
+                {
+                  "code": "6.IC.C.01",
+                  "grade": "6",
+                  "text": "Identify tradeoffs associated with computing technologies that affect people's everyday activities and future opportunities (e.g., college acceptances, career choices that include security clearances)."
+                },
+                {
+                  "code": "7.IC.C.01",
+                  "grade": "7",
+                  "text": "Explain how computing impacts people's everyday activities, career options, and diversity in innovation in computing and non-computing fields."
+                },
+                {
+                  "code": "8.IC.C.01",
+                  "grade": "8",
+                  "text": "Compare the tradeoffs associated with computing concepts (e.g., automation, communication, privacy, cybersecurity), explaining their effects on economics and global societies."
+                },
+                {
+                  "code": "6.IC.C.02",
+                  "grade": "6",
+                  "text": "Identify issues of bias and accessibility that occur in the design of existing computing technologies."
+                },
+                {
+                  "code": "7.IC.C.02",
+                  "grade": "7",
+                  "text": "Explain issues of bias and accessibility that occur in the design of existing computing technologies and describe the role and responsibility of a designer in reducing bias."
+                },
+                {
+                  "code": "8.IC.C.02",
+                  "grade": "8",
+                  "text": "Analyze issues of bias and accessibility that occur in the design of everyday computing technologies, the role and responsibility of the designer, and make recommendations for how these issues could be rectified to reduce bias."
+                }
+              ]
+            },
+            {
+              "name": "Social Interactions",
+              "standards": [
+                {
+                  "code": "6.IC.SI.01",
+                  "grade": "6",
+                  "text": "Describe and use safe, appropriate, and responsible practices when participating online (e.g., discussion groups, blogs, social networking sites) to maintain a clean record for post-secondary choices that require security clearances and background checks."
+                },
+                {
+                  "code": "7.IC.SI.01",
+                  "grade": "7",
+                  "text": "Individually and collaboratively use advanced tools to design and create online content (e.g., digital portfolio, multimedia, blog, webpage)."
+                },
+                {
+                  "code": "8.IC.SI.01",
+                  "grade": "8",
+                  "text": "Communicate and publish key ideas and details individually or collaboratively in a way that informs, persuades, and/or entertains using a variety of digital tools and media-rich resources."
+                }
+              ]
+            },
+            {
+              "name": "Safety, Law & Ethics",
+              "standards": [
+                {
+                  "code": "6.IC.SLE.01",
+                  "grade": "6",
+                  "text": "Differentiate between appropriate and inappropriate content on the internet, and identify unethical and illegal online behavior and consequences."
+                },
+                {
+                  "code": "7.IC.SLE.01",
+                  "grade": "7",
+                  "text": "Explain the connection between the longevity of data on the internet, personal online identity, and personal privacy."
+                },
+                {
+                  "code": "8.IC.SLE.01",
+                  "grade": "8",
+                  "text": "Discuss the social impacts and ethical considerations associated with cybersecurity, including the positive and malicious purposes of hacking."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "band": "9-12",
+      "grades": ["10", "12"],
+      "concepts": [
+        {
+          "name": "Computing Systems",
+          "subconcepts": [
+            {
+              "name": "Devices",
+              "standards": [
+                {
+                  "code": "10.CS.D.01",
+                  "grade": "10",
+                  "text": "Explain how abstractions hide the underlying implementation of computing systems embedded in everyday objects."
+                }
+              ]
+            },
+            {
+              "name": "Hardware & Software",
+              "standards": [
+                {
+                  "code": "10.CS.HS.01",
+                  "grade": "10",
+                  "text": "Explain and compare levels of abstraction between application software, system software, and hardware layers."
+                },
+                {
+                  "code": "12.CS.HS.01",
+                  "grade": "12",
+                  "text": "Identify, categorize, and illustrate the roles of operating systems to include memory management, data storage/retrieval, process management, and access control."
+                }
+              ]
+            },
+            {
+              "name": "Troubleshooting",
+              "standards": [
+                {
+                  "code": "10.CS.T.01",
+                  "grade": "10",
+                  "text": "Develop and evaluate guidelines and criteria that convey systematic troubleshooting strategies that can be used to identify/fix errors."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Networks and the Internet",
+          "subconcepts": [
+            {
+              "name": "Network Communication & Organization",
+              "standards": [
+                {
+                  "code": "10.NI.NCO.01",
+                  "grade": "10",
+                  "text": "Evaluate the scalability and reliability of networks by identifying and describing the relationship between routers, switches, servers, topology, and addresses."
+                },
+                {
+                  "code": "12.NI.NCO.01",
+                  "grade": "12",
+                  "text": "Evaluate the scalability and reliability of networks by identifying and describing the relationship between routers, switches, servers, topology, protocols, and addressing."
+                },
+                {
+                  "code": "10.NI.NCO.02",
+                  "grade": "10",
+                  "text": "Describe the issues that impact network functionality (e.g. Bandwidth, load, delay, topology, TCP/IP and OSI Models)."
+                }
+              ]
+            },
+            {
+              "name": "Cybersecurity",
+              "standards": [
+                {
+                  "code": "10.NI.C.01",
+                  "grade": "10",
+                  "text": "Illustrate how sensitive data and critical infrastructure can be affected by malware and other attacks and recommend security measures to address various scenarios based on factors such as efficiency, feasibility, and ethical impacts."
+                },
+                {
+                  "code": "12.NI.C.01",
+                  "grade": "12",
+                  "text": "Compare and refine ways software developers protect devices and information from unauthorized access including complex encryption algorithms such as public key encryption."
+                },
+                {
+                  "code": "10.NI.C.02",
+                  "grade": "10",
+                  "text": "Explain tradeoffs when selecting and implementing cybersecurity recommendations from multiple perspectives such as the user, enterprise, and government."
+                },
+                {
+                  "code": "10.NI.C.03",
+                  "grade": "10",
+                  "text": "Understand and identify the relationship between Confidentiality, Integrity, Availability (CIA) Triad and the security measures that address the balance between them as it pertains to data."
+                },
+                {
+                  "code": "10.NI.C.04",
+                  "grade": "10",
+                  "text": "Identify ethical concerns about individual privacy, intellectual property, entering systems without permission, and destroying data and demonstrate the ability to exercise proper judgement and best practices in a variety of different scenarios."
+                },
+                {
+                  "code": "10.NI.C.05",
+                  "grade": "10",
+                  "text": "Recognize and prevent social engineering attacks. Differentiate between legitimate and fraudulent information."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "subconcepts": [
+            {
+              "name": "Storage",
+              "standards": [
+                {
+                  "code": "10.DA.S.01",
+                  "grade": "10",
+                  "text": "Translate, compare, and evaluate different bit representations of real-world phenomena (large data sets), such as characters, numbers, and images and how they are organized and stored."
+                }
+              ]
+            },
+            {
+              "name": "Collection, Visualization & Transformation",
+              "standards": [
+                {
+                  "code": "10.DA.CVT.01",
+                  "grade": "10",
+                  "text": "Use software tools to develop interactive data representations that help others to better understand real-world phenomena."
+                },
+                {
+                  "code": "12.DA.CVT.01",
+                  "grade": "12",
+                  "text": "Use data analysis tools and techniques to identify patterns in data representing complex systems."
+                },
+                {
+                  "code": "12.DA.CVT.02",
+                  "grade": "12",
+                  "text": "Use a variety of robust data collection techniques and tools to generate data sets that support a claim or communicate information."
+                }
+              ]
+            },
+            {
+              "name": "Inference & Models",
+              "standards": [
+                {
+                  "code": "10.DA.IM.01",
+                  "grade": "10",
+                  "text": "Design computational models that identify and represent the relationships among different elements of data collected from a phenomenon or process."
+                },
+                {
+                  "code": "12.DA.IM.01",
+                  "grade": "12",
+                  "text": "Evaluate the ability of models and simulations to test and support refinement of hypotheses."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Algorithms and Programming",
+          "subconcepts": [
+            {
+              "name": "Algorithms",
+              "standards": [
+                {
+                  "code": "10.AP.A.01",
+                  "grade": "10",
+                  "text": "Develop prototypes that use algorithms (e.g., sequencing, selection, iteration, recursion, etc.) to solve computational problems by leveraging prior student knowledge and personal interest."
+                },
+                {
+                  "code": "12.AP.A.01",
+                  "grade": "12",
+                  "text": "Describe how artificial intelligence drives many software and physical systems (e.g., autonomous robots, computer vision, pattern recognition, text analysis).",
+                  "ai_relevant": true
+                },
+                {
+                  "code": "10.AP.A.02",
+                  "grade": "10",
+                  "text": "Design and implement an algorithm to play a game against a human opponent or solve a problem."
+                },
+                {
+                  "code": "12.AP.A.02",
+                  "grade": "12",
+                  "text": "Design and implement an algorithm to play a game against a human opponent or solve a problem."
+                },
+                {
+                  "code": "12.AP.A.03",
+                  "grade": "12",
+                  "text": "Design and implement encryption algorithms to securely store and retrieve information."
+                },
+                {
+                  "code": "12.AP.A.04",
+                  "grade": "12",
+                  "text": "Analyze and refine classic algorithms to solve problems."
+                },
+                {
+                  "code": "12.AP.A.05",
+                  "grade": "12",
+                  "text": "Evaluate algorithms (e.g., searching, sorting) in terms of their efficiency, correctness, and clarity."
+                }
+              ]
+            },
+            {
+              "name": "Variables",
+              "standards": [
+                {
+                  "code": "10.AP.V.01",
+                  "grade": "10",
+                  "text": "Identify common features in multiple lines of code and substitute a single segment that uses lists (arrays) to account for differences."
+                },
+                {
+                  "code": "12.AP.V.01",
+                  "grade": "12",
+                  "text": "Compare and contrast foundational data structures and their primary functions."
+                },
+                {
+                  "code": "10.AP.V.02",
+                  "grade": "10",
+                  "text": "Utilize lists to simplify solutions, generalizing computational problems, instead of repeatedly utilizing simple variables."
+                }
+              ]
+            },
+            {
+              "name": "Control",
+              "standards": [
+                {
+                  "code": "10.AP.C.01",
+                  "grade": "10",
+                  "text": "Justify and explain the rationale behind the selection of specific control structures when tradeoffs involve implementation, readability, and program performance."
+                },
+                {
+                  "code": "12.AP.C.01",
+                  "grade": "12",
+                  "text": "Illustrate the flow of execution of a recursive algorithm."
+                },
+                {
+                  "code": "10.AP.C.02",
+                  "grade": "10",
+                  "text": "Design and iteratively develop computational artifacts for practical intent, personal expression, or to address a societal issue by using events to initiate instructions."
+                }
+              ]
+            },
+            {
+              "name": "Modularity",
+              "standards": [
+                {
+                  "code": "10.AP.M.01",
+                  "grade": "10",
+                  "text": "Systematically analyze problems, using top down design, in order to break them down into smaller components, using procedures, modules, and/or objects to implement abstractions."
+                },
+                {
+                  "code": "12.AP.M.01",
+                  "grade": "12",
+                  "text": "Construct solutions to problems using student-created components, such as procedures, modules, and objects to implement abstractions."
+                },
+                {
+                  "code": "10.AP.M.02",
+                  "grade": "10",
+                  "text": "Create computational artifacts by using common structures to organize, manipulate, and process data."
+                },
+                {
+                  "code": "12.AP.M.02",
+                  "grade": "12",
+                  "text": "Analyze a large-scaled computational problem and identify generalizable patterns that can be applied to a solution."
+                },
+                {
+                  "code": "12.AP.M.03",
+                  "grade": "12",
+                  "text": "Create programming solutions using libraries and APIs through the application of code reuse."
+                }
+              ]
+            },
+            {
+              "name": "Program Development",
+              "standards": [
+                {
+                  "code": "10.AP.PD.01",
+                  "grade": "10",
+                  "text": "Systematically design and implement programs for broad audiences, solicit user feedback, and refine programs based on user feedback."
+                },
+                {
+                  "code": "12.AP.PD.01",
+                  "grade": "12",
+                  "text": "Utilize a software lifecycle process that considers security, to plan and develop programs for all types of users."
+                },
+                {
+                  "code": "10.AP.PD.02",
+                  "grade": "10",
+                  "text": "Identify and evaluate licenses that limit or restrict use of computational artifacts and consider implications on original work, especially when incorporating libraries and other resources."
+                },
+                {
+                  "code": "12.AP.PD.02",
+                  "grade": "12",
+                  "text": "Explain security issues that might lead to comprised computer programs."
+                },
+                {
+                  "code": "10.AP.PD.03",
+                  "grade": "10",
+                  "text": "Evaluate and refine computational artifacts to improve usability, accessibility, and efficiency."
+                },
+                {
+                  "code": "12.AP.PD.03",
+                  "grade": "12",
+                  "text": "Develop different programs for various computing platforms (e.g., desktop, web, mobile)."
+                },
+                {
+                  "code": "10.AP.PD.04",
+                  "grade": "10",
+                  "text": "Design and develop computational artifacts while working collaboratively."
+                },
+                {
+                  "code": "12.AP.PD.04",
+                  "grade": "12",
+                  "text": "Design software collaboratively using integrated development environments (IDEs), with version control and collaboration systems."
+                },
+                {
+                  "code": "10.AP.PD.05",
+                  "grade": "10",
+                  "text": "Represent the design elements and data flow (e.g., flowcharts, pseudocode, etc.) of the development of a complex program through the use of various visual aids and documentation techniques."
+                },
+                {
+                  "code": "12.AP.PD.05",
+                  "grade": "12",
+                  "text": "Develop and use a series of test cases to verify that a program performs according to its design specifications."
+                },
+                {
+                  "code": "12.AP.PD.06",
+                  "grade": "12",
+                  "text": "Modify an existing program to add additional functionality and discuss intended and unintended implications (e.g., breaking other functionality)."
+                },
+                {
+                  "code": "12.AP.PD.07",
+                  "grade": "12",
+                  "text": "Compare multiple programming languages or libraries and discuss how their features make them suitable for solving different types of problems."
+                },
+                {
+                  "code": "12.AP.PD.08",
+                  "grade": "12",
+                  "text": "Evaluate key qualities of a program through a process such as code review."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Impacts of Computing",
+          "subconcepts": [
+            {
+              "name": "Culture and Diversity",
+              "standards": [
+                {
+                  "code": "10.IC.C.01",
+                  "grade": "10",
+                  "text": "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices."
+                },
+                {
+                  "code": "12.IC.C.01",
+                  "grade": "12",
+                  "text": "Evaluate the positive and negative implications computational artifacts have on society."
+                },
+                {
+                  "code": "10.IC.C.02",
+                  "grade": "10",
+                  "text": "Evaluate and refine computational artifacts to reduce bias and equity deficits."
+                },
+                {
+                  "code": "12.IC.C.02",
+                  "grade": "12",
+                  "text": "Evaluate the impact of equity, access, and influence on the distribution of computing resources in the global society."
+                },
+                {
+                  "code": "10.IC.C.03",
+                  "grade": "10",
+                  "text": "Demonstrate and explain how an existing algorithm/computational innovation applies to problems across disciplines."
+                },
+                {
+                  "code": "12.IC.C.03",
+                  "grade": "12",
+                  "text": "Predict evolutionary trends of computational innovations that have revolutionized aspects of global society."
+                },
+                {
+                  "code": "10.IC.C.04",
+                  "grade": "10",
+                  "text": "Demonstrate and explain how an existing algorithm/computational innovation applies to problems in society."
+                },
+                {
+                  "code": "12.IC.C.04",
+                  "grade": "12",
+                  "text": "Predict how computational innovations may revolutionize aspects of global society."
+                }
+              ]
+            },
+            {
+              "name": "Social Interactions",
+              "standards": [
+                {
+                  "code": "10.IC.SI.01",
+                  "grade": "10",
+                  "text": "Demonstrate and explain how various methods of collaboration can increase diverse ideas and solutions."
+                },
+                {
+                  "code": "12.IC.SI.01",
+                  "grade": "12",
+                  "text": "Select and justify the tools and methods used for collaboration on a project to increase diverse ideas and solutions."
+                }
+              ]
+            },
+            {
+              "name": "Safety, Law & Ethics",
+              "standards": [
+                {
+                  "code": "10.IC.SLE.01",
+                  "grade": "10",
+                  "text": "Explain the positive and negative consequences that intellectual property laws can have on innovation."
+                },
+                {
+                  "code": "12.IC.SLE.01",
+                  "grade": "12",
+                  "text": "Debate the laws and regulations that govern and impact the development of computing innovations and policies."
+                },
+                {
+                  "code": "10.IC.SLE.02",
+                  "grade": "10",
+                  "text": "Explain the privacy concerns related to the collection, generation, and analysis of large-scaled data that may not be evident to users."
+                },
+                {
+                  "code": "12.IC.SLE.02",
+                  "grade": "12",
+                  "text": "Investigate reasons new technologies require evaluation of existing laws and regulations and the creation of new legislation."
+                },
+                {
+                  "code": "10.IC.SLE.03",
+                  "grade": "10",
+                  "text": "Evaluate the social and economic implications of privacy in the context of safety, law, and ethics."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

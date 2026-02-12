@@ -1,0 +1,879 @@
+{
+  "meta": {
+    "title": "MSDE K-12 CS Standards to CSTA AI Learning Priorities Crosswalk",
+    "version": "1.0",
+    "created": "2026-02-11",
+    "methodology": "Each MSDE standard was evaluated against all CSTA AI priority outcomes at the same grade band. Alignment strength indicates how directly the existing standard supports AI instruction without modification.",
+    "alignment_categories": {
+      "strong": "MSDE standard directly supports the AI priority with minimal adaptation",
+      "partial": "MSDE standard covers related concepts but needs AI-specific framing",
+      "extension": "MSDE standard can be extended to include AI without replacing existing content",
+      "gap": "No corresponding MSDE standard; AI priority requires entirely new content"
+    }
+  },
+  "mappings": [
+    {
+      "grade_band": "K-2",
+      "alignments": [
+        {
+          "msde_standard": {
+            "code": "K.DA.IM.01",
+            "text": "With guidance, draw conclusions and make predictions based on picture graphs or patterns",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "C2",
+            "category": "C. Machine Learning",
+            "subtopic": "Data",
+            "text": "Explore how AI models learn from data.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students already make predictions from data patterns. Extend by showing how computers also find patterns in data — compare human pattern-finding (looking at a picture graph) with how an AI finds patterns (looking at lots of examples). Use sorting activities: 'You sorted these by color — a computer can sort too!'"
+        },
+        {
+          "msde_standard": {
+            "code": "K.DA.IM.01",
+            "text": "With guidance, draw conclusions and make predictions based on picture graphs or patterns",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "B3",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Reasoning",
+            "text": "Explain how binary choices (e.g., up/down, on/off, under/over) can be used to make decisions that lead to a specific goal by either a human or a machine.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Pattern recognition in picture graphs connects to decision-making. Extend with yes/no sorting games: 'Is it bigger than a bread box?' Build physical decision trees with students standing at choice points. Emphasize: both humans AND machines use yes/no questions to decide."
+        },
+        {
+          "msde_standard": {
+            "code": "K.AP.A.01",
+            "text": "Model daily processes and follow basic algorithms (step-by-step lists of instructions) to complete tasks",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Algorithms"
+          },
+          "csta_ai_priority": {
+            "id": "A2",
+            "category": "A. Humans and AI",
+            "subtopic": "The Human Role in Creating AI",
+            "text": "Understand that AI is a tool created by humans to make decisions or to generate something (e.g., an image).",
+            "priority": true
+          },
+          "alignment_strength": "extension",
+          "teaching_notes": "Students learn that algorithms are human-created instructions. Extend: 'Humans also create instructions for AI. When you tell Alexa to play a song, a human wrote the instructions that help Alexa understand you.' The key bridge is: algorithms = human-made instructions, AI = a special kind of algorithm made by humans."
+        },
+        {
+          "msde_standard": {
+            "code": "K.IC.C.01",
+            "text": "Use grade-level appropriate language to identify and describe how people use a variety of technologies and applications in their daily work and personal lives",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "E1",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Individual Impacts",
+            "text": "Identify where AI is being used in daily life.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students already identify technologies in daily life. Narrow the lens to AI specifically: smart speakers, recommendation engines on kids' video apps, face filters. Activity: 'AI or Not AI?' sorting game with pictures of everyday technologies."
+        },
+        {
+          "msde_standard": {
+            "code": "K.IC.C.01",
+            "text": "Use grade-level appropriate language to identify and describe how people use a variety of technologies and applications in their daily work and personal lives",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "E2",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Societal Impacts",
+            "text": "Explore how some people use AI in their jobs and in their communities.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Extend the 'people use technologies' standard to specifically highlight AI in jobs: doctors use AI to look at X-rays, farmers use AI to check crops, artists use AI to create images. Discussion: 'What jobs use AI helpers?'"
+        },
+        {
+          "msde_standard": {
+            "code": "K.IC.SI.01",
+            "text": "Identify appropriate and safe behaviors when participating online",
+            "concept": "Impacts of Computing",
+            "subconcept": "Social Interactions"
+          },
+          "csta_ai_priority": {
+            "id": "D2",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Evaluation of AI Systems",
+            "text": "Explore how an AI system can help and harm different groups at the same time.",
+            "priority": true
+          },
+          "alignment_strength": "extension",
+          "teaching_notes": "Online safety already covers 'some things help, some things hurt.' Extend to AI: 'A smart speaker can help you learn new words, but it also listens to everything you say. Is that always good?' Use concrete examples kids relate to."
+        },
+        {
+          "msde_standard": {
+            "code": "2.DA.CVT.01",
+            "text": "With guidance, collect, organize, and present the same data in a variety of visual ways",
+            "concept": "Data Analysis",
+            "subconcept": "Collection, Visualization & Transformation"
+          },
+          "csta_ai_priority": {
+            "id": "C4",
+            "category": "C. Machine Learning",
+            "subtopic": "Building and Using AI Models",
+            "text": "Use data to construct a model for making decisions (e.g., a decision tree to determine what to wear based on the weather).",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students collect and organize data (e.g., weather). Bridge to AI by building a simple decision tree from that data: 'We collected weather data for two weeks. Now let's build a chart that tells us what to wear!' This is a decision tree — the simplest AI model. Use physical materials (cards, yarn) to build the tree."
+        }
+      ],
+      "gaps": [
+        {
+          "csta_ai_priority": {
+            "id": "A1",
+            "category": "A. Humans and AI",
+            "subtopic": "The Nature of Humans and of AI",
+            "text": "Compare and contrast the nature of humans versus the nature of AI (e.g., living versus nonliving).",
+            "priority": false
+          },
+          "gap_notes": "No K-2 MSDE standard addresses comparing humans and AI. Requires new content. Natural fit alongside science standards about living vs. nonliving things. Activity: 'Can a robot feel hungry? Can it feel happy? What makes something alive?'"
+        },
+        {
+          "csta_ai_priority": {
+            "id": "C1",
+            "category": "C. Machine Learning",
+            "subtopic": "Sensing",
+            "text": "Compare and contrast human sensing with computer sensors.",
+            "priority": false
+          },
+          "gap_notes": "No K-2 MSDE standard covers sensors or sensing. Pair with science curriculum on five senses. Activity: 'Your eyes are sensors — cameras are computer eyes. Your ears are sensors — microphones are computer ears.'"
+        },
+        {
+          "csta_ai_priority": {
+            "id": "C3",
+            "category": "C. Machine Learning",
+            "subtopic": "How Computers Learn",
+            "text": "Understand how computers learn from data and patterns.",
+            "priority": false
+          },
+          "gap_notes": "No K-2 MSDE standard addresses how computers learn. Closest is DA.IM (making predictions from patterns). Use unplugged activities: show a computer (played by a student) lots of pictures of cats and dogs, then ask it to classify a new picture. 'How did you decide?'"
+        },
+        {
+          "csta_ai_priority": {
+            "id": "B2",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Creating a Representation",
+            "text": "Create a representation of a physical object (e.g., line art drawing).",
+            "priority": false
+          },
+          "gap_notes": "No MSDE CS standard for representation creation at K-2 (connects more to art standards). Bridge through 'draw what you see' then 'how would a computer draw what it sees?' activities."
+        }
+      ]
+    },
+    {
+      "grade_band": "3-5",
+      "alignments": [
+        {
+          "msde_standard": {
+            "code": "3.DA.IM.01",
+            "text": "Utilize data to make predictions and discuss whether there are sufficient data to make these predictions and extrapolations",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "C2",
+            "category": "C. Machine Learning",
+            "subtopic": "Data",
+            "text": "Explore the relationship between the properties of training data (e.g., size, features, biases) and an AI model's output.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Direct alignment: students already discuss data sufficiency for predictions. AI framing: 'If we only have 5 examples, can we trust the prediction? What if we have 500?' Extend to show how AI models need lots of training data too, and what happens when the data is biased or too small. Use Teachable Machine to demonstrate."
+        },
+        {
+          "msde_standard": {
+            "code": "5.DA.IM.01",
+            "text": "Refer to data sets to highlight or propose cause-and-effect relationships, predict outcomes, or communicate ideas",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "C4",
+            "category": "C. Machine Learning",
+            "subtopic": "Building and Using AI Models",
+            "text": "Using a dataset, develop an AI model to classify inputs.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students use datasets for predictions. Bridge to classification: 'Instead of just predicting, let's sort! Can we build a model that classifies animals as mammals or reptiles based on their features?' Use Google Teachable Machine or a physical decision tree."
+        },
+        {
+          "msde_standard": {
+            "code": "5.AP.A.01",
+            "text": "Develop, compare, and refine multiple algorithms for the same task and determine which algorithm is the most appropriate",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Algorithms"
+          },
+          "csta_ai_priority": {
+            "id": "B3",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Reasoning",
+            "text": "Train a model that can make decisions based on defined criteria (e.g., a dichotomous key to determine which movie to see).",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students compare algorithms. Introduce a new type of algorithm: a decision tree trained on data. 'We've been writing algorithms by hand. What if the computer could figure out the algorithm by looking at examples?' Build a dichotomous key as a class, then show how a computer builds one from data."
+        },
+        {
+          "msde_standard": {
+            "code": "3.IC.C.02",
+            "text": "Identify potential problems that limit accessibility/usability and how computing devices have built-in features to increase accessibility for all users",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "D2",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Evaluation of AI Systems",
+            "text": "Investigate examples of AI, considering differences in experience by different people in different contexts.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students already identify accessibility problems in technology. AI-specific framing: 'Voice assistants work better for some accents than others. Face recognition works better on some skin tones. Why? Is that fair?' Connect accessibility to AI bias directly."
+        },
+        {
+          "msde_standard": {
+            "code": "5.IC.C.01",
+            "text": "Evaluate how different technologies created by people from diverse backgrounds have contributed to computing and helped to change the world",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "A2",
+            "category": "A. Humans and AI",
+            "subtopic": "The Human Role in Creating AI",
+            "text": "Describe the role of humans in the creation of AI.",
+            "priority": true
+          },
+          "alignment_strength": "extension",
+          "teaching_notes": "Students evaluate contributions of diverse technologists. Extend to AI creators: highlight diverse AI researchers and their contributions. 'Who builds AI? People from all backgrounds — and the more diverse the team, the better the AI works for everyone.'"
+        },
+        {
+          "msde_standard": {
+            "code": "4.IC.C.01",
+            "text": "Summarize how different technologies created by people from diverse backgrounds have contributed to computing and helped to change the world",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "E2",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Societal Impacts",
+            "text": "Explore ways in which some jobs involve the creation and/or use of AI.",
+            "priority": true
+          },
+          "alignment_strength": "extension",
+          "teaching_notes": "Students learn about technology's impact on the world. Extend to AI specifically: how AI is changing jobs (some jobs are new, some are changing, some are going away). Activity: 'Jobs of the Future' brainstorm."
+        },
+        {
+          "msde_standard": {
+            "code": "3.IC.SI.02",
+            "text": "Identify how computing devices and computational products have been, or can be, improved by incorporating diverse perspectives",
+            "concept": "Impacts of Computing",
+            "subconcept": "Social Interactions"
+          },
+          "csta_ai_priority": {
+            "id": "D3",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Creation of AI Systems",
+            "text": "Describe an AI design process that considers the impact on end users and others who are impacted by the AI system.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Students consider diverse perspectives in product improvement. Bridge to AI: 'When we build an AI system, we need to think about who uses it and who it affects. What if we built a homework helper AI — who should we ask about whether it's working well?'"
+        },
+        {
+          "msde_standard": {
+            "code": "3.DA.CVT.01",
+            "text": "Collect, organize, and present the same data in a variety of visual formats",
+            "concept": "Data Analysis",
+            "subconcept": "Collection, Visualization & Transformation"
+          },
+          "csta_ai_priority": {
+            "id": "B2",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Creating a Representation",
+            "text": "Create an abstract representation of a physical system that can be used to solve a problem (e.g., a map).",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Data visualization is a form of representation. Bridge: 'A bar graph is one way to represent data. A map is another. AI systems need data represented in specific ways to understand it. What's the best way to represent our classroom survey data so a computer could use it?'"
+        }
+      ],
+      "gaps": [
+        {
+          "csta_ai_priority": {
+            "id": "A1",
+            "category": "A. Humans and AI",
+            "subtopic": "The Nature of Humans and of AI",
+            "text": "Compare and contrast the ability of humans and of AI to perform various tasks and serve in various roles (e.g., create art, recognize emotions, be a friend, serve as a tutor).",
+            "priority": false
+          },
+          "gap_notes": "No 3-5 MSDE standard addresses human vs. AI capabilities. Requires new content. Activity: Give students tasks (draw a cat, write a poem, solve 100 math problems in 1 second) and discuss which humans or AI do better."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "A3",
+            "category": "A. Humans and AI",
+            "subtopic": "The Choice to Use AI",
+            "text": "Evaluate when AI is or is not a helpful resource to carry out a task.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard addresses choosing when to use AI. New content needed. Framework: 'Should I use AI for this?' decision tree considering accuracy needs, creativity, speed, and ethics."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "C1",
+            "category": "C. Machine Learning",
+            "subtopic": "Sensing",
+            "text": "Describe various ways that a human might interact with an AI system (e.g., through voice, text, or gestures).",
+            "priority": false
+          },
+          "gap_notes": "MSDE 4.CS.HS.01 mentions sensors in hardware context but not AI-specific interaction modalities. New content: explore voice, text, gesture, and camera inputs to AI systems."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "C3",
+            "category": "C. Machine Learning",
+            "subtopic": "How Computers Learn",
+            "text": "Investigate how AI models learn by using data (including why examples and non-examples are required in training sets) and algorithms to find patterns and generate output.",
+            "priority": false
+          },
+          "gap_notes": "No 3-5 MSDE standard covers machine learning mechanics. Closest is DA.IM (predictions from data). Use Teachable Machine to train image classifiers — students see firsthand why examples AND non-examples matter."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "E3",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Environmental Impacts",
+            "text": "Explore the impact of AI on the environment.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE CS standard addresses environmental impacts. Cross-curricular with science. Discuss: AI helps track endangered species but also uses lots of electricity. Data centers need cooling water."
+        }
+      ]
+    },
+    {
+      "grade_band": "6-8",
+      "alignments": [
+        {
+          "msde_standard": {
+            "code": "8.DA.IM.01",
+            "text": "Refine existing or develop and implement new computational models based on observed and generated data",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "C4",
+            "category": "C. Machine Learning",
+            "subtopic": "Building and Using AI Models",
+            "text": "Using a dataset and a machine learning pipeline, develop an AI model, and consider the impact of the model on various users.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Direct alignment: students develop computational models from data. Add ML pipeline framing: data collection → preprocessing → model training → evaluation → iteration. Use MIT App Inventor with the Personal Image Classifier extension, or Scratch with ML extensions. Discuss model impact on different users."
+        },
+        {
+          "msde_standard": {
+            "code": "7.DA.IM.01",
+            "text": "Verify a model's accuracy by comparing the results with observed data",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "C3",
+            "category": "C. Machine Learning",
+            "subtopic": "How Computers Learn",
+            "text": "Create and evaluate an appropriate AI algorithm (e.g., a decision tree classifier) to accomplish a task.",
+            "priority": false
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Model accuracy verification maps directly to AI model evaluation. Students train a classifier, test it on new data, calculate accuracy. 'Our model correctly identified 8 out of 10 test images. Is that good enough? What if it was a medical diagnosis tool?'"
+        },
+        {
+          "msde_standard": {
+            "code": "7.DA.CVT.01",
+            "text": "Collect data using computational tools and hardware (e.g., sensors) and transform the data to make it more useful and reliable",
+            "concept": "Data Analysis",
+            "subconcept": "Collection, Visualization & Transformation"
+          },
+          "csta_ai_priority": {
+            "id": "C1",
+            "category": "C. Machine Learning",
+            "subtopic": "Sensing",
+            "text": "Use sensors to collect data, and then train an AI model using the sensor data.",
+            "priority": false
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Direct alignment: students use sensors and computational tools to collect data. Bridge to AI: use micro:bit sensors to collect temperature, light, or accelerometer data, then train a simple ML model. 'We collected movement data — can an AI learn to tell the difference between walking and running?'"
+        },
+        {
+          "msde_standard": {
+            "code": "8.DA.S.01",
+            "text": "Evaluate different schemes of encoding data in order to effectively choose the most appropriate method of representation",
+            "concept": "Data Analysis",
+            "subconcept": "Storage"
+          },
+          "csta_ai_priority": {
+            "id": "B1",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Understanding Representation",
+            "text": "Understand that representation includes modalities (text, speech, audio, image, video) and symbolic mappings (text, graphs).",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Data encoding connects to AI representation. Extend: 'An image is stored as pixels (numbers). Text is stored as character codes. But AI models need data in specific representations — how does an LLM represent words? Tokens! How does an image classifier represent a photo? Pixel arrays!'"
+        },
+        {
+          "msde_standard": {
+            "code": "8.IC.C.02",
+            "text": "Analyze issues of bias and accessibility that occur in the design of everyday computing technologies, the role and responsibility of the designer, and make recommendations for how these issues could be rectified to reduce bias",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "C2",
+            "category": "C. Machine Learning",
+            "subtopic": "Data",
+            "text": "Describe the ways that bias can be introduced and mitigated in an AI model.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Direct alignment: students analyze bias in computing design. AI makes this concrete: show how biased training data leads to biased AI outputs. Use real examples: facial recognition accuracy differences across demographics, biased hiring algorithms. Students design mitigation strategies."
+        },
+        {
+          "msde_standard": {
+            "code": "8.IC.C.02",
+            "text": "Analyze issues of bias and accessibility that occur in the design of everyday computing technologies",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "D2",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Evaluation of AI Systems",
+            "text": "Describe the properties, biases, and assumptions of various kinds of AI models (e.g., classifier, predictor, recommender).",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Same MSDE standard, different AI application: go beyond general bias analysis to specifically evaluate AI model types. 'Netflix recommends shows — what assumptions does it make? Amazon predicts what you'll buy — what biases might that have? A college admissions classifier — what could go wrong?'"
+        },
+        {
+          "msde_standard": {
+            "code": "8.IC.C.01",
+            "text": "Compare the tradeoffs associated with computing concepts (e.g., automation, communication, privacy, cybersecurity), explaining their effects on economics and global societies",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "E2",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Societal Impacts",
+            "text": "Identify the intended and unintended impacts of AI on society -- including government, education, entertainment, culture, careers, and national security -- while considering how these impacts may differ among diverse communities.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Direct alignment: computing tradeoffs and societal effects. Specify AI: automation → job displacement, AI in criminal justice, deepfakes in media, AI in healthcare. Student project: research one AI application, present intended benefit and unintended harm, propose safeguards."
+        },
+        {
+          "msde_standard": {
+            "code": "8.IC.SLE.01",
+            "text": "Discuss the social impacts and ethical considerations associated with cybersecurity, including the positive and malicious purposes of hacking",
+            "concept": "Impacts of Computing",
+            "subconcept": "Safety, Law & Ethics"
+          },
+          "csta_ai_priority": {
+            "id": "D1",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Design Criteria",
+            "text": "Explore strategies to turn ethical considerations into actions, such as mitigating bias in datasets.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Ethical considerations in cybersecurity can extend to AI ethics. Bridge: 'Just as hackers can misuse computer systems, AI can be misused too. What ethical criteria should we apply when designing AI? Fairness, transparency, safety — and how do we actually implement those?'"
+        },
+        {
+          "msde_standard": {
+            "code": "8.AP.A.01",
+            "text": "Develop and implement algorithms and pseudocode to solve complex problems",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Algorithms"
+          },
+          "csta_ai_priority": {
+            "id": "B3",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Reasoning",
+            "text": "Identify the kinds of AI models (e.g., classifier, predictor, recommender) people interact with in their daily lives.",
+            "priority": true
+          },
+          "alignment_strength": "extension",
+          "teaching_notes": "Students develop algorithms. Introduce AI algorithm types as a new category: 'We write step-by-step algorithms. AI uses different kinds of algorithms — classifiers (this email is spam or not), predictors (tomorrow's weather), recommenders (next video to watch). Let's identify which type each AI we use daily is.'"
+        },
+        {
+          "msde_standard": {
+            "code": "8.AP.PD.01",
+            "text": "Seek and incorporate feedback from team members and users to refine the solution to a problem that meets the needs of a diverse group of users",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Program Development"
+          },
+          "csta_ai_priority": {
+            "id": "D3",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Creation of AI Systems",
+            "text": "Create a program using available AI tools, AI plugins, APIs, and/or AI models, with ethical considerations for fairness, bias, and accuracy, and then create a model card.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "User feedback and diverse needs map to ethical AI creation. Extend the development process to include AI tools (APIs, Teachable Machine outputs) and require a model card as a deliverable: 'What data did you use? Who might be affected? What are the limitations?'"
+        }
+      ],
+      "gaps": [
+        {
+          "csta_ai_priority": {
+            "id": "A1",
+            "category": "A. Humans and AI",
+            "subtopic": "The Nature of Humans and of AI",
+            "text": "Identify the assumptions inherent in the operation and output of an AI model and how these assumptions might have different implications for different people.",
+            "priority": false
+          },
+          "gap_notes": "No 6-8 MSDE standard specifically addresses AI model assumptions. Partially served by IC.C.02 (bias analysis) but needs explicit AI model focus. Activity: examine ChatGPT or image generator outputs and identify hidden assumptions."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "A2",
+            "category": "A. Humans and AI",
+            "subtopic": "The Human Role in Creating AI",
+            "text": "Describe the roles that humans play (including in data curation and labeling) in creating and refining AI models.",
+            "priority": true
+          },
+          "gap_notes": "CRITICAL GAP for a priority subtopic. No MSDE standard covers humans' role in AI creation. Students should experience data labeling firsthand: label 100 images, see how their labels affect model training. Discuss content moderators, data annotators, RLHF workers."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "A3",
+            "category": "A. Humans and AI",
+            "subtopic": "The Choice to Use AI",
+            "text": "Debate when humans should or should not use AI to perform a specific task.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard for evaluating when to use AI. Structured debate format: 'Should AI grade student essays? Should AI drive school buses? Should AI choose which books the library buys?'"
+        },
+        {
+          "csta_ai_priority": {
+            "id": "E1",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Individual Impacts",
+            "text": "Explore the tradeoffs related to human agency (including privacy, safety, creativity, autonomy, and intellectual property) when AI is used.",
+            "priority": false
+          },
+          "gap_notes": "Partially covered by IC.SLE.01 (privacy/ethics) but not AI-specific agency tradeoffs. New content: 'When AI writes your essay, whose voice is it? When AI generates art in an artist's style, whose creativity is it?'"
+        },
+        {
+          "csta_ai_priority": {
+            "id": "E3",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Environmental Impacts",
+            "text": "Investigate the positive and negative environmental impacts of AI (e.g., minimizing deforestation via application of AI, energy use by AI).",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard covers environmental impacts of computing. Research project: compare energy cost of training a large AI model to other activities. Balance with AI applications in climate science, wildlife conservation."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "B2",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Creating a Representation",
+            "text": "Create and evaluate different abstract representations (e.g., subway map).",
+            "priority": false
+          },
+          "gap_notes": "MSDE DA standards cover data representation but not abstract representation design for AI. Activity: create different representations of the same data and evaluate which is best for an AI to process."
+        }
+      ]
+    },
+    {
+      "grade_band": "9-12",
+      "alignments": [
+        {
+          "msde_standard": {
+            "code": "12.AP.A.01",
+            "text": "Describe how artificial intelligence drives many software and physical systems (e.g., autonomous robots, computer vision, pattern recognition, text analysis)",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Algorithms"
+          },
+          "csta_ai_priority": {
+            "id": "B3",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Reasoning",
+            "text": "Describe different types of AI algorithms and models, and compare and contrast the strengths and limitations of their reasoning.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "THE one AI standard in MSDE. Directly aligns with describing AI systems. Deepen: don't just describe THAT AI drives systems, but HOW — compare rule-based AI vs. ML, supervised vs. unsupervised learning, classification vs. generation. Students implement at least two different AI algorithm types."
+        },
+        {
+          "msde_standard": {
+            "code": "12.AP.A.01",
+            "text": "Describe how artificial intelligence drives many software and physical systems",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Algorithms"
+          },
+          "csta_ai_priority": {
+            "id": "C3",
+            "category": "C. Machine Learning",
+            "subtopic": "How Computers Learn",
+            "text": "Select and use an appropriate AI algorithm for a classification task (e.g., KNN, decision tree).",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "12.AP.A.01 mentions pattern recognition. Extend to implementing: KNN classifier, decision tree, or simple neural network. Students should select the appropriate algorithm for a given problem, justify their choice, and evaluate results. Use Python with scikit-learn or Orange Data Mining."
+        },
+        {
+          "msde_standard": {
+            "code": "10.DA.IM.01",
+            "text": "Design computational models that identify and represent the relationships among different elements of data collected from a phenomenon or process",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "C4",
+            "category": "C. Machine Learning",
+            "subtopic": "Building and Using AI Models",
+            "text": "Using a dataset and a systematic process, develop an AI model to generate for classification or prediction, and articulate the assumptions made at each step.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Computational model design aligns directly with AI model development. Add the 6-step ML process: (1) question, (2) data collection/curation, (3) data evaluation, (4) model training, (5) model evaluation, (6) iteration. Require students to document assumptions at each step. Use real datasets from Kaggle or UCI ML Repository."
+        },
+        {
+          "msde_standard": {
+            "code": "12.DA.CVT.01",
+            "text": "Use data analysis tools and techniques to identify patterns in data representing complex systems",
+            "concept": "Data Analysis",
+            "subconcept": "Collection, Visualization & Transformation"
+          },
+          "csta_ai_priority": {
+            "id": "C2",
+            "category": "C. Machine Learning",
+            "subtopic": "Data",
+            "text": "Evaluate the data used to solve a problem, including its source(s) and whether privacy is protected, if/how the data has been processed, data quality, what the data represents, and biases.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Pattern identification in data extends to critical data evaluation for AI. Add: data provenance, privacy audit, bias analysis, quality assessment. Students evaluate a real dataset: 'Where did this data come from? Who collected it? What's missing? Who might be harmed by patterns found in it?'"
+        },
+        {
+          "msde_standard": {
+            "code": "10.IC.C.01",
+            "text": "Evaluate the ways computing impacts personal, ethical, social, economic, and cultural practices",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "E2",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Societal Impacts",
+            "text": "Evaluate the intended and unintended impacts of AI on society (e.g., deep fakes, job loss) -- including government, education, entertainment, culture, careers, and national security.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Direct alignment: evaluating computing's societal impacts. Specify AI: deepfakes, algorithmic hiring, predictive policing, AI-generated content, job automation. Student capstone: choose an AI application, conduct stakeholder analysis, present findings to class with policy recommendations."
+        },
+        {
+          "msde_standard": {
+            "code": "10.IC.C.02",
+            "text": "Evaluate and refine computational artifacts to reduce bias and equity deficits",
+            "concept": "Impacts of Computing",
+            "subconcept": "Culture and Diversity"
+          },
+          "csta_ai_priority": {
+            "id": "D2",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Evaluation of AI Systems",
+            "text": "Evaluate the design, motivation, outcomes, and potential impacts of AI systems using ethical design criteria and/or ethical frameworks.",
+            "priority": true
+          },
+          "alignment_strength": "strong",
+          "teaching_notes": "Bias reduction in computational artifacts maps directly to ethical AI evaluation. Introduce formal frameworks: IEEE Ethically Aligned Design, EU AI Act risk categories, AI model cards. Students evaluate a real AI system using a structured ethical framework and propose improvements."
+        },
+        {
+          "msde_standard": {
+            "code": "10.IC.SLE.02",
+            "text": "Explain the privacy concerns related to the collection, generation, and analysis of large-scaled data that may not be evident to users",
+            "concept": "Impacts of Computing",
+            "subconcept": "Safety, Law & Ethics"
+          },
+          "csta_ai_priority": {
+            "id": "E1",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Individual Impacts",
+            "text": "Evaluate how AI use impacts an individual's decision making and other behavior.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Privacy in large-scale data analysis connects to AI's individual impacts. Extend: 'AI recommendation systems shape what you see, read, and buy. Social media algorithms affect your mood and beliefs. How does invisible data collection enable this? What can you do about it?'"
+        },
+        {
+          "msde_standard": {
+            "code": "10.AP.A.02",
+            "text": "Design and implement an algorithm to play a game against a human opponent or solve a problem",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Algorithms"
+          },
+          "csta_ai_priority": {
+            "id": "B3",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Reasoning",
+            "text": "Describe different types of AI algorithms and models, and compare and contrast the strengths and limitations of their reasoning.",
+            "priority": true
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Game-playing algorithms are a classic AI domain. Extend: implement minimax for tic-tac-toe, discuss how AlphaGo works differently (neural networks + MCTS). Compare rule-based game AI with learning-based AI. 'Your algorithm uses rules you wrote. What if the computer could learn to play by practicing against itself?'"
+        },
+        {
+          "msde_standard": {
+            "code": "12.DA.IM.01",
+            "text": "Evaluate the ability of models and simulations to test and support refinement of hypotheses",
+            "concept": "Data Analysis",
+            "subconcept": "Inference & Models"
+          },
+          "csta_ai_priority": {
+            "id": "D1",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Design Criteria",
+            "text": "Evaluate an AI model (e.g., using a model card) to determine the model's features as well as its biases, explainability, fairness, privacy, accuracy, and transparency.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Model evaluation skills transfer to AI model evaluation. Add AI-specific criteria: beyond accuracy, evaluate fairness across demographics, explainability (can you understand why the model made this decision?), and transparency (is the training data documented?). Use Hugging Face model cards as real examples."
+        },
+        {
+          "msde_standard": {
+            "code": "10.AP.PD.01",
+            "text": "Systematically design and implement programs for broad audiences, solicit user feedback, and refine programs based on user feedback",
+            "concept": "Algorithms and Programming",
+            "subconcept": "Program Development"
+          },
+          "csta_ai_priority": {
+            "id": "D3",
+            "category": "D. Ethical AI System Design and Programming",
+            "subtopic": "Ethical Creation of AI Systems",
+            "text": "Train, iteratively improve, and then develop a model card for an AI model with ethical considerations for fairness, bias, safety, security, intellectual property, privacy, robustness, explainability, accuracy, transparency, and accountability.",
+            "priority": false
+          },
+          "alignment_strength": "partial",
+          "teaching_notes": "Software development lifecycle maps to AI development lifecycle. Extend: replace 'user feedback' with 'model evaluation against ethical criteria'. Students build an AI-powered application, document it with a model card, conduct user testing with diverse testers, iterate. Capstone-level project."
+        }
+      ],
+      "gaps": [
+        {
+          "csta_ai_priority": {
+            "id": "A1",
+            "category": "A. Humans and AI",
+            "subtopic": "The Nature of Humans and of AI",
+            "text": "Debate what differences do or should exist between human and artificial intelligence, sentience, consciousness, rights, and responsibilities.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard addresses philosophical questions about AI consciousness or rights. Socratic seminar format: 'Can AI be creative? Should AI have rights? What makes human intelligence different?' Use readings from Turing, Searle (Chinese Room), modern AI ethics scholars."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "A2",
+            "category": "A. Humans and AI",
+            "subtopic": "The Human Role in Creating AI",
+            "text": "Evaluate and analyze the roles of humans and human decision-making in the creation of AI.",
+            "priority": true
+          },
+          "alignment_strength": "gap",
+          "gap_notes": "CRITICAL GAP for a priority subtopic. Despite being 9-12, MSDE has no standard for human roles in AI creation. Students should investigate: who labels data, who designs reward functions, who decides what to optimize for, who audits AI systems. Case studies: RLHF in ChatGPT, content moderation workforce."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "A3",
+            "category": "A. Humans and AI",
+            "subtopic": "The Choice to Use AI",
+            "text": "Analyze the risks, benefits, and effectiveness of using AI for specific tasks, including when AI is used to fully automate a process or is used with a human-in-the-loop approach.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard for evaluating when to use AI. Framework analysis: full automation vs. human-in-the-loop vs. human-on-the-loop. Case studies: autonomous vehicles (levels 1-5), medical diagnosis, content moderation."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "B1",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Understanding Representation",
+            "text": "Describe how current AI models (e.g., LLMs) use data representation.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard covers AI-specific data representation (tokenization, embeddings, attention). Bridgeable from DA.S.01 (data encoding). Lesson: 'How does ChatGPT represent words? What is a token? What is an embedding? Why does representation matter for AI performance?'"
+        },
+        {
+          "csta_ai_priority": {
+            "id": "B2",
+            "category": "B. Representation and Reasoning",
+            "subtopic": "Creating a Representation",
+            "text": "Choose and use an appropriate representation of complex data for processing by an AI algorithm.",
+            "priority": false
+          },
+          "gap_notes": "Feature engineering and data representation selection for AI. Students should experiment with different feature representations for the same dataset and measure model performance differences."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "C1",
+            "category": "C. Machine Learning",
+            "subtopic": "Sensing",
+            "text": "Using sensor data (e.g., from autonomous vehicles), train an AI model.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard combines sensors with AI model training at 9-12 level. Project: use Raspberry Pi or Arduino sensors to collect real-world data, train a model for anomaly detection or classification. Connect to autonomous vehicles, smart buildings."
+        },
+        {
+          "csta_ai_priority": {
+            "id": "E3",
+            "category": "E. Societal Impacts of AI",
+            "subtopic": "Environmental Impacts",
+            "text": "Design ways to minimize negative environmental impacts of AI and communicate those ways to others.",
+            "priority": false
+          },
+          "gap_notes": "No MSDE standard for environmental computing impacts. Research and design project: calculate carbon footprint of AI model training, propose green AI strategies (model compression, efficient architectures, renewable energy for data centers)."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_strong_alignments": 11,
+    "total_partial_alignments": 17,
+    "total_extensions": 5,
+    "total_gaps": 20,
+    "critical_gaps": [
+      "A2 (The Human Role in Creating AI) — priority subtopic, gap at ALL grade bands except K-2 (extension only)",
+      "A3 (The Choice to Use AI) — gap at ALL grade bands where applicable",
+      "C1 (Sensing) — gap at most grade bands",
+      "C3 (How Computers Learn) — gap at K-2 and 3-5",
+      "E3 (Environmental Impacts) — gap at ALL grade bands where applicable"
+    ],
+    "strongest_bridges": [
+      "Data Analysis > Inference & Models → C. Machine Learning (strong at 3-5, 6-8, 9-12)",
+      "Impacts of Computing > Culture and Diversity → D. Ethical AI / E. Societal Impacts (strong at 6-8, 9-12)",
+      "Data Analysis > Collection, Visualization & Transformation → C. Machine Learning > Sensing (strong at 6-8)",
+      "12.AP.A.01 (the one AI standard) → B3. Reasoning (strong, but only at 12th grade)"
+    ]
+  }
+}
