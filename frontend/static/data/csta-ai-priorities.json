@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "title": "AI Learning Priorities for All K-12 Students",
+    "source": "docs/AI-Priorities-for-All-K-12-Students-Report-from-CSTA-AI4K12.pdf",
+    "publisher": "CSTA & AI4K12",
+    "year": 2025,
+    "citation": "CSTA & AI4K12 (2025). AI Learning Priorities for All K-12 Students. New York, NY: Computer Science Teachers Association.",
+    "license": "CC BY-NC-SA 4.0",
+    "extracted": "2026-02-11",
+    "notes": "Star-marked subtopics are designated highest priority. All outcomes are from Section 3 and Appendix F."
+  },
+  "categories": [
+    {
+      "id": "A",
+      "name": "Humans and AI",
+      "description": "Computing systems that include AI are increasingly able to perform tasks that have traditionally been done by humans. These tasks include writing, creating images, finding patterns in data, and using novel approaches to solving problems. Students will benefit from comparing and contrasting human intelligence and AI systems and discussing how to use AI appropriately.",
+      "subtopics": [
+        {
+          "id": "A1",
+          "name": "The Nature of Humans and of AI",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Compare and contrast the nature of humans versus the nature of AI (e.g., living versus nonliving)."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Compare and contrast the ability of humans and of AI to perform various tasks and serve in various roles (e.g., create art, recognize emotions, be a friend, serve as a tutor)."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Identify the assumptions inherent in the operation and output of an AI model and how these assumptions might have different implications for different people."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Debate what differences do or should exist between human and artificial intelligence, sentience, consciousness, rights, and responsibilities."
+            }
+          ]
+        },
+        {
+          "id": "A2",
+          "name": "The Human Role in Creating AI",
+          "priority": true,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Understand that AI is a tool created by humans to make decisions or to generate something (e.g., an image)."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Describe the role of humans in the creation of AI."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Describe the roles that humans play (including in data curation and labeling) in creating and refining AI models."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Evaluate and analyze the roles of humans and human decision-making in the creation of AI."
+            }
+          ]
+        },
+        {
+          "id": "A3",
+          "name": "The Choice to Use AI",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "N/A"
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Evaluate when AI is or is not a helpful resource to carry out a task."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Debate when humans should or should not use AI to perform a specific task."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Analyze the risks, benefits, and effectiveness of using AI for specific tasks (e.g., coding, brainstorming), including when AI is used to fully automate a process or is used with a human-in-the-loop approach."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Representation and Reasoning",
+      "description": "Regardless of the specific type of AI system, two core concepts are involved in its operation: representation and reasoning. For AI to approach any problem, it requires data about the world to be represented in some way. Representations are not just the input to the reasoner; they can be constructed as part of the reasoning process. Reasoning is accomplished via an algorithm that uses the data to reach a result in some systematic manner.",
+      "subtopics": [
+        {
+          "id": "B1",
+          "name": "Understanding Representation",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "N/A"
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Understand how a representation is an abstraction that focuses on some features and leaves others out."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Understand that representation includes modalities (text, speech, audio, image, video) and symbolic mappings (text, graphs)."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Describe how current AI models (e.g., LLMs) use data representation."
+            }
+          ]
+        },
+        {
+          "id": "B2",
+          "name": "Creating a Representation",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Create a representation of a physical object (e.g., line art drawing)."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Create an abstract representation of a physical system that can be used to solve a problem (e.g., a map)."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Create and evaluate different abstract representations (e.g., subway map)."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Choose and use an appropriate representation of complex data for processing by an AI algorithm."
+            }
+          ]
+        },
+        {
+          "id": "B3",
+          "name": "Reasoning",
+          "priority": true,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Explain how binary choices (e.g., up/down, on/off, under/over) can be used to make decisions that lead to a specific goal by either a human or a machine."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Train a model that can make decisions based on defined criteria (e.g., a dichotomous key to determine which movie to see)."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Identify the kinds of AI models (e.g., classifier, predictor, recommender) people interact with in their daily lives."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Describe different types of AI algorithms and models, and compare and contrast the strengths and limitations of their reasoning."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Machine Learning",
+      "description": "Data has a special role in AI education given the need for AI systems to use data to reason. No AI system is perfect, which means that students will need to understand how various types of bias are manifest in data sets. Students explore the roles of sensors, data, and how computers learn, as they work toward building their own AI models.",
+      "subtopics": [
+        {
+          "id": "C1",
+          "name": "Sensing",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Compare and contrast human sensing with computer sensors."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Describe various ways that a human might interact with an AI system (e.g., through voice, text, or gestures)."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Use sensors to collect data, and then train an AI model using the sensor data."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Using sensor data (e.g., from autonomous vehicles), train an AI model."
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "name": "Data",
+          "priority": true,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Explore how AI models learn from data."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Explore the relationship between the properties of training data (e.g., size, features, biases) and an AI model's output."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Describe the ways that bias can be introduced and mitigated in an AI model."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Evaluate the data used to solve a problem, including its source(s) and whether privacy is protected, if/how the data has been processed, data quality (e.g., accuracy, reliability, validity), what the data represents, and biases."
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "name": "How Computers Learn",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Understand how computers learn from data and patterns."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Investigate how AI models learn by using data (including why examples and non-examples are required in training sets) and algorithms to find patterns and generate output."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Create and evaluate an appropriate AI algorithm (e.g., a decision tree classifier) to accomplish a task."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Select and use an appropriate AI algorithm for a classification task (e.g., KNN, decision tree)."
+            }
+          ]
+        },
+        {
+          "id": "C4",
+          "name": "Building and Using AI Models",
+          "priority": true,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Use data to construct a model for making decisions (e.g., a decision tree to determine what to wear based on the weather)."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Using a dataset, develop an AI model to classify inputs."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Using a dataset and a machine learning pipeline, develop an AI model, and consider the impact of the model on various users."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Using a dataset and a systematic process, develop an AI model to generate for classification or prediction, and articulate the assumptions made at each of these steps: (1) develop a question solvable with AI, (2) collect or curate data, (3) evaluate the data, (4) train an AI model on the data, (5) evaluate the model, and (6) iteratively improve the model."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Ethical AI System Design and Programming",
+      "description": "The power of modern AI systems suggests their potential for profound impacts, both positive and negative. A key to preparing students to be thoughtful creators and users of AI is experience with ethical considerations regarding AI systems. Integrating ethics and design within one category implies that ethics is not an add-on or a separate topic but rather that ethical considerations should be integrated into every step of the design process.",
+      "subtopics": [
+        {
+          "id": "D1",
+          "name": "Ethical Design Criteria",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "N/A"
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Investigate an example of AI decision making, considering if it is fair -- as well as what it means to be fair."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Explore strategies to turn ethical considerations into actions, such as mitigating bias in datasets."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Evaluate an AI model (e.g., using a model card) to determine the model's features as well as its biases, explainability, fairness, privacy, accuracy, and transparency."
+            }
+          ]
+        },
+        {
+          "id": "D2",
+          "name": "Ethical Evaluation of AI Systems",
+          "priority": true,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Explore how an AI system can help and harm different groups at the same time."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Investigate examples of AI, considering differences in experience by different people in different contexts."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Describe the properties, biases, and assumptions of various kinds of AI models (e.g., classifier, predictor, recommender)."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Evaluate the design, motivation, outcomes, and potential impacts of AI systems using ethical design criteria and/or ethical frameworks."
+            }
+          ]
+        },
+        {
+          "id": "D3",
+          "name": "Ethical Creation of AI Systems",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "N/A"
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Describe an AI design process that considers the impact on end users and others who are impacted by the AI system."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Create a program using available AI tools, AI plugins, APIs, and/or AI models, with the following ethical considerations for the model's end users as well as others who are impacted by the model: fairness, bias, and accuracy, and then create a model card."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Train, iteratively improve, and then develop a model card for an AI model with the following ethical considerations for the model's end users as well as others who are impacted by the model: fairness, bias, safety, security, intellectual property, privacy, robustness, explainability, accuracy, transparency, and accountability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "name": "Societal Impacts of AI",
+      "description": "In recent years, AI has impacted many facets of daily life, moved economic markets, and presented new challenges and opportunities in fields ranging from environmental protection to medical discoveries. Exploration of the societal impacts of AI will enable students to be thoughtfully informed in a society where AI systems play an ever larger role.",
+      "subtopics": [
+        {
+          "id": "E1",
+          "name": "Individual Impacts",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Identify where AI is being used in daily life."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Explore how one's actions may result in the collection of data."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Explore the tradeoffs related to human agency (including privacy, safety, creativity, autonomy, and intellectual property) when AI is used."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Evaluate how AI use impacts an individual's decision making and other behavior."
+            }
+          ]
+        },
+        {
+          "id": "E2",
+          "name": "Societal Impacts",
+          "priority": true,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "Explore how some people use AI in their jobs and in their communities."
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Explore ways in which some jobs involve the creation and/or use of AI."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Identify the intended and unintended impacts of AI on society -- including government, education, entertainment, culture, careers, and national security -- while considering how these impacts may differ among diverse communities."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Evaluate the intended and unintended impacts of AI on society (e.g., deep fakes, job loss) -- including government, education, entertainment, culture, careers, and national security -- while considering how these impacts may differ among diverse communities."
+            }
+          ]
+        },
+        {
+          "id": "E3",
+          "name": "Environmental Impacts",
+          "priority": false,
+          "outcomes": [
+            {
+              "grade_band": "K-2",
+              "text": "N/A"
+            },
+            {
+              "grade_band": "3-5",
+              "text": "Explore the impact of AI on the environment."
+            },
+            {
+              "grade_band": "6-8",
+              "text": "Investigate the positive and negative environmental impacts of AI (e.g., minimizing deforestation via application of AI, energy use by AI)."
+            },
+            {
+              "grade_band": "9-12",
+              "text": "Design ways to minimize negative environmental impacts of AI and communicate those ways to others."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "prioritized_subtopics": [
+    "A2: The Human Role in Creating AI",
+    "B3: Reasoning",
+    "C2: Data",
+    "C4: Building and Using AI Models",
+    "D2: Ethical Evaluation of AI Systems",
+    "E2: Societal Impacts"
+  ]
+}

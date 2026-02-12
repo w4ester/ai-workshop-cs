@@ -10,6 +10,8 @@
 	import { CallLLMNode } from '$lib/pocketflow/nodes/call-llm.js';
 	import { FormatResponseNode } from '$lib/pocketflow/nodes/format-response.js';
 	import { ErrorHandlerNode } from '$lib/pocketflow/nodes/error-handler.js';
+	import { chatBridge, consumeMessage } from '$lib/stores/chat-bridge.svelte.js';
+	import { untrack } from 'svelte';
 
 	let isOpen = $state(false);
 	let messages = $state([]);
@@ -66,6 +68,20 @@
 
 		isThinking = false;
 	}
+
+	// Watch chat-bridge for programmatic messages from other pages
+	$effect(() => {
+		if (chatBridge.shouldOpen) {
+			isOpen = true;
+			const msg = consumeMessage();
+			if (msg) {
+				untrack(() => {
+					inputText = msg;
+					sendMessage();
+				});
+			}
+		}
+	});
 
 	function handleKeydown(e) {
 		if (e.key === 'Enter' && !e.shiftKey) {
