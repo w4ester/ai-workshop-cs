@@ -48,6 +48,9 @@ feedback.key
 # Pyodide cache
 .pyodide/
 
+# Playwright
+.playwright-mcp/
+
 # Cloudflare
 .wrangler/
 workers/dist/
