@@ -18,7 +18,7 @@
 
 <!-- The Opportunity -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
-	<h2 class="text-2xl font-bold mb-6">The Opportunity</h2>
+	<h2 class="text-2xl font-bold mb-6 dark:text-white">The Opportunity</h2>
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 			Maryland's K-12 Computer Science Standards (2018) provide a strong foundation in computational thinking, data analysis, algorithms, and the impacts of computing. When CSTA released its <strong class="text-blue-600">AI Learning Priorities</strong> in 2025, defining approximately 60 AI-specific outcomes across K-12, it became clear that many of these AI concepts <strong>already have natural connections</strong> to what Maryland teachers are doing.
@@ -44,25 +44,25 @@
 
 <!-- The Approach -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-14">
-	<h2 class="text-2xl font-bold mb-6">The Approach</h2>
+	<h2 class="text-2xl font-bold mb-6 dark:text-white">The Approach</h2>
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
 			<div class="text-3xl mb-3" aria-hidden="true">&#128218;</div>
-			<h3 class="font-bold text-lg mb-2">Standards Crosswalk</h3>
+			<h3 class="font-bold text-lg mb-2 dark:text-white">Standards Crosswalk</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				A systematic mapping of all MSDE CS standards to CSTA AI Priorities, identifying strong alignments, partial connections, extensions, and critical gaps across K-12.
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
 			<div class="text-3xl mb-3" aria-hidden="true">&#9881;</div>
-			<h3 class="font-bold text-lg mb-2">AI Lesson Agent</h3>
+			<h3 class="font-bold text-lg mb-2 dark:text-white">AI Lesson Agent</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				An AI-powered assistant that generates complete, dual-aligned lesson plans. Choose your grade band, CSTA category, and duration, then get a ready-to-teach lesson in minutes.
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
 			<div class="text-3xl mb-3" aria-hidden="true">&#9654;</div>
-			<h3 class="font-bold text-lg mb-2">Interactive Playground</h3>
+			<h3 class="font-bold text-lg mb-2 dark:text-white">Interactive Playground</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
 				Five Python activities running in the browser via Pyodide. No installation needed. Each maps to a CSTA AI Priority category with grade-appropriate content.
 			</p>
@@ -72,33 +72,33 @@
 
 <!-- Data Sources -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-14">
-	<h2 class="text-2xl font-bold mb-6">Data Sources</h2>
+	<h2 class="text-2xl font-bold mb-6 dark:text-white">Data Sources</h2>
 	<div class="space-y-3">
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
 			<div class="flex-shrink-0 w-10 h-10 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-lg flex items-center justify-center font-bold text-sm">MD</div>
 			<div>
-				<h3 class="font-bold">MSDE Computer Science Standards (2018)</h3>
+				<h3 class="font-bold dark:text-white">MSDE Computer Science Standards (2018)</h3>
 				<p class="text-sm text-gray-600 dark:text-gray-300">Maryland State Department of Education's K-12 CS framework. 120+ standards across Computing Systems, Data Analysis, Algorithms, and Impacts of Computing.</p>
 			</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
 			<div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-lg flex items-center justify-center font-bold text-sm">AI</div>
 			<div>
-				<h3 class="font-bold">CSTA AI Learning Priorities (2025)</h3>
+				<h3 class="font-bold dark:text-white">CSTA AI Learning Priorities (2025)</h3>
 				<p class="text-sm text-gray-600 dark:text-gray-300">Computer Science Teachers Association's AI4K12 framework. 5 categories (A-E), 14 subtopics, 6 prioritized subtopics, 60 grade-specific outcomes.</p>
 			</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
 			<div class="flex-shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-lg flex items-center justify-center font-bold text-sm">CTE</div>
 			<div>
-				<h3 class="font-bold">Maryland CTE Digital Technology Pathways</h3>
+				<h3 class="font-bold dark:text-white">Maryland CTE Digital Technology Pathways</h3>
 				<p class="text-sm text-gray-600 dark:text-gray-300">Career and Technical Education programs including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking, each with AI-adjacent competencies in data pipelines, model evaluation, and ethical system design.</p>
 			</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
 			<div class="flex-shrink-0 w-10 h-10 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg flex items-center justify-center font-bold text-sm">XW</div>
 			<div>
-				<h3 class="font-bold">Crosswalk Analysis (2025)</h3>
+				<h3 class="font-bold dark:text-white">Crosswalk Analysis (2025)</h3>
 				<p class="text-sm text-gray-600 dark:text-gray-300">Our alignment analysis mapping MSDE standards to CSTA AI Priorities. 53 alignments and 20 identified gaps across 4 grade bands.</p>
 			</div>
 		</div>
@@ -107,7 +107,7 @@
 
 <!-- For Educators -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-14">
-	<h2 class="text-2xl font-bold mb-6">For Educators</h2>
+	<h2 class="text-2xl font-bold mb-6 dark:text-white">For Educators</h2>
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 			<strong>Target audience:</strong> Maryland CS teachers (K-12), curriculum coordinators, and instructional coaches looking to integrate AI content into existing CS courses without starting from scratch.
