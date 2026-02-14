@@ -138,8 +138,8 @@
 					</div>
 				</div>
 			{:else}
-				<div class="text-sm text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-wrap">
-					{msg.content}
+				<div class="chat-markdown text-sm text-gray-900 dark:text-gray-100 leading-relaxed">
+					{@html msg.html || msg.content}
 				</div>
 			{/if}
 		{/each}
@@ -169,3 +169,62 @@
 	</div>
 </div>
 {/if}
+
+<style>
+	/* Scoped styles for rendered markdown inside chat */
+	.chat-markdown :global(p) {
+		margin-bottom: 0.5rem;
+	}
+	.chat-markdown :global(p:last-child) {
+		margin-bottom: 0;
+	}
+	.chat-markdown :global(strong) {
+		font-weight: 700;
+	}
+	.chat-markdown :global(h3),
+	.chat-markdown :global(h4) {
+		font-weight: 700;
+		font-size: 0.875rem;
+		margin-top: 0.75rem;
+		margin-bottom: 0.25rem;
+	}
+	.chat-markdown :global(ul),
+	.chat-markdown :global(ol) {
+		margin: 0.25rem 0 0.5rem 1.25rem;
+	}
+	.chat-markdown :global(ul) {
+		list-style-type: disc;
+	}
+	.chat-markdown :global(ol) {
+		list-style-type: decimal;
+	}
+	.chat-markdown :global(li) {
+		margin-bottom: 0.125rem;
+	}
+	.chat-markdown :global(pre) {
+		background: #1e293b;
+		color: #e2e8f0;
+		border-radius: 0.5rem;
+		padding: 0.75rem;
+		margin: 0.5rem 0;
+		overflow-x: auto;
+		font-size: 0.75rem;
+		line-height: 1.5;
+	}
+	.chat-markdown :global(code) {
+		background: #f1f5f9;
+		color: #0f172a;
+		padding: 0.125rem 0.25rem;
+		border-radius: 0.25rem;
+		font-size: 0.8em;
+	}
+	:global(.dark) .chat-markdown :global(code) {
+		background: #334155;
+		color: #e2e8f0;
+	}
+	.chat-markdown :global(pre code) {
+		background: none;
+		color: inherit;
+		padding: 0;
+	}
+</style>
