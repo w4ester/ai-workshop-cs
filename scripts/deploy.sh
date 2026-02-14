@@ -70,6 +70,7 @@ sync_api() {
         backend/services/ \
         backend/models/ \
         backend/init.sql \
+        backend/migrations/ \
         | ${ORB} sh -c "tar -xf - -C ${REMOTE_DIR}"
 
     ok "API files synced"
