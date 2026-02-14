@@ -61,23 +61,23 @@
 </section>
 
 <section class="max-w-5xl mx-auto px-6 pb-16">
-	<h2 class="text-2xl font-bold mb-6">The Gap We're Bridging</h2>
+	<h2 class="text-2xl font-bold mb-6">Connecting What Teachers Already Do to AI</h2>
 	<div class="grid sm:grid-cols-4 gap-4 text-center">
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
-			<div class="text-3xl font-extrabold text-red-600">1</div>
-			<div class="text-sm text-gray-500 mt-1">AI mention in MSDE's 55-page CS Standards</div>
+			<div class="text-3xl font-extrabold text-blue-600">53</div>
+			<div class="text-sm text-gray-500 mt-1">alignments found between MSDE standards and CSTA AI Priorities</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
 			<div class="text-3xl font-extrabold text-blue-600">~60</div>
-			<div class="text-sm text-gray-500 mt-1">AI outcomes in CSTA AI Priorities (2025)</div>
+			<div class="text-sm text-gray-500 mt-1">AI outcomes defined by CSTA across K-12</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
-			<div class="text-3xl font-extrabold text-orange-500">42%</div>
-			<div class="text-sm text-gray-500 mt-1">of CS teachers feel equipped to teach AI</div>
+			<div class="text-3xl font-extrabold text-blue-600">42%</div>
+			<div class="text-sm text-gray-500 mt-1">of CS teachers feel ready to teach AI — and growing</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
 			<div class="text-3xl font-extrabold text-emerald-600">70%</div>
-			<div class="text-sm text-gray-500 mt-1">are already teaching AI anyway</div>
+			<div class="text-sm text-gray-500 mt-1">are already bringing AI into their classrooms</div>
 		</div>
 	</div>
 </section>

@@ -16,24 +16,27 @@
 	</div>
 </section>
 
-<!-- The Problem -->
+<!-- The Opportunity -->
 <section class="max-w-4xl mx-auto px-4 sm:px-6 py-14">
-	<h2 class="text-2xl font-bold mb-6">The Problem</h2>
+	<h2 class="text-2xl font-bold mb-6">The Opportunity</h2>
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-			Maryland's 55-page Computer Science Standards document contains <strong class="text-red-600">exactly one mention of artificial intelligence</strong> — a single standard at the high school level (12.AP.A.01). Meanwhile, CSTA's AI Learning Priorities (2025) define <strong class="text-blue-600">approximately 60 AI-specific outcomes</strong> across all grade bands K-12.
+			Maryland's K-12 Computer Science Standards (2018) provide a strong foundation in computational thinking, data analysis, algorithms, and the impacts of computing. When CSTA released its <strong class="text-blue-600">AI Learning Priorities</strong> in 2025 — defining approximately 60 AI-specific outcomes across K-12 — it became clear that many of these AI concepts <strong>already have natural connections</strong> to what Maryland teachers are doing.
 		</p>
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-			Maryland's SB0980 mandates AI literacy across all public schools, yet teachers lack the curriculum tools to connect their existing CS instruction with AI content. The result: a growing gap between what students need and what teachers can deliver.
+			The current standards include one explicit AI standard at the high school level (12.AP.A.01), but the building blocks for AI literacy are woven throughout: data patterns in elementary grades, algorithmic thinking in middle school, and computational modeling at the high school level. With Maryland's <strong>SB0980</strong> calling for AI literacy across public schools, the moment is right to help teachers see and strengthen these connections.
+		</p>
+		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+			Maryland's <strong>CTE Digital Technology</strong> pathways — including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking — already incorporate AI-adjacent skills like data pipelines, model evaluation, and ethical system design. These career-focused courses offer a natural entry point for deeper AI integration, and many CTE instructors are already exploring AI tools with their students.
 		</p>
 		<div class="grid sm:grid-cols-2 gap-4 pt-2">
-			<div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4 text-center">
-				<div class="text-3xl font-extrabold text-orange-600">42%</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">of CS teachers feel equipped to teach AI concepts</div>
+			<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+				<div class="text-3xl font-extrabold text-blue-600">42%</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">of CS teachers feel equipped to teach AI — and that number is growing</div>
 			</div>
 			<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-4 text-center">
 				<div class="text-3xl font-extrabold text-emerald-600">70%</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">are already teaching AI anyway — without aligned materials</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">are already bringing AI into their classrooms — this tool helps them do it with alignment</div>
 			</div>
 		</div>
 	</div>
@@ -83,6 +86,13 @@
 			<div>
 				<h3 class="font-bold">CSTA AI Learning Priorities (2025)</h3>
 				<p class="text-sm text-gray-600 dark:text-gray-300">Computer Science Teachers Association's AI4K12 framework. 5 categories (A-E), 14 subtopics, 6 prioritized subtopics, ~60 grade-specific outcomes.</p>
+			</div>
+		</div>
+		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
+			<div class="flex-shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-lg flex items-center justify-center font-bold text-sm">CTE</div>
+			<div>
+				<h3 class="font-bold">Maryland CTE Digital Technology Pathways</h3>
+				<p class="text-sm text-gray-600 dark:text-gray-300">Career and Technical Education programs including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking — each with AI-adjacent competencies in data pipelines, model evaluation, and ethical system design.</p>
 			</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
