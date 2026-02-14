@@ -127,7 +127,7 @@ for w1, w2 in pairs:
     score = simple_similarity(w1, w2)
     print(f'  "{w1}" vs "{w2}" → similarity: {score}')
 
-print("\\n--- Key Idea ---")
+print("\\n=== Key Idea ===")
 print("Real AI uses MUCH more sophisticated representations")
 print("(called 'embeddings'), but the core idea is the same:")
 print("convert everything to numbers so math can find patterns!")
@@ -155,7 +155,7 @@ training_data = [
     {"color": "yellow", "size": "medium", "fruit": "orange"},
 ]
 
-# Step 2: "Train" - count patterns
+# Step 2: "Train" (count patterns)
 print("=== TRAINING PHASE ===")
 print(f"Learning from {len(training_data)} examples...\\n")
 
@@ -194,7 +194,7 @@ for color, size in tests:
     status = f"{conf}% confident" if conf > 0 else "never seen this combo!"
     print(f"  {color} + {size} → {fruit} ({status})")
 
-print("\\n--- Key Ideas ---")
+print("\\n=== Key Ideas ===")
 print("1. ML learns PATTERNS from training data")
 print("2. More examples = better predictions")
 print("3. It can't predict what it's never seen!")
@@ -268,7 +268,7 @@ print("It will favor 'Elite University', not because those")
 print("applicants are better, but because the HISTORICAL data")
 print("reflects human prejudice, not merit.")
 print()
-print("--- What Can We Do? ---")
+print("=== What Can We Do? ===")
 print("1. Audit training data BEFORE building the model")
 print("2. Remove features that encode bias (school name)")
 print("3. Test model outputs for disparate impact")
@@ -305,7 +305,7 @@ print()
 jobs_displaced = round(ai_adoption_rate * 35)
 jobs_created = round(ai_adoption_rate * 20 + investment_in_training * 15)
 net_jobs = jobs_created - jobs_displaced
-print("--- JOBS ---")
+print("=== JOBS ===")
 print(f"  Jobs automated away:   {jobs_displaced}% of current roles")
 print(f"  New jobs created:      {jobs_created}% new roles")
 print(f"  Net change:            {'+' if net_jobs >= 0 else ''}{net_jobs}%")
@@ -313,21 +313,21 @@ print(f"  Net change:            {'+' if net_jobs >= 0 else ''}{net_jobs}%")
 # Education impact
 ed_access = round(50 + ai_adoption_rate * 40 - (1-regulation_level) * 15)
 ed_quality = round(60 + investment_in_training * 30)
-print("\\n--- EDUCATION ---")
+print("\\n=== EDUCATION ===")
 print(f"  Learning access score:  {min(ed_access, 100)}/100")
 print(f"  Teacher readiness:      {min(ed_quality, 100)}/100")
 
 # Environment
 energy = round(ai_adoption_rate * 45 - regulation_level * 20)
 efficiency = round(ai_adoption_rate * 30)
-print("\\n--- ENVIRONMENT ---")
+print("\\n=== ENVIRONMENT ===")
 print(f"  Energy use increase:   +{max(energy, 0)}%")
 print(f"  Efficiency gains:      +{efficiency}%")
 print(f"  Net environmental:     {'Concerning' if energy > efficiency else 'Manageable'}")
 
 # Equity
 equity_gap = round((ai_adoption_rate * 40) - (investment_in_training * 35) - (regulation_level * 20))
-print("\\n--- EQUITY ---")
+print("\\n=== EQUITY ===")
 print(f"  Digital divide change: {'+' if equity_gap > 0 else ''}{equity_gap} points")
 print(f"  Status: {'Gap WIDENING' if equity_gap > 5 else 'Gap STABLE' if equity_gap > -5 else 'Gap NARROWING'}")
 
@@ -335,7 +335,7 @@ print(f"  Status: {'Gap WIDENING' if equity_gap > 5 else 'Gap STABLE' if equity_
 score = round(50 + jobs_created - jobs_displaced + investment_in_training*20 + regulation_level*10 - ai_adoption_rate*5)
 print(f"\\n{'=' * 50}")
 print(f"  COMMUNITY WELLNESS SCORE: {min(max(score, 0), 100)}/100")
-bar = '#' * (min(max(score, 0), 100) // 5) + '-' * (20 - min(max(score, 0), 100) // 5)
+bar = '#' * (min(max(score, 0), 100) // 5) + '.' * (20 - min(max(score, 0), 100) // 5)
 print(f"  [{bar}]")
 print(f"{'=' * 50}")
 print()
