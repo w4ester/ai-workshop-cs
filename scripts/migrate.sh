@@ -61,7 +61,7 @@ run_migrations_remote() {
         local remote_path="${REMOTE_DIR}/${MIGRATIONS_DIR}/${basename}"
 
         info "Running ${basename}..."
-        if run_remote "docker exec ${CONTAINER} psql -U ${DB_USER} -d ${DB_NAME} -f ${remote_path}" 2>&1; then
+        if run_remote "cat ${remote_path} | docker exec -i ${CONTAINER} psql -U ${DB_USER} -d ${DB_NAME}" 2>&1; then
             ok "${basename} applied"
             passed=$((passed + 1))
         else

@@ -66,6 +66,7 @@ sync_api() {
         backend/requirements.txt \
         backend/main.py \
         backend/config.py \
+        backend/deps.py \
         backend/routers/ \
         backend/services/ \
         backend/models/ \
