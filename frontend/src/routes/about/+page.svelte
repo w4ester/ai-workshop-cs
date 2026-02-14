@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>About — AI Workshop CS</title>
+	<title>About | AI Workshop CS</title>
 </svelte:head>
 
 <!-- Header -->
@@ -11,7 +11,7 @@
 	<div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
 		<h1 class="text-4xl font-extrabold tracking-tight mb-4">About AI Workshop CS</h1>
 		<p class="text-lg text-blue-100 max-w-2xl mx-auto">
-			Bridging Maryland's CS standards with CSTA AI Priorities — so every CS teacher can teach AI confidently.
+			Bridging Maryland's CS standards with CSTA AI Priorities, so every CS teacher can teach AI confidently.
 		</p>
 	</div>
 </section>
@@ -21,22 +21,22 @@
 	<h2 class="text-2xl font-bold mb-6">The Opportunity</h2>
 	<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-			Maryland's K-12 Computer Science Standards (2018) provide a strong foundation in computational thinking, data analysis, algorithms, and the impacts of computing. When CSTA released its <strong class="text-blue-600">AI Learning Priorities</strong> in 2025 — defining approximately 60 AI-specific outcomes across K-12 — it became clear that many of these AI concepts <strong>already have natural connections</strong> to what Maryland teachers are doing.
+			Maryland's K-12 Computer Science Standards (2018) provide a strong foundation in computational thinking, data analysis, algorithms, and the impacts of computing. When CSTA released its <strong class="text-blue-600">AI Learning Priorities</strong> in 2025, defining approximately 60 AI-specific outcomes across K-12, it became clear that many of these AI concepts <strong>already have natural connections</strong> to what Maryland teachers are doing.
 		</p>
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 			The current standards include one explicit AI standard at the high school level (12.AP.A.01), but the building blocks for AI literacy are woven throughout: data patterns in elementary grades, algorithmic thinking in middle school, and computational modeling at the high school level. With Maryland's <strong>SB0980</strong> calling for AI literacy across public schools, the moment is right to help teachers see and strengthen these connections.
 		</p>
 		<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-			Maryland's <strong>CTE Digital Technology</strong> pathways — including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking — already incorporate AI-adjacent skills like data pipelines, model evaluation, and ethical system design. These career-focused courses offer a natural entry point for deeper AI integration, and many CTE instructors are already exploring AI tools with their students.
+			Maryland's <strong>CTE Digital Technology</strong> pathways, including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking, already incorporate AI-adjacent skills like data pipelines, model evaluation, and ethical system design. These career-focused courses offer a natural entry point for deeper AI integration, and many CTE instructors are already exploring AI tools with their students.
 		</p>
 		<div class="grid sm:grid-cols-2 gap-4 pt-2">
 			<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
 				<div class="text-3xl font-extrabold text-blue-600">42%</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">of CS teachers feel equipped to teach AI — and that number is growing</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">of CS teachers feel equipped to teach AI, and that number is growing</div>
 			</div>
 			<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-4 text-center">
 				<div class="text-3xl font-extrabold text-emerald-600">70%</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">are already bringing AI into their classrooms — this tool helps them do it with alignment</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400 mt-1">are already bringing AI into their classrooms. This tool helps them do it with alignment</div>
 			</div>
 		</div>
 	</div>
@@ -57,14 +57,14 @@
 			<div class="text-3xl mb-3" aria-hidden="true">&#9881;</div>
 			<h3 class="font-bold text-lg mb-2">AI Lesson Agent</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
-				An AI-powered assistant that generates complete, dual-aligned lesson plans. Choose your grade band, CSTA category, and duration — get a ready-to-teach lesson in minutes.
+				An AI-powered assistant that generates complete, dual-aligned lesson plans. Choose your grade band, CSTA category, and duration, then get a ready-to-teach lesson in minutes.
 			</p>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6">
 			<div class="text-3xl mb-3" aria-hidden="true">&#9654;</div>
 			<h3 class="font-bold text-lg mb-2">Interactive Playground</h3>
 			<p class="text-sm text-gray-600 dark:text-gray-300">
-				Five Python activities running in the browser via Pyodide — no installation needed. Each maps to a CSTA AI Priority category with grade-appropriate content.
+				Five Python activities running in the browser via Pyodide. No installation needed. Each maps to a CSTA AI Priority category with grade-appropriate content.
 			</p>
 		</div>
 	</div>
@@ -85,14 +85,14 @@
 			<div class="flex-shrink-0 w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-lg flex items-center justify-center font-bold text-sm">AI</div>
 			<div>
 				<h3 class="font-bold">CSTA AI Learning Priorities (2025)</h3>
-				<p class="text-sm text-gray-600 dark:text-gray-300">Computer Science Teachers Association's AI4K12 framework. 5 categories (A-E), 14 subtopics, 6 prioritized subtopics, ~60 grade-specific outcomes.</p>
+				<p class="text-sm text-gray-600 dark:text-gray-300">Computer Science Teachers Association's AI4K12 framework. 5 categories (A-E), 14 subtopics, 6 prioritized subtopics, 60 grade-specific outcomes.</p>
 			</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">
 			<div class="flex-shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-lg flex items-center justify-center font-bold text-sm">CTE</div>
 			<div>
 				<h3 class="font-bold">Maryland CTE Digital Technology Pathways</h3>
-				<p class="text-sm text-gray-600 dark:text-gray-300">Career and Technical Education programs including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking — each with AI-adjacent competencies in data pipelines, model evaluation, and ethical system design.</p>
+				<p class="text-sm text-gray-600 dark:text-gray-300">Career and Technical Education programs including Computer Programming, Cybersecurity, Machine Learning &amp; Data Science, and Networking, each with AI-adjacent competencies in data pipelines, model evaluation, and ethical system design.</p>
 			</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-5 flex items-start gap-4">

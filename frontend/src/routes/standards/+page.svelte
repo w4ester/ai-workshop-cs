@@ -102,26 +102,50 @@
 			strong: 'bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800',
 			partial: 'bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:border-amber-800',
 			extension: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-800',
-			gap: 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-300 dark:border-red-800'
+			gap: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800'
 		}[s] || '';
 	}
 
 	function strengthDot(s) {
-		return { strong: 'bg-emerald-500', partial: 'bg-amber-500', extension: 'bg-blue-500', gap: 'bg-red-500' }[s] || '';
+		return { strong: 'bg-emerald-500', partial: 'bg-amber-500', extension: 'bg-blue-500', gap: 'bg-purple-500' }[s] || '';
 	}
 </script>
 
 <svelte:head>
-	<title>Standards Crosswalk — AI Workshop CS</title>
+	<title>Skills + Standards Explorer | AI Workshop CS</title>
 </svelte:head>
 
 <!-- Header -->
 <section class="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white py-12">
 	<div class="max-w-5xl mx-auto px-4 sm:px-6">
-		<h1 class="text-3xl font-extrabold tracking-tight mb-2">Standards Crosswalk</h1>
+		<h1 class="text-3xl font-extrabold tracking-tight mb-2">Skills + Standards Explorer</h1>
 		<p class="text-blue-100 max-w-2xl">
-			Browse the alignment between Maryland CS Standards (MSDE) and CSTA AI Learning Priorities. Filter by grade band, category, or alignment strength.
+			See where Maryland CS skills already connect to AI learning priorities, and find natural starting points for hands-on, entrepreneurial projects that put AI and technology to work.
 		</p>
+	</div>
+</section>
+
+<!-- Entrepreneurial framing -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pt-6">
+	<div class="bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
+		<h2 class="font-bold text-gray-900 dark:text-white mb-2">From Standards to Student Projects</h2>
+		<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+			Every connection below is a chance for students to build something real. The skills Maryland students are already developing in CS classrooms map naturally to AI and technology projects where they can create, prototype, and solve problems like entrepreneurs.
+		</p>
+		<div class="grid sm:grid-cols-3 gap-3 text-sm">
+			<div class="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+				<div class="font-bold text-emerald-700 dark:text-emerald-400 mb-1">Build on What's There</div>
+				<div class="text-gray-600 dark:text-gray-400 text-xs">Strong and partial connections are ready-made project springboards. Students already have the skills.</div>
+			</div>
+			<div class="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+				<div class="font-bold text-blue-700 dark:text-blue-400 mb-1">Extend with AI</div>
+				<div class="text-gray-600 dark:text-gray-400 text-xs">Extension connections invite students to layer AI onto existing work through design sprints and prototypes.</div>
+			</div>
+			<div class="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+				<div class="font-bold text-purple-700 dark:text-purple-400 mb-1">Explore New Ground</div>
+				<div class="text-gray-600 dark:text-gray-400 text-xs">Open spaces are creative opportunities. Students can pioneer new projects that bring AI into the classroom.</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -160,7 +184,7 @@
 
 		<!-- Strength pills -->
 		<div>
-			<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Alignment Strength</span>
+			<span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Connection Level</span>
 			<div class="flex flex-wrap gap-2 mt-1.5">
 				{#each strengths as s}
 					<button
@@ -189,7 +213,7 @@
 		{#if selectedGrade || selectedCategory || selectedStrength || searchText}
 			<div class="flex items-center justify-between">
 				<span class="text-sm text-gray-500">
-					Showing <strong class="text-gray-900 dark:text-white">{filtered.length}</strong> of {stats.total} alignments
+					Showing <strong class="text-gray-900 dark:text-white">{filtered.length}</strong> of {stats.total} connections
 				</span>
 				<button onclick={clearFilters} class="text-sm text-blue-600 hover:underline font-semibold">
 					Clear all filters
@@ -204,23 +228,23 @@
 	<div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-5 gap-3">
 		<div class="bg-white dark:bg-slate-800 border rounded-lg p-3 text-center">
 			<div class="text-2xl font-extrabold text-gray-900 dark:text-white">{stats.total}</div>
-			<div class="text-xs text-gray-500">Total</div>
+			<div class="text-xs text-gray-500">Connections</div>
 		</div>
 		<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 text-center">
 			<div class="text-2xl font-extrabold text-emerald-600">{stats.strong}</div>
-			<div class="text-xs text-emerald-700 dark:text-emerald-400">Strong</div>
+			<div class="text-xs text-emerald-700 dark:text-emerald-400">Ready to Build</div>
 		</div>
 		<div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-3 text-center">
 			<div class="text-2xl font-extrabold text-amber-600">{stats.partial}</div>
-			<div class="text-xs text-amber-700 dark:text-amber-400">Partial</div>
+			<div class="text-xs text-amber-700 dark:text-amber-400">Add AI Lens</div>
 		</div>
 		<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-3 text-center">
 			<div class="text-2xl font-extrabold text-blue-600">{stats.extension}</div>
-			<div class="text-xs text-blue-700 dark:text-blue-400">Extension</div>
+			<div class="text-xs text-blue-700 dark:text-blue-400">Extend</div>
 		</div>
-		<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-3 text-center">
-			<div class="text-2xl font-extrabold text-red-600">{stats.gap}</div>
-			<div class="text-xs text-red-700 dark:text-red-400">Gaps</div>
+		<div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-3 text-center">
+			<div class="text-2xl font-extrabold text-purple-600">{stats.gap}</div>
+			<div class="text-xs text-purple-700 dark:text-purple-400">New Ground</div>
 		</div>
 	</div>
 </section>
@@ -264,7 +288,7 @@
 							<p class="text-sm text-gray-600 dark:text-gray-300 mt-0.5">{item.msde_standard.text}</p>
 						{:else}
 							<div class="mt-2">
-								<span class="text-xs font-bold text-red-600 dark:text-red-400">No MSDE standard — new content needed</span>
+								<span class="text-xs font-bold text-purple-600 dark:text-purple-400">Open opportunity for project-based learning</span>
 							</div>
 						{/if}
 					</div>
@@ -280,7 +304,7 @@
 					<div class="px-5 pb-4 pt-0 border-t border-gray-100 dark:border-slate-700">
 						<div class="bg-gray-50 dark:bg-slate-900 rounded-lg p-4 mt-3">
 							<h4 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
-								{item.alignment_strength === 'gap' ? 'Gap Notes' : 'Teaching Notes'}
+								{item.alignment_strength === 'gap' ? 'Project Opportunity' : 'Project Connection'}
 							</h4>
 							<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{item.teaching_notes}</p>
 						</div>
@@ -291,7 +315,7 @@
 
 		{#if filtered.length === 0}
 			<div class="text-center py-12 text-gray-400">
-				<p class="text-lg mb-2">No alignments match your filters.</p>
+				<p class="text-lg mb-2">No connections match your filters.</p>
 				<button onclick={clearFilters} class="text-blue-600 hover:underline font-semibold">
 					Clear all filters
 				</button>
@@ -301,38 +325,51 @@
 </section>
 
 <!-- Legend -->
-<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-8">
 	<div class="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-700 rounded-xl p-5">
-		<h3 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">Alignment Strength Legend</h3>
+		<h3 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">What the Connection Levels Mean</h3>
 		<div class="grid sm:grid-cols-2 gap-3 text-sm">
 			<div class="flex items-start gap-2">
 				<span class="w-3 h-3 rounded-full bg-emerald-500 mt-0.5 flex-shrink-0"></span>
 				<div>
 					<strong class="text-emerald-700 dark:text-emerald-400">Strong</strong>
-					<span class="text-gray-600 dark:text-gray-400"> — MSDE standard directly supports the AI priority with minimal adaptation</span>
+					<span class="text-gray-600 dark:text-gray-400">: students already have the skills. A great starting point for an AI-powered project or product prototype.</span>
 				</div>
 			</div>
 			<div class="flex items-start gap-2">
 				<span class="w-3 h-3 rounded-full bg-amber-500 mt-0.5 flex-shrink-0"></span>
 				<div>
 					<strong class="text-amber-700 dark:text-amber-400">Partial</strong>
-					<span class="text-gray-600 dark:text-gray-400"> — covers related concepts but needs AI-specific framing</span>
+					<span class="text-gray-600 dark:text-gray-400">: related skills are in place. Add an AI lens to an existing project or activity to strengthen the connection.</span>
 				</div>
 			</div>
 			<div class="flex items-start gap-2">
 				<span class="w-3 h-3 rounded-full bg-blue-500 mt-0.5 flex-shrink-0"></span>
 				<div>
 					<strong class="text-blue-700 dark:text-blue-400">Extension</strong>
-					<span class="text-gray-600 dark:text-gray-400"> — can be extended to include AI without replacing existing content</span>
+					<span class="text-gray-600 dark:text-gray-400">: build on current work. Layer in AI concepts through an entrepreneurial challenge or design sprint.</span>
 				</div>
 			</div>
 			<div class="flex items-start gap-2">
-				<span class="w-3 h-3 rounded-full bg-red-500 mt-0.5 flex-shrink-0"></span>
+				<span class="w-3 h-3 rounded-full bg-purple-500 mt-0.5 flex-shrink-0"></span>
 				<div>
-					<strong class="text-red-700 dark:text-red-400">Gap</strong>
-					<span class="text-gray-600 dark:text-gray-400"> — no MSDE standard exists; entirely new content required</span>
+					<strong class="text-purple-700 dark:text-purple-400">New Ground</strong>
+					<span class="text-gray-600 dark:text-gray-400">: open space, open opportunity. These are places where a creative, project-based approach can introduce AI concepts from scratch.</span>
 				</div>
 			</div>
 		</div>
+	</div>
+</section>
+
+<!-- Project Ideas CTA -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+	<div class="bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl p-6 text-center text-white">
+		<h3 class="text-lg font-bold mb-2">Ready to Turn a Connection into a Project?</h3>
+		<p class="text-blue-100 text-sm mb-4 max-w-xl mx-auto">
+			Pick any connection above and head to the Lesson Builder. Choose your grade band and AI category, and the assistant will generate a skill-based lesson your students can use to build, create, and solve real problems.
+		</p>
+		<a href="/lessons" class="inline-block px-5 py-2.5 bg-white text-blue-800 font-bold rounded-lg hover:bg-blue-50 transition-colors text-sm">
+			Build a Lesson
+		</a>
 	</div>
 </section>

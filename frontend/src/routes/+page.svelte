@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>AI Workshop CS — Maryland AI-Aligned Lesson Builder</title>
+	<title>AI Workshop CS: Maryland AI-Aligned Lesson Builder</title>
 </svelte:head>
 
 <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800 text-white">
@@ -19,7 +19,7 @@
 			AI-Aligned Lesson Builder
 		</h1>
 		<p class="text-lg text-blue-100 max-w-2xl mx-auto mb-8">
-			Create standards-aligned lessons that bridge Maryland's CS Standards and the CSTA AI Learning Priorities — powered by AI, delivered in the format you choose.
+			Create standards-aligned lessons that bridge Maryland's CS Standards and the CSTA AI Learning Priorities, powered by AI, delivered in the format you choose.
 		</p>
 		<div class="flex flex-wrap justify-center gap-3">
 			<a href="/playground"
@@ -40,7 +40,7 @@
 			<div class="text-3xl mb-3">&#9654;</div>
 			<h3 class="font-bold text-lg mb-2">Interactive Playground</h3>
 			<p class="text-gray-600 dark:text-gray-300 text-sm">
-				Run Python code in your browser. Five AI-themed activities mapped to CSTA AI Priorities — no install, no login.
+				Run Python code in your browser. Five AI-themed activities mapped to CSTA AI Priorities. No install, no login.
 			</p>
 		</a>
 		<a href="/standards" class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow block no-underline text-inherit">
@@ -68,12 +68,12 @@
 			<div class="text-sm text-gray-500 mt-1">alignments found between MSDE standards and CSTA AI Priorities</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
-			<div class="text-3xl font-extrabold text-blue-600">~60</div>
+			<div class="text-3xl font-extrabold text-blue-600">60</div>
 			<div class="text-sm text-gray-500 mt-1">AI outcomes defined by CSTA across K-12</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
 			<div class="text-3xl font-extrabold text-blue-600">42%</div>
-			<div class="text-sm text-gray-500 mt-1">of CS teachers feel ready to teach AI — and growing</div>
+			<div class="text-sm text-gray-500 mt-1">of CS teachers feel ready to teach AI, and growing</div>
 		</div>
 		<div class="bg-white dark:bg-slate-800 border rounded-xl p-5">
 			<div class="text-3xl font-extrabold text-emerald-600">70%</div>

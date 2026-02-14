@@ -82,7 +82,7 @@
 </script>
 
 <svelte:head>
-	<title>Lesson Builder — AI Workshop CS</title>
+	<title>Lesson Builder | AI Workshop CS</title>
 </svelte:head>
 
 <!-- Header -->
@@ -198,15 +198,15 @@
 				<ol class="space-y-3 text-sm">
 					<li class="flex items-start gap-3">
 						<span class="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">1</span>
-						<span class="text-gray-600 dark:text-gray-300"><strong>Configure</strong> — Choose grade band, AI topic, and duration above</span>
+						<span class="text-gray-600 dark:text-gray-300"><strong>Configure:</strong> Choose grade band, AI topic, and duration above</span>
 					</li>
 					<li class="flex items-start gap-3">
 						<span class="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">2</span>
-						<span class="text-gray-600 dark:text-gray-300"><strong>Generate</strong> — The AI assistant creates a dual-aligned lesson plan</span>
+						<span class="text-gray-600 dark:text-gray-300"><strong>Generate:</strong> The AI assistant creates a dual-aligned lesson plan</span>
 					</li>
 					<li class="flex items-start gap-3">
 						<span class="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-900/30 text-blue-600 rounded-full flex items-center justify-center font-bold text-xs">3</span>
-						<span class="text-gray-600 dark:text-gray-300"><strong>Refine</strong> — Chat with the assistant to adjust the lesson to your needs</span>
+						<span class="text-gray-600 dark:text-gray-300"><strong>Refine:</strong> Chat with the assistant to adjust the lesson to your needs</span>
 					</li>
 				</ol>
 			</div>

@@ -17,7 +17,7 @@ export class BuildPromptNode extends Node {
 	}
 
 	async run({ context, history, userMessage }) {
-		const systemPrompt = `You are the AI Workshop CS assistant — a helpful guide for Maryland CS educators and students exploring AI-aligned computer science education.
+		const systemPrompt = `You are the AI Workshop CS assistant, a helpful guide for Maryland CS educators and students exploring AI-aligned computer science education.
 
 CURRENT CONTEXT:
 - User is on: ${context.currentPage} (${context.pageContext})

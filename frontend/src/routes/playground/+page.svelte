@@ -11,7 +11,7 @@
 		{
 			id: 'A', title: 'Can a Computer Think Like You?',
 			grades: 'K-5', badge: 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300',
-			category: 'A. Humans and AI', msde: 'Gap — no current standard',
+			category: 'A. Humans and AI', msde: 'Gap: no current standard',
 			desc: 'Students compare how humans and AI make decisions. This unplugged-to-plugged activity starts with a guessing game: is the decision made by a human or an AI?',
 			filename: 'humans_and_ai.py'
 		},
@@ -19,7 +19,7 @@
 			id: 'B', title: 'How Does AI "See" Data?',
 			grades: '6-8', badge: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
 			category: 'B. Representation & Reasoning', msde: '8.DA.IM.01 (partial)',
-			desc: 'Students explore how AI represents information as numbers. Everything AI works with — text, images, categories — must be converted to numbers first.',
+			desc: 'Students explore how AI represents information as numbers. Everything AI works with, including text, images, and categories, must be converted to numbers first.',
 			filename: 'representation.py'
 		},
 		{
@@ -52,7 +52,7 @@
 # CSTA AI Priority A: Humans and AI
 # Grade Band: 3-5
 
-# Humans and AI both make decisions — but DIFFERENTLY!
+# Humans and AI both make decisions, but DIFFERENTLY!
 # Let's compare...
 
 decisions = [
@@ -83,9 +83,9 @@ for d in decisions:
     else:
         ai_count += 1
 
-print(f"Score: Humans {human_count} — AI {ai_count}")
+print(f"Score: Humans {human_count}, AI {ai_count}")
 print(f"\\nKey idea: AI is a TOOL that humans create and control.")
-print("Neither is 'better' — they're good at DIFFERENT things!")
+print("Neither is 'better'. They're good at DIFFERENT things!")
 
 # === TRY IT: Add your own! ===
 # Add a new decision to the list above.
@@ -96,7 +96,7 @@ print("Neither is 'better' — they're good at DIFFERENT things!")
 # CSTA AI Priority B: Representation & Reasoning
 # Grade Band: 6-8
 
-# AI can't read words — it reads NUMBERS.
+# AI can't read words. It reads NUMBERS.
 # Let's see how text becomes numbers!
 
 def text_to_numbers(text):
@@ -133,7 +133,7 @@ print("(called 'embeddings'), but the core idea is the same:")
 print("convert everything to numbers so math can find patterns!")
 
 # === TRY IT ===
-# Change the words above — what happens to the numbers?
+# Change the words above. What happens to the numbers?
 # Add your own word pairs to test similarity!`,
 
 		// Tab C: Machine Learning
@@ -155,7 +155,7 @@ training_data = [
     {"color": "yellow", "size": "medium", "fruit": "orange"},
 ]
 
-# Step 2: "Train" — count patterns
+# Step 2: "Train" - count patterns
 print("=== TRAINING PHASE ===")
 print(f"Learning from {len(training_data)} examples...\\n")
 
@@ -264,7 +264,7 @@ print("The hiring RATES differ significantly by school name,")
 print("but the QUALIFICATIONS (experience, CS degree) are similar!")
 print()
 print("If an AI learns from this data, it will REPLICATE the bias.")
-print("It will favor 'Elite University' — not because those")
+print("It will favor 'Elite University', not because those")
 print("applicants are better, but because the HISTORICAL data")
 print("reflects human prejudice, not merit.")
 print()
@@ -276,7 +276,7 @@ print("4. Create 'model cards' documenting known limitations")
 print("5. Include diverse stakeholders in AI design")
 
 # === TRY IT ===
-# Change the hire rates above — make them EQUAL.
+# Change the hire rates above. Make them EQUAL.
 # What would fair training data look like?`,
 
 		// Tab E: Societal Impacts
@@ -306,8 +306,8 @@ jobs_displaced = round(ai_adoption_rate * 35)
 jobs_created = round(ai_adoption_rate * 20 + investment_in_training * 15)
 net_jobs = jobs_created - jobs_displaced
 print("--- JOBS ---")
-print(f"  Jobs automated away:   ~{jobs_displaced}% of current roles")
-print(f"  New jobs created:      ~{jobs_created}% new roles")
+print(f"  Jobs automated away:   {jobs_displaced}% of current roles")
+print(f"  New jobs created:      {jobs_created}% new roles")
 print(f"  Net change:            {'+' if net_jobs >= 0 else ''}{net_jobs}%")
 
 # Education impact
@@ -340,7 +340,7 @@ print(f"  [{bar}]")
 print(f"{'=' * 50}")
 print()
 print("Key takeaway: AI impact depends on HUMAN CHOICES")
-print("about investment, regulation, and equity — not")
+print("about investment, regulation, and equity, not")
 print("just the technology itself!")
 
 # === TRY IT ===
@@ -382,7 +382,7 @@ print("just the technology itself!")
 </script>
 
 <svelte:head>
-	<title>Playground — AI Workshop CS</title>
+	<title>Playground | AI Workshop CS</title>
 </svelte:head>
 
 <!-- Header -->
@@ -390,7 +390,7 @@ print("just the technology itself!")
 	<div class="max-w-5xl mx-auto px-4 sm:px-6">
 		<h1 class="text-3xl font-extrabold tracking-tight mb-2">Interactive Playground</h1>
 		<p class="text-blue-100 max-w-2xl">
-			Run Python code in your browser — no installation needed. Five AI-themed activities, each mapped to a CSTA AI Priority category.
+			Run Python code in your browser. No installation needed. Five AI-themed activities, each mapped to a CSTA AI Priority category.
 		</p>
 	</div>
 </section>

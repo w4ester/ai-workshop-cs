@@ -18,10 +18,10 @@ export class GetContextNode extends Node {
 
 	async run({ currentPage, userMessage, history }) {
 		const pageContexts = {
-			'/': 'Home page — overview of the AI Workshop CS platform',
+			'/': 'Home page: overview of the AI Workshop CS platform',
 			'/playground': 'Interactive Python playground with AI-themed coding activities',
-			'/standards': 'Standards crosswalk browser — MSDE CS Standards vs CSTA AI Priorities',
-			'/lessons': 'AI lesson builder — generate dual-aligned lessons',
+			'/standards': 'Standards crosswalk browser: MSDE CS Standards vs CSTA AI Priorities',
+			'/lessons': 'AI lesson builder: generate dual-aligned lessons',
 			'/about': 'About the project, team, and Maryland CS education context'
 		};
 
