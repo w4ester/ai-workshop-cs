@@ -118,7 +118,7 @@
 	<!-- Header -->
 	<div class="px-4 py-3 border-b border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900">
 		<div class="font-bold text-sm text-gray-900 dark:text-white">AI Workshop Assistant</div>
-		<div class="text-xs text-gray-500">Ask about standards, lessons, or the playground</div>
+		<div class="text-xs text-gray-500 dark:text-gray-400">Ask about standards, lessons, or the playground</div>
 	</div>
 
 	<!-- Messages -->
@@ -133,12 +133,12 @@
 		{#each messages as msg}
 			{#if msg.role === 'user'}
 				<div class="flex justify-end">
-					<div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-2xl px-4 py-2 max-w-[85%] text-sm">
+					<div class="bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 rounded-2xl px-4 py-2 max-w-[85%] text-sm text-gray-900 dark:text-blue-100">
 						{msg.content}
 					</div>
 				</div>
 			{:else}
-				<div class="text-sm text-gray-700 dark:text-gray-200 leading-relaxed whitespace-pre-wrap">
+				<div class="text-sm text-gray-900 dark:text-gray-100 leading-relaxed whitespace-pre-wrap">
 					{msg.content}
 				</div>
 			{/if}
@@ -157,7 +157,7 @@
 			placeholder="Ask about standards, lessons..."
 			rows="1"
 			aria-label="Chat message"
-			class="flex-1 resize-none border border-gray-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm bg-transparent outline-none focus:border-blue-400 transition-colors"
+			class="flex-1 resize-none border border-gray-200 dark:border-slate-600 rounded-lg px-3 py-2 text-sm bg-transparent text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 outline-none focus:border-blue-400 transition-colors"
 		></textarea>
 		<button
 			onclick={sendMessage}
