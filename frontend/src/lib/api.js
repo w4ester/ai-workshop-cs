@@ -20,7 +20,7 @@ function getBaseUrl() {
  * @returns {Promise<{ success: boolean, message: string, beads_issue_id?: string, pii_redacted?: boolean }>}
  */
 export async function submitFeedback(request) {
-  const res = await fetch(`${getBaseUrl()}/api/feedback`, {
+  const res = await fetch(`${getBaseUrl()}/api/feedback/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(request),
