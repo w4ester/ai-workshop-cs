@@ -30,7 +30,7 @@
             "priority": true
           },
           "alignment_strength": "partial",
-          "teaching_notes": "Students already make predictions from data patterns. Extend by showing how computers also find patterns in data — compare human pattern-finding (looking at a picture graph) with how an AI finds patterns (looking at lots of examples). Use sorting activities: 'You sorted these by color — a computer can sort too!'"
+          "teaching_notes": "Students already make predictions from data patterns. Extend by showing how computers also find patterns in data. Compare human pattern-finding (looking at a picture graph) with how an AI finds patterns (looking at lots of examples). Use sorting activities: 'You sorted these by color, a computer can sort too!'"
         },
         {
           "msde_standard": {
@@ -132,7 +132,7 @@
             "priority": true
           },
           "alignment_strength": "partial",
-          "teaching_notes": "Students collect and organize data (e.g., weather). Bridge to AI by building a simple decision tree from that data: 'We collected weather data for two weeks. Now let's build a chart that tells us what to wear!' This is a decision tree — the simplest AI model. Use physical materials (cards, yarn) to build the tree."
+          "teaching_notes": "Students collect and organize data (e.g., weather). Bridge to AI by building a simple decision tree from that data: 'We collected weather data for two weeks. Now let's build a chart that tells us what to wear!' This is a decision tree, the simplest AI model. Use physical materials (cards, yarn) to build the tree."
         }
       ],
       "gaps": [
@@ -154,7 +154,7 @@
             "text": "Compare and contrast human sensing with computer sensors.",
             "priority": false
           },
-          "gap_notes": "No K-2 MSDE standard covers sensors or sensing. Pair with science curriculum on five senses. Activity: 'Your eyes are sensors — cameras are computer eyes. Your ears are sensors — microphones are computer ears.'"
+          "gap_notes": "No K-2 MSDE standard covers sensors or sensing. Pair with science curriculum on the five senses. Activity: 'Your eyes are sensors, cameras are computer eyes. Your ears are sensors, microphones are computer ears.' Students compare what their body can sense to what a computer can sense, building the foundation for understanding how AI collects information about the world."
         },
         {
           "csta_ai_priority": {
@@ -264,7 +264,7 @@
             "priority": true
           },
           "alignment_strength": "extension",
-          "teaching_notes": "Students evaluate contributions of diverse technologists. Extend to AI creators: highlight diverse AI researchers and their contributions. 'Who builds AI? People from all backgrounds — and the more diverse the team, the better the AI works for everyone.'"
+          "teaching_notes": "Students evaluate contributions of diverse technologists. Extend to AI creators: highlight diverse AI researchers and their contributions. 'Who builds AI? People from all backgrounds, and the more diverse the team, the better the AI works for everyone.'"
         },
         {
           "msde_standard": {
@@ -298,7 +298,7 @@
             "priority": false
           },
           "alignment_strength": "partial",
-          "teaching_notes": "Students consider diverse perspectives in product improvement. Bridge to AI: 'When we build an AI system, we need to think about who uses it and who it affects. What if we built a homework helper AI — who should we ask about whether it's working well?'"
+          "teaching_notes": "Students consider diverse perspectives in product improvement. Bridge to AI: 'When we build an AI system, we need to think about who uses it and who it affects. What if we built a homework helper AI, who should we ask about whether it's working well?'"
         },
         {
           "msde_standard": {
@@ -357,7 +357,7 @@
             "text": "Investigate how AI models learn by using data (including why examples and non-examples are required in training sets) and algorithms to find patterns and generate output.",
             "priority": false
           },
-          "gap_notes": "No 3-5 MSDE standard covers machine learning mechanics. Closest is DA.IM (predictions from data). Use Teachable Machine to train image classifiers — students see firsthand why examples AND non-examples matter."
+          "gap_notes": "No 3-5 MSDE standard covers machine learning mechanics. Closest is DA.IM (predictions from data). Use Teachable Machine to train image classifiers. Students see firsthand why examples AND non-examples matter."
         },
         {
           "csta_ai_priority": {
@@ -423,7 +423,7 @@
             "priority": false
           },
           "alignment_strength": "strong",
-          "teaching_notes": "Direct alignment: students use sensors and computational tools to collect data. Bridge to AI: use micro:bit sensors to collect temperature, light, or accelerometer data, then train a simple ML model. 'We collected movement data — can an AI learn to tell the difference between walking and running?'"
+          "teaching_notes": "Direct alignment: students use sensors and computational tools to collect data. Bridge to AI: use micro:bit sensors to collect temperature, light, or accelerometer data, then train a simple ML model. 'We collected movement data. Can an AI learn to tell the difference between walking and running?'"
         },
         {
           "msde_standard": {
@@ -440,7 +440,7 @@
             "priority": false
           },
           "alignment_strength": "partial",
-          "teaching_notes": "Data encoding connects to AI representation. Extend: 'An image is stored as pixels (numbers). Text is stored as character codes. But AI models need data in specific representations — how does an LLM represent words? Tokens! How does an image classifier represent a photo? Pixel arrays!'"
+          "teaching_notes": "Data encoding connects to AI representation. Extend: 'An image is stored as pixels (numbers). Text is stored as character codes. But AI models need data in specific representations. How does an LLM represent words? Tokens! How does an image classifier represent a photo? Pixel arrays!'"
         },
         {
           "msde_standard": {
@@ -474,7 +474,7 @@
             "priority": true
           },
           "alignment_strength": "strong",
-          "teaching_notes": "Same MSDE standard, different AI application: go beyond general bias analysis to specifically evaluate AI model types. 'Netflix recommends shows — what assumptions does it make? Amazon predicts what you'll buy — what biases might that have? A college admissions classifier — what could go wrong?'"
+          "teaching_notes": "Same MSDE standard, different AI application: go beyond general bias analysis to specifically evaluate AI model types. 'Netflix recommends shows, what assumptions does it make? Amazon predicts what you will buy, what biases might that have? A college admissions classifier, what could go wrong?'"
         },
         {
           "msde_standard": {
@@ -487,7 +487,7 @@
             "id": "E2",
             "category": "E. Societal Impacts of AI",
             "subtopic": "Societal Impacts",
-            "text": "Identify the intended and unintended impacts of AI on society -- including government, education, entertainment, culture, careers, and national security -- while considering how these impacts may differ among diverse communities.",
+            "text": "Identify the intended and unintended impacts of AI on society, including government, education, entertainment, culture, careers, and national security, while considering how these impacts may differ among diverse communities.",
             "priority": true
           },
           "alignment_strength": "strong",
@@ -508,7 +508,7 @@
             "priority": false
           },
           "alignment_strength": "partial",
-          "teaching_notes": "Ethical considerations in cybersecurity can extend to AI ethics. Bridge: 'Just as hackers can misuse computer systems, AI can be misused too. What ethical criteria should we apply when designing AI? Fairness, transparency, safety — and how do we actually implement those?'"
+          "teaching_notes": "Ethical considerations in cybersecurity can extend to AI ethics. Bridge: 'Just as hackers can misuse computer systems, AI can be misused too. What ethical criteria should we apply when designing AI? Fairness, transparency, safety, and how do we actually implement those?'"
         },
         {
           "msde_standard": {
@@ -525,7 +525,7 @@
             "priority": true
           },
           "alignment_strength": "extension",
-          "teaching_notes": "Students develop algorithms. Introduce AI algorithm types as a new category: 'We write step-by-step algorithms. AI uses different kinds of algorithms — classifiers (this email is spam or not), predictors (tomorrow's weather), recommenders (next video to watch). Let's identify which type each AI we use daily is.'"
+          "teaching_notes": "Students develop algorithms. Introduce AI algorithm types as a new category: 'We write step-by-step algorithms. AI uses different kinds of algorithms: classifiers (this email is spam or not), predictors (tomorrow's weather), recommenders (next video to watch). Let's identify which type each AI we use daily is.'"
         },
         {
           "msde_standard": {
@@ -626,7 +626,7 @@
             "priority": true
           },
           "alignment_strength": "strong",
-          "teaching_notes": "THE one AI standard in MSDE. Directly aligns with describing AI systems. Deepen: don't just describe THAT AI drives systems, but HOW — compare rule-based AI vs. ML, supervised vs. unsupervised learning, classification vs. generation. Students implement at least two different AI algorithm types."
+          "teaching_notes": "THE one AI standard in MSDE. Directly aligns with describing AI systems. Deepen: don't just describe THAT AI drives systems, but HOW: compare rule-based AI vs. ML, supervised vs. unsupervised learning, classification vs. generation. Students implement at least two different AI algorithm types."
         },
         {
           "msde_standard": {
@@ -690,7 +690,7 @@
             "id": "E2",
             "category": "E. Societal Impacts of AI",
             "subtopic": "Societal Impacts",
-            "text": "Evaluate the intended and unintended impacts of AI on society (e.g., deep fakes, job loss) -- including government, education, entertainment, culture, careers, and national security.",
+            "text": "Evaluate the intended and unintended impacts of AI on society (e.g., deep fakes, job loss), including government, education, entertainment, culture, careers, and national security.",
             "priority": true
           },
           "alignment_strength": "strong",
@@ -863,11 +863,11 @@
     "total_extensions": 5,
     "total_gaps": 20,
     "critical_gaps": [
-      "A2 (The Human Role in Creating AI) — priority subtopic, gap at ALL grade bands except K-2 (extension only)",
-      "A3 (The Choice to Use AI) — gap at ALL grade bands where applicable",
-      "C1 (Sensing) — gap at most grade bands",
-      "C3 (How Computers Learn) — gap at K-2 and 3-5",
-      "E3 (Environmental Impacts) — gap at ALL grade bands where applicable"
+      "A2 (The Human Role in Creating AI): priority subtopic, gap at ALL grade bands except K-2 (extension only)",
+      "A3 (The Choice to Use AI): gap at ALL grade bands where applicable",
+      "C1 (Sensing): gap at most grade bands",
+      "C3 (How Computers Learn): gap at K-2 and 3-5",
+      "E3 (Environmental Impacts): gap at ALL grade bands where applicable"
     ],
     "strongest_bridges": [
       "Data Analysis > Inference & Models → C. Machine Learning (strong at 3-5, 6-8, 9-12)",

@@ -277,7 +277,7 @@
             },
             {
               "grade_band": "3-5",
-              "text": "Investigate an example of AI decision making, considering if it is fair -- as well as what it means to be fair."
+              "text": "Investigate an example of AI decision making, considering if it is fair, as well as what it means to be fair."
             },
             {
               "grade_band": "6-8",
@@ -380,11 +380,11 @@
             },
             {
               "grade_band": "6-8",
-              "text": "Identify the intended and unintended impacts of AI on society -- including government, education, entertainment, culture, careers, and national security -- while considering how these impacts may differ among diverse communities."
+              "text": "Identify the intended and unintended impacts of AI on society, including government, education, entertainment, culture, careers, and national security, while considering how these impacts may differ among diverse communities."
             },
             {
               "grade_band": "9-12",
-              "text": "Evaluate the intended and unintended impacts of AI on society (e.g., deep fakes, job loss) -- including government, education, entertainment, culture, careers, and national security -- while considering how these impacts may differ among diverse communities."
+              "text": "Evaluate the intended and unintended impacts of AI on society (e.g., deep fakes, job loss), including government, education, entertainment, culture, careers, and national security, while considering how these impacts may differ among diverse communities."
             }
           ]
         },
