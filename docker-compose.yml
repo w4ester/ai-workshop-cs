@@ -44,6 +44,8 @@ services:
       CORS_ORIGINS: "https://aiworkshop.edinfinite.com,http://127.0.0.1:4793"
     ports:
       - "127.0.0.1:9793:8000"
+    volumes:
+      - ./.beads:/app/beads
     read_only: true
     tmpfs:
       - /tmp

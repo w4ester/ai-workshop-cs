@@ -56,3 +56,18 @@ CREATE INDEX IF NOT EXISTS idx_standards_grade ON standards(grade_band);
 CREATE INDEX IF NOT EXISTS idx_crosswalk_alignment ON crosswalk(alignment);
 CREATE INDEX IF NOT EXISTS idx_lessons_grade ON lessons(grade_band);
 CREATE INDEX IF NOT EXISTS idx_lessons_category ON lessons(ai_category);
+
+-- Feedback submissions (BEADS integration)
+CREATE TABLE IF NOT EXISTS feedback (
+    id SERIAL PRIMARY KEY,
+    message TEXT NOT NULL,
+    page_url TEXT,
+    feedback_type TEXT DEFAULT 'general' CHECK (feedback_type IN ('general', 'suggestion', 'bug', 'question')),
+    ip_address TEXT,
+    user_agent TEXT,
+    beads_issue_id TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_feedback_created ON feedback(created_at);
+CREATE INDEX IF NOT EXISTS idx_feedback_beads ON feedback(beads_issue_id);

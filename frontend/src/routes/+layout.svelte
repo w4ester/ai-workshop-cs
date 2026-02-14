@@ -1,9 +1,11 @@
 <script>
 	import '../app.css';
 	import Chat from '$lib/components/Chat.svelte';
+	import FeedbackModal from '$lib/components/FeedbackModal.svelte';
 
 	let { children } = $props();
 	let mobileMenuOpen = $state(false);
+	let feedbackOpen = $state(false);
 
 	// Passcode gate state
 	const PASSCODE_HASH = '2a3f4b950ef2e412a4496349786ef00099819c1d0376fb2911983b7341e98c6f';
@@ -102,6 +104,12 @@
 					<a href="/standards" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors">Standards</a>
 					<a href="/lessons" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors">Lessons</a>
 					<a href="/about" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors">About</a>
+					<button
+						onclick={() => feedbackOpen = true}
+						class="ml-2 px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-300 dark:border-slate-600 text-gray-600 dark:text-gray-300 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+					>
+						Feedback
+					</button>
 				</div>
 				<!-- Mobile hamburger -->
 				<button
@@ -127,6 +135,12 @@
 				<a href="/standards" onclick={() => mobileMenuOpen = false} class="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg">Standards</a>
 				<a href="/lessons" onclick={() => mobileMenuOpen = false} class="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg">Lessons</a>
 				<a href="/about" onclick={() => mobileMenuOpen = false} class="block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg">About</a>
+				<button
+					onclick={() => { feedbackOpen = true; mobileMenuOpen = false; }}
+					class="w-full text-left block px-3 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg"
+				>
+					Feedback
+				</button>
 			</div>
 		{/if}
 	</nav>
@@ -136,6 +150,7 @@
 	</main>
 
 	<Chat />
+	<FeedbackModal bind:open={feedbackOpen} />
 </div>
 {:else}
 <!-- Passcode gate -->
