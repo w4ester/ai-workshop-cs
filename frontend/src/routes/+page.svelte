@@ -36,27 +36,27 @@
 
 <section class="max-w-5xl mx-auto px-6 py-16">
 	<div class="grid md:grid-cols-3 gap-6">
-		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+		<a href="/playground" class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow block no-underline text-inherit">
 			<div class="text-3xl mb-3">&#9654;</div>
 			<h3 class="font-bold text-lg mb-2">Interactive Playground</h3>
 			<p class="text-gray-600 dark:text-gray-300 text-sm">
 				Run Python code in your browser. Five AI-themed activities mapped to CSTA AI Priorities — no install, no login.
 			</p>
-		</div>
-		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+		</a>
+		<a href="/standards" class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow block no-underline text-inherit">
 			<div class="text-3xl mb-3">&#128218;</div>
 			<h3 class="font-bold text-lg mb-2">Standards Crosswalk</h3>
 			<p class="text-gray-600 dark:text-gray-300 text-sm">
 				Browse the mapping between MSDE CS Standards and CSTA AI Priorities. See gaps, extensions, and alignment strength.
 			</p>
-		</div>
-		<div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow">
+		</a>
+		<a href="/lessons" class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl p-6 hover:shadow-lg transition-shadow block no-underline text-inherit">
 			<div class="text-3xl mb-3">&#9881;</div>
 			<h3 class="font-bold text-lg mb-2">AI Lesson Agent</h3>
 			<p class="text-gray-600 dark:text-gray-300 text-sm">
 				Tell the agent your grade band and topic. Get a complete, dual-aligned lesson in your chosen format in minutes.
 			</p>
-		</div>
+		</a>
 	</div>
 </section>
 
