@@ -101,7 +101,7 @@ ai-workshop-cs/
 
 | Priority | Scope | Status |
 |----------|-------|--------|
-| **P0** | Project scaffold, SvelteKit + Tailwind + Vite, FastAPI shell, GitHub Pages PRD | In Progress |
+| **P0** | Project scaffold, SvelteKit + Tailwind + Vite, FastAPI shell, GitHub Pages PRD | Done |
 | **P1** | LLM add-ons — PocketFlow agent, WebLLM, Groq via CF Worker | Planned |
 | **P2** | pgvector, Gemma embeddings (Ollama), Gemma translate, vector search | Planned |
 
